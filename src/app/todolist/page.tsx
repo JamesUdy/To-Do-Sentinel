@@ -18,9 +18,15 @@ const ToDoList = () => {
 
   return (
     <>
-      <div>ToDoList</div>
-      {user?.displayName && <div>{user?.displayName}</div>}
-      <button onClick={() => handleLogout()}>Logout</button>
+      {user ? (
+        <div>
+          <div>ToDoList</div>
+          {user.displayName && <div>{user.displayName}</div>}
+          <button onClick={() => handleLogout()}>Logout</button>
+        </div>
+      ) : (
+        <div>Sign in to access the page</div>
+      )}
     </>
   )
 };
