@@ -13,7 +13,7 @@ const useAuth = () => {
         });
     });
 
-    return { user, isLoggedIn };
+    return { user, setUser, isLoggedIn };
 };
 
 export default useAuth;
