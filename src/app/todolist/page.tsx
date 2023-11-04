@@ -17,7 +17,7 @@ const ToDoList = () => {
   };
 
   return (
-    <>
+    <section className='flex flex-col items-center justify-center w-full'>
       {user ? (
         <div>
           <div>ToDoList</div>
@@ -27,7 +27,7 @@ const ToDoList = () => {
       ) : (
         <div>Sign in to access the page</div>
       )}
-    </>
+    </section>
   )
 };
 
