@@ -32,6 +32,9 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <span>To Do Sentinel</span>
+      <div>
+        <span>Light</span>
+      </div>
       <button onClick={() => handleAuth()}>Google</button>
     </div>
   );

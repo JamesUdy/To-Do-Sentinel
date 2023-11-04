@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex flex-col bg-slate-950 text-slate-200 min-h-screen ${inter.className} w-full`}>
+      <body className={`flex flex-col bg-slate-200 dark:bg-slate-950 text-slate-950 dark:text-slate-200 min-h-screen ${inter.className} w-full`}>
         <main className='px-4 py-4 flex flex-1 w-full'>
           {children}
         </main>
