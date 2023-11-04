@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <body className={`flex flex-col min-h-screen ${inter.className} w-full`}>
+      <body className={`flex bg-slate-200 text-slate-950 dark:bg-slate-950 dark:text-sla flex-col min-h-screen ${inter.className} w-full`}>
         <DarkThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <main className='flex flex-1 w-full h-full'>
             <ToggleButton />
