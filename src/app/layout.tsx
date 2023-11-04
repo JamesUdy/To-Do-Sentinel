@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { DarkModeProvider } from '@/hooks/useDarkMode';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,13 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="en">
-      <body className={`flex flex-col bg-slate-200 dark:bg-slate-950 text-slate-950 dark:text-slate-200 min-h-screen ${inter.className} w-full`}>
-        <DarkModeProvider>
-          <main className='px-4 py-4 flex flex-1 w-full'>
-            {children}
-          </main>
-        </DarkModeProvider>
+      <body className={`flex flex-col min-h-screen ${inter.className} w-full`}>
+        <main className='flex flex-1 w-full h-full'>
+          {children}
+        </main>
       </body>
     </html>
   )
