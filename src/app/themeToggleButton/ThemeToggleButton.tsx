@@ -1,10 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from "next-themes";
 
 const ThemeToggleButton = () => {
   const { theme, setTheme } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
+  
+  useEffect(() => setHasMounted(true));
+
+  if (!hasMounted) return null;
+
 
   return (
     <button
