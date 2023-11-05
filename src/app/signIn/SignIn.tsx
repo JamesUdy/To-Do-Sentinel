@@ -44,8 +44,16 @@ const SignIn = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center w-full">
+    <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
       <span className="text-6xl font-bold website-name">To Do Sentinel</span>
+      <p className="text-lg text-center font-medium text-slate-800 dark:text-slate-500 my-4 w-1/2">
+        Welcome to To Do Sentinel - Your Ultimate Task Management App! 🚀✨<br />
+        Stay organized, boost productivity, and never forget a task 📈✅.
+        <br /><br />
+        Ready to take control of your tasks? 📋🏆
+        <br /><br />
+        Sign in now to start exploring your to-do list and supercharge your productivity! 🚀💪
+      </p>
       <section className="overflow-hidden w-full mx-auto flex justify-center" aria-disabled='true'>
         <Image src={logoImage} alt="ToDO Sentinel Logo" className="rotate-logo w-1/4"/>
       </section>
