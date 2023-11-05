@@ -4,6 +4,7 @@ import { auth } from "@/firebaseAuth/FirebaseAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { darkThemeLogo, lightThemeLogo } from "@/assets";
+import useAuth from "@/hooks/useAuth";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import "./SignIn.css";
@@ -11,6 +12,7 @@ import "./SignIn.css";
 const SignIn = () => {
     const router = useRouter(); 
     const { theme } = useTheme();
+    const { user } = useAuth();
     
     const handleAuth = async () => {
       const googleSignIn = new GoogleAuthProvider();
@@ -35,6 +37,11 @@ const SignIn = () => {
     };
     
     const logoImage = theme === 'dark' ? darkThemeLogo : lightThemeLogo;
+
+  if(user) {
+    router.push('/todolist');
+    return null;
+  };
 
   return (
     <section className="flex flex-col items-center justify-center w-full">
