@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { darkThemeLogo, lightThemeLogo } from "@/assets";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import "./SignIn.css";
 
 const SignIn = () => {
     const router = useRouter(); 
@@ -38,7 +39,9 @@ const SignIn = () => {
   return (
     <section className="flex flex-col items-center justify-center w-full">
       <span>To Do Sentinel</span>
-      <Image src={logoImage} alt="ToDO Sentinel Logo" />
+      <section className="overflow-hidden w-full mx-auto flex justify-center">
+        <Image src={logoImage} alt="ToDO Sentinel Logo" className="rotate-logo w-1/4" />
+      </section>
       <button onClick={() => handleAuth()}>Google</button>
     </section>
   )
