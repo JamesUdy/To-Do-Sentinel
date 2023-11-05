@@ -4,7 +4,7 @@ import { auth } from "@/firebaseAuth/FirebaseAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { darkThemeLogo, lightThemeLogo } from "@/assets";
-import useAuth from "@/hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import "./SignIn.css";
