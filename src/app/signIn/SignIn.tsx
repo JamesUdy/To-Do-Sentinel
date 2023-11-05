@@ -45,9 +45,9 @@ const SignIn = () => {
 
   return (
     <section className="flex flex-col items-center justify-center w-full">
-      <span>To Do Sentinel</span>
-      <section className="overflow-hidden w-full mx-auto flex justify-center">
-        <Image src={logoImage} alt="ToDO Sentinel Logo" className="rotate-logo w-1/4" />
+      <span className="text-6xl font-bold website-name">To Do Sentinel</span>
+      <section className="overflow-hidden w-full mx-auto flex justify-center" aria-disabled='true'>
+        <Image src={logoImage} alt="ToDO Sentinel Logo" className="rotate-logo w-1/4"/>
       </section>
       <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
     </section>
