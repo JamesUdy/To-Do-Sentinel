@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
