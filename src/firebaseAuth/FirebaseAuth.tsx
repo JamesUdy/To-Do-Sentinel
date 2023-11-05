@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAC0zHFbZ2Vee4RcGM_zMHe-oM72TTCymk",
-  authDomain: "to-do-sentinel.firebaseapp.com",
-  projectId: "to-do-sentinel",
-  storageBucket: "to-do-sentinel.appspot.com",
-  messagingSenderId: "874156077996",
-  appId: "1:874156077996:web:a6b7f2689412a19d3f0009",
-  measurementId: "G-S249DBWP5E"
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
