@@ -30,9 +30,9 @@ const Profile: React.FC<ProfileProps> = ({showProfile, userName, userDp, handleL
           {userName && <div>{userName}</div>}
           <button onClick={() => handleLogout()}>Logout</button>
         </div>
-        <div className='absolute top-4 right-4'>
+        <button className='absolute top-4 right-4'>
           <Close/>
-        </div>
+        </button>
       </section>
       </Transition>
   );
