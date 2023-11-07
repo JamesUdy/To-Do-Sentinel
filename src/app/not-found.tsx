@@ -5,6 +5,7 @@ import { dark404, light404 } from '@/assets';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import ThemeToggleButton from './themeToggleButton/ThemeToggleButton';
 
 export default function NotFound() {
   const router = useRouter();
@@ -35,6 +36,7 @@ export default function NotFound() {
         <Image src={errorImage} alt="Task not Found" className='w-48 sm:w-64 h-48 sm:h-64' />
       </div>
       <p className="text-sm sm:text-xl text-blue-950 dark:text-blue-500">Fear not! We&apos;re redirecting you to the sign-in page in {countdown} seconds.</p>
+      <ThemeToggleButton />
     </section>
   )
 };
