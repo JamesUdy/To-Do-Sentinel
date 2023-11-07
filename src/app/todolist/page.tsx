@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
@@ -11,6 +11,7 @@ import Profile from './profile/Profile';
 const ToDoList = () => {
   const router = useRouter();
   const {user, setUser} = useAuth();
+  const [showProfile, setShowProfile] = useState(false);
 
   const handleLogout = () => {
     signOut(auth);
@@ -19,11 +20,11 @@ const ToDoList = () => {
   };
 
   return (
-    <section className='flex flex-col w-full'>
+    <section className='flex flex-col w-full px-4'>
       {user ? (
         <div>
-          <Navbar/>
-          <Profile userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
+          <Navbar setShowProfile={setShowProfile} showProfile={showProfile} userDp={user.photoURL}/>
+          <Profile showProfile={showProfile} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
         <div>Sign in to access the page</div>
