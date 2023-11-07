@@ -35,8 +35,6 @@ const SignIn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
     };
-    
-    const logoImage = theme === 'dark' ? darkThemeLogo : lightThemeLogo;
 
   if(user) {
     router.push('/todolist');
@@ -55,7 +53,8 @@ const SignIn = () => {
         Sign in now to start exploring your to-do list and supercharge your productivity! 🚀💪
       </p>
       <section className="overflow-hidden w-full mx-auto flex justify-center" aria-disabled='true'>
-        <Image loading="lazy" src={logoImage} alt="ToDo Sentinel Logo" className="rotate-logo w-1/4"/>
+        <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/4 inline-block dark:hidden"/>
+        <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/4 hidden dark:inline-block"/>
       </section>
       <section className="relative w-1/2 flex justify-center">
         <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
