@@ -43,8 +43,8 @@ const SignIn = () => {
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
-      <span className="text-5xl sm:text-6xl font-bold website-name">To Do Sentinel</span>
-      <p className="text-md sm:text-lg text-center font-medium text-slate-800 dark:text-slate-500 my-4 px-4 sm:px-0 lg:w-1/2">
+      <span className="text-3xl w360:text-5xl sm:text-6xl font-bold website-name">To Do Sentinel</span>
+      <p className="text-xs w360:text-md sm:text-lg text-center font-medium text-slate-800 dark:text-slate-500 my-4 px-4 sm:px-0 lg:w-1/2">
         Welcome to To Do Sentinel - Your Ultimate Task Management App! 🚀✨<br />
         Stay organized, boost productivity, and never forget a task 📈✅.
         <br /><br />
@@ -58,7 +58,7 @@ const SignIn = () => {
       </section>
       <section className="relative w-1/2 flex justify-center">
         <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
-      <section className="absolute -left-12 sm:left-12 lg:left-24 xl:left-1/4 bottom-1/3 flex justify-start">
+      <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
         <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
         <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
       </section>
