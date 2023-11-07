@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({setShowProfile, showProfile, userDp}) =>
         <span className="text-3xl w360:text-5xl sm:text-2xl font-bold website-name">To Do Sentinel</span>
       </section>
       <div onClick={() => handleShowProfile()}>
-        {userDp && <Image src={userDp} alt='User Dp' width={40} height={40} className='rounded-full' priority={true} />}
+        {userDp && <Image src={userDp} alt='User Dp' width={40} height={40} className='rounded-full cursor-pointer' priority={true} />}
       </div>
     </section>
   );
