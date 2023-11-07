@@ -7,6 +7,7 @@ import { DarkCurvedArrow, darkThemeLogo, LightCurvedArrow, lightThemeLogo } from
 import useAuth from "@/app/hooks/useAuth";
 import Image from "next/image";
 import "./SignIn.css";
+import ThemeToggleButton from "../themeToggleButton/ThemeToggleButton";
 
 const SignIn = () => {
     const router = useRouter(); 
@@ -56,12 +57,13 @@ const SignIn = () => {
       </section>
       <section className="relative w-1/2 flex justify-center">
         <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
-      <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
-        <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
-        <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
-      </section>
+        <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
+          <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
+          <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
+        </section>
       </section>
        {/* <a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Freepik - Flaticon</a>*/}
+       <ThemeToggleButton />
     </section>
   )
 };
