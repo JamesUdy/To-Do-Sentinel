@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
+import { Close } from '@/assets';
 
 interface ProfileProps {
   showProfile: boolean;
@@ -21,13 +22,18 @@ const Profile: React.FC<ProfileProps> = ({showProfile, userName, userDp, handleL
       leaveTo="-translate-x-full"
       className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-1/5'
     >
-          <section className='h-screen'>
+      <section className='h-screen relative w-full'>
         <div>
-          {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
+          <div>
+            {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
+          </div>
+          {userName && <div>{userName}</div>}
+          <button onClick={() => handleLogout()}>Logout</button>
         </div>
-        {userName && <div>{userName}</div>}
-        <button onClick={() => handleLogout()}>Logout</button>
-        </section>
+        <div className='absolute top-4 right-4'>
+          <Close/>
+        </div>
+      </section>
       </Transition>
   );
 };
