@@ -3,15 +3,12 @@ import Image from "next/image";
 import React from 'react';
 
 interface NavbarProps {
-  setShowProfile: React.Dispatch<React.SetStateAction<boolean>>;
+  handleShowProfile: () => void;
   showProfile: boolean;
   userDp: string | null;
 };
 
-const Navbar: React.FC<NavbarProps> = ({setShowProfile, showProfile, userDp}) => {
-  const handleShowProfile = (): any => {
-    setShowProfile(!showProfile);
-  };
+const Navbar: React.FC<NavbarProps> = ({handleShowProfile, showProfile, userDp}) => {
 
   return (
     <section className='flex w-full justify-between items-center'>

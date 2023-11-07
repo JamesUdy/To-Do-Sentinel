@@ -4,13 +4,14 @@ import { Transition } from '@headlessui/react';
 import { Close } from '@/assets';
 
 interface ProfileProps {
+  handleShowProfile: () => void;
   showProfile: boolean;
   userName: string | null;
   userDp: string | null;
   handleLogout: () => void;
 };
 
-const Profile: React.FC<ProfileProps> = ({showProfile, userName, userDp, handleLogout}) => {
+const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userName, userDp, handleLogout}) => {
   return (
     <Transition 
       show={showProfile}
@@ -30,7 +31,7 @@ const Profile: React.FC<ProfileProps> = ({showProfile, userName, userDp, handleL
           {userName && <div>{userName}</div>}
           <button onClick={() => handleLogout()}>Logout</button>
         </div>
-        <button className='absolute top-4 right-4'>
+        <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
         </button>
       </section>

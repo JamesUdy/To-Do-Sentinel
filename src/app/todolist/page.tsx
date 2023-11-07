@@ -13,6 +13,10 @@ const ToDoList = () => {
   const {user, setUser} = useAuth();
   const [showProfile, setShowProfile] = useState(false);
 
+  const handleShowProfile = () => {
+    setShowProfile(!showProfile);
+  };
+
   const handleLogout = () => {
     signOut(auth);
     setUser(null);
@@ -23,8 +27,8 @@ const ToDoList = () => {
     <section className='relative flex flex-col w-full py-2 px-4'>
       {user ? (
         <div>
-          <Navbar setShowProfile={setShowProfile} showProfile={showProfile} userDp={user.photoURL}/>
-          <Profile showProfile={showProfile} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
+          <Navbar handleShowProfile={handleShowProfile} showProfile={showProfile} userDp={user.photoURL}/>
+          <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
         <div>Sign in to access the page</div>
