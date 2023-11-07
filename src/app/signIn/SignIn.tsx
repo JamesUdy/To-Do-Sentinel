@@ -37,7 +37,6 @@ const SignIn = () => {
     };
     
     const logoImage = theme === 'dark' ? darkThemeLogo : lightThemeLogo;
-    const curvedArrowImage = theme === 'dark' ? LightCurvedArrow : DarkCurvedArrow;
 
   if(user) {
     router.push('/todolist');
@@ -60,7 +59,10 @@ const SignIn = () => {
       </section>
       <section className="relative w-1/2 flex justify-center">
         <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
-        <Image loading="lazy" src={curvedArrowImage} alt="Sign In Button Indicating Arrow" className="absolute left-1/4 bottom-1/3 w-24 mx-4" />
+      <section className="absolute left-1/4 bottom-1/3">
+        <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-24 mx-4 inline-block dark:hidden" />
+        <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-24 mx-4 hidden dark:inline-block" />
+      </section>
       </section>
        {/* <a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Freepik - Flaticon</a>*/}
     </section>
