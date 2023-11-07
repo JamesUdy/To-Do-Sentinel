@@ -28,7 +28,7 @@ const ToDoList = () => {
       {user ? (
         <div>
           <Navbar handleShowProfile={handleShowProfile} showProfile={showProfile} userDp={user.photoURL}/>
-          <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
+          <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
         <div>Sign in to access the page</div>

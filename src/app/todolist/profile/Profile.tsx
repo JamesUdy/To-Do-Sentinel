@@ -6,12 +6,14 @@ import { Close } from '@/assets';
 interface ProfileProps {
   handleShowProfile: () => void;
   showProfile: boolean;
+  userEmail: string | null;
+  userEmailVerified: boolean | null;
   userName: string | null;
   userDp: string | null;
   handleLogout: () => void;
 };
 
-const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userName, userDp, handleLogout}) => {
+const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEmail, userEmailVerified, userName, userDp, handleLogout}) => {
   return (
     <Transition 
       show={showProfile}
@@ -24,11 +26,17 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userNa
       className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-1/5'
     >
       <section className='h-screen relative w-full'>
-        <div>
-          <div>
-            {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
-          </div>
-          {userName && <div>{userName}</div>}
+        <div className='flex flex-col justify-between h-full py-10 items-center w-full'>
+          <section className='flex flex-col items-center'>
+            <div>
+              {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
+            </div>
+            <div className='flex flex-col'>
+              <span>{userName}</span>
+              <span>{userEmail}</span>
+              <span>{userEmailVerified ? 'true' : 'false'}</span>
+            </div>
+          </section>
           <button onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
