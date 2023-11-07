@@ -19,9 +19,9 @@ const Profile: React.FC<ProfileProps> = ({showProfile, userName, userDp, handleL
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="translate-x-0"
       leaveTo="-translate-x-full"
-      className='absolute top-0 left-0 bg-white max-h-full'
+      className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-1/5'
     >
-          <section className=''>
+          <section className='h-screen'>
         <div>
           {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
         </div>
