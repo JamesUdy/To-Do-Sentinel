@@ -5,13 +5,11 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { DarkCurvedArrow, darkThemeLogo, LightCurvedArrow, lightThemeLogo } from "@/assets";
 import useAuth from "@/app/hooks/useAuth";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import "./SignIn.css";
 
 const SignIn = () => {
     const router = useRouter(); 
-    const { theme } = useTheme();
     const { user } = useAuth();
     
     const handleAuth = async () => {
