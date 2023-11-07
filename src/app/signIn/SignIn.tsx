@@ -56,11 +56,11 @@ const SignIn = () => {
         Sign in now to start exploring your to-do list and supercharge your productivity! 🚀💪
       </p>
       <section className="overflow-hidden w-full mx-auto flex justify-center" aria-disabled='true'>
-        <Image src={logoImage} alt="ToDo Sentinel Logo" className="rotate-logo w-1/4"/>
+        <Image loading="lazy" src={logoImage} alt="ToDo Sentinel Logo" className="rotate-logo w-1/4"/>
       </section>
       <section className="relative w-1/2 flex justify-center">
         <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
-        <Image src={curvedArrowImage} alt="Sign In Button Indicating Arrow" className="absolute left-1/4 bottom-1/3 w-24 mx-4" />
+        <Image loading="lazy" src={curvedArrowImage} alt="Sign In Button Indicating Arrow" className="absolute left-1/4 bottom-1/3 w-24 mx-4" />
       </section>
        {/* <a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Freepik - Flaticon</a>*/}
     </section>
