@@ -5,6 +5,7 @@ import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import Navbar from './navbar/Navbar';
 
 const ToDoList = () => {
   const router = useRouter();
@@ -17,10 +18,10 @@ const ToDoList = () => {
   };
 
   return (
-    <section className='flex flex-col items-center justify-center w-full'>
+    <section className='flex flex-col w-full'>
       {user ? (
         <div>
-          <div>ToDoList</div>
+          <Navbar/>
           {user.displayName && <div>{user.displayName}</div>}
           <button onClick={() => handleLogout()}>Logout</button>
         </div>
