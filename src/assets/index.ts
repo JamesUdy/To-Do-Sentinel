@@ -9,6 +9,8 @@ import LightMode from './svg/LightMode';
 import DarkCurvedArrow from '@/assets/images/curved-arrow-dark.png';
 import LightCurvedArrow from '@/assets/images/curved-arrow-light.png';
 
+import Close from './svg/Close';
+
 export {
     dark404,
     darkThemeLogo,
@@ -20,4 +22,6 @@ export {
 
     DarkCurvedArrow,
     LightCurvedArrow,
+
+    Close,
 };
