@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
 import { Close } from '@/assets';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface ProfileProps {
   handleShowProfile: () => void;
@@ -14,6 +16,8 @@ interface ProfileProps {
 };
 
 const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEmail, userEmailVerified, userName, userDp, handleLogout}) => {
+  const router = useRouter();
+
   return (
     <Transition 
       show={showProfile}
@@ -36,6 +40,9 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               <span>{userEmail}</span>
               <span>{userEmailVerified ? 'true' : 'false'}</span>
             </div>
+            <Link href='/user-details'>
+              <button>About</button>
+            </Link>
           </section>
           <button onClick={() => handleLogout()}>Logout</button>
         </div>
