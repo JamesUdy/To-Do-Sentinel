@@ -44,7 +44,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               <button>About</button>
             </Link>
           </section>
-          <button onClick={() => handleLogout()}>Logout</button>
+          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md' onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
