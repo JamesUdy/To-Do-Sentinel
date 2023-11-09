@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
-import { Close, Verified } from '@/assets';
+import { Close, Info, Verified } from '@/assets';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -43,7 +43,10 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               </div>
             </div>
             <Link href='/user-details'>
-              <button>About</button>
+              <button className='flex items-center space-x-2'>
+                <span>About</span>
+                <Info/>
+              </button>
             </Link>
           </section>
           <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md' onClick={() => handleLogout()}>Logout</button>
