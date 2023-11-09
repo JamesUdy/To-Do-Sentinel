@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
-import { Close } from '@/assets';
+import { Close, Verified } from '@/assets';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -37,8 +37,10 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             </div>
             <div className='flex flex-col items-center'>
               <span>{userName}</span>
-              <span>{userEmail}</span>
-              <span>{userEmailVerified ? 'true' : 'false'}</span>
+              <div className='flex items-center space-x-2'>
+                <span>{userEmail}</span>
+                <span>{userEmailVerified ? <Verified/> : ''}</span>
+              </div>
             </div>
             <Link href='/user-details'>
               <button>About</button>
