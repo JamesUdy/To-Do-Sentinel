@@ -31,7 +31,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
         <div className='flex flex-col justify-between h-full py-10 items-center w-full'>
           <section className='flex flex-col items-center space-y-6'>
             <div>
-              {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
+              {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}
             </div>
             <div className='flex flex-col items-center profile-details'>
               <span className='uppercase'>{userName}</span>
@@ -51,7 +51,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 inline-block dark:hidden"/>
             <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 hidden dark:inline-block"/>
           </div>
-          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-blue-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
+          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
