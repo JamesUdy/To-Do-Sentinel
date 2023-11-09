@@ -10,6 +10,7 @@ import DarkCurvedArrow from '@/assets/images/curved-arrow-dark.png';
 import LightCurvedArrow from '@/assets/images/curved-arrow-light.png';
 
 import Close from './svg/Close';
+import Verified from './svg/Verified';
 
 export {
     dark404,
@@ -24,4 +25,5 @@ export {
     LightCurvedArrow,
 
     Close,
+    Verified,
 };
