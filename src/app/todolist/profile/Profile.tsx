@@ -31,11 +31,11 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
     >
       <section className='h-screen relative w-full'>
         <div className='flex flex-col justify-between h-full py-10 items-center w-full'>
-          <section className='flex flex-col items-center'>
+          <section className='flex flex-col items-center space-y-6'>
             <div>
               {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full' priority={true} />}
             </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col items-center'>
               <span>{userName}</span>
               <span>{userEmail}</span>
               <span>{userEmailVerified ? 'true' : 'false'}</span>
