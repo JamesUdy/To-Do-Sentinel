@@ -43,7 +43,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               </div>
             </div>
             <Link href='/user-details'>
-              <button className='flex items-center space-x-2'>
+              <button className='flex items-center space-x-2 hover:underline hover:underline-offset-4 ease-in duration-200'>
                 <span>About</span>
                 <Info/>
               </button>
