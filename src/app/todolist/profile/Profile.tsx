@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
 import { Close, Info, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
 import Link from 'next/link';
 import './Profile.css';
+import { useTheme } from 'next-themes';
+import { Switch } from '@headlessui/react';
 
 interface ProfileProps {
   handleShowProfile: () => void;
@@ -16,6 +18,14 @@ interface ProfileProps {
 };
 
 const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEmail, userEmailVerified, userName, userDp, handleLogout}) => {
+  const { theme, setTheme } = useTheme();
+  const [hasMounted, setHasMounted] = useState(false);
+  const [isLightTheme, setIsLightTheme] = useState(false);
+  
+  useEffect(() => setHasMounted(true));
+
+  if (!hasMounted) return null;
+  
   return (
     <Transition 
       show={showProfile}
@@ -46,6 +56,22 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
                 <Info/>
               </button>
             </Link>
+            <section className='flex items-center space-x-2'>
+              <span>Dark Theme:</span>
+              <Switch
+                checked={isLightTheme}
+                onChange={() => {setIsLightTheme(!isLightTheme); setTheme(theme === "dark" ? "light" : "dark")}}
+                className={`${isLightTheme ? 'bg-teal-900' : 'bg-teal-700'}
+                  relative  items-center inline-flex h-4 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+              >
+                <span className="sr-only">Use setting</span>
+                <span
+                  aria-hidden="true"
+                  className={`${isLightTheme ? 'translate-x-4' : '-translate-x-1'}
+                    pointer-events-none inline-block h-6 w-6 transform rounded-full bg-slate-950 dark:bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                />
+              </Switch>
+            </section>
           </section>
           <div>
             <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 inline-block dark:hidden"/>
