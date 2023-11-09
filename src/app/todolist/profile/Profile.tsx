@@ -51,7 +51,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 inline-block dark:hidden"/>
             <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 hidden dark:inline-block"/>
           </div>
-          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md logout' onClick={() => handleLogout()}>Logout</button>
+          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-blue-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
