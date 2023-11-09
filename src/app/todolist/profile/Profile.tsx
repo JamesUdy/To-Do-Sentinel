@@ -61,14 +61,14 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               <Switch
                 checked={isLightTheme}
                 onChange={() => {setIsLightTheme(!isLightTheme); setTheme(theme === "dark" ? "light" : "dark")}}
-                className={`${isLightTheme ? 'bg-teal-900' : 'bg-teal-700'}
+                className={`${isLightTheme ? 'bg-slate-500' : 'bg-slate-50'}
                   relative  items-center inline-flex h-4 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
               >
                 <span className="sr-only">Use setting</span>
                 <span
                   aria-hidden="true"
                   className={`${isLightTheme ? 'translate-x-4' : '-translate-x-1'}
-                    pointer-events-none inline-block h-6 w-6 transform rounded-full bg-slate-950 dark:bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                    pointer-events-none inline-block h-6 w-6 transform rounded-full bg-slate-950 shadow-lg ring-0 transition duration-200 ease-in-out`}
                 />
               </Switch>
             </section>
@@ -77,7 +77,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 inline-block dark:hidden"/>
             <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 hidden dark:inline-block"/>
           </div>
-          <button className='w-5/6 bg-slate-950 shadow-lg shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
+          <button className='w-5/6 bg-slate-950 shadow-lg text-slate-50 shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
