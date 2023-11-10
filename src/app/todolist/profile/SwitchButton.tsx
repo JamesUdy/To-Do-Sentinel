@@ -14,7 +14,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({isDarkTheme, handleDarkTheme
             <Switch
               checked={isDarkTheme}
               onChange={() => handleDarkThemeChange()}
-              className={`${isDarkTheme ? "bg-slate-50" : "bg-slate-950"} relative justify-between items-center inline-flex h-7 w-16 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+              className={`${isDarkTheme ? "bg-slate-50" : "bg-slate-950"} relative justify-between items-center inline-flex h-7 w-16 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out outline-none`}
             >
                 <span className='scale-125'>🌜</span>
                 <span className="sr-only">Use setting</span>
