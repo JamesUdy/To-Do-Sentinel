@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Transition } from '@headlessui/react';
-import { Close, Moon, Info, Sun, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
+import { Transition, Switch } from '@headlessui/react';
+import { Close, Info, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
 import Link from 'next/link';
 import './Profile.css';
 import { useTheme } from 'next-themes';
-import { Switch } from '@headlessui/react';
 
 interface ProfileProps {
   handleShowProfile: () => void;
