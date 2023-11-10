@@ -10,7 +10,9 @@ import DarkCurvedArrow from '@/assets/images/curved-arrow-dark.png';
 import LightCurvedArrow from '@/assets/images/curved-arrow-light.png';
 
 import Close from './svg/Close';
+import Moon from './svg/Moon';
 import Info from './svg/Info';
+import Sun from './svg/Sun';
 import Verified from './svg/Verified';
 
 export {
@@ -26,6 +28,8 @@ export {
     LightCurvedArrow,
 
     Close,
+    Moon,
     Info,
+    Sun,
     Verified,
 };
