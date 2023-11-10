@@ -11,7 +11,6 @@ import LightCurvedArrow from '@/assets/images/curved-arrow-light.png';
 
 import Close from './svg/Close';
 import Info from './svg/Info';
-import Sun from './svg/Sun';
 import Verified from './svg/Verified';
 
 export {
@@ -28,6 +27,5 @@ export {
 
     Close,
     Info,
-    Sun,
     Verified,
 };
