@@ -9,8 +9,8 @@ interface SwitchButtonProps {
 const SwitchButton: React.FC<SwitchButtonProps> = ({isDarkTheme, handleDarkThemeChange}) => {
   return (
     <>
-        <section className='flex items-center space-x-2'>
-            <span>Dark Theme:</span>
+        <section className='flex items-center w-full justify-between'>
+            <span className='text-md'>Dark Theme:</span>
             <Switch
               checked={isDarkTheme}
               onChange={() => handleDarkThemeChange()}

@@ -40,7 +40,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="translate-x-0"
       leaveTo="-translate-x-full"
-      className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-1/5'
+      className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-1/5 profile-page-font'
     >
       <section className='h-screen relative w-full'>
         <div className='flex flex-col justify-between h-full py-10 items-center w-full'>
@@ -48,7 +48,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <div>
               {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}
             </div>
-            <div className='flex flex-col items-center profile-details'>
+            <div className='flex flex-col items-center'>
               <span className='uppercase'>{userName}</span>
               <div className='flex items-center space-x-2'>
                 <span>{userEmail}</span>
@@ -67,7 +67,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 inline-block dark:hidden"/>
             <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-fit opacity-10 hidden dark:inline-block"/>
           </div>
-          <button className='w-5/6 bg-slate-950 shadow-lg text-slate-50 shadow-slate-900 py-1 rounded-md logout hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
+          <button className='w-5/6 bg-slate-950 shadow-lg text-slate-50 shadow-slate-900 py-1 rounded-md hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
         </div>
         <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
           <Close/>
