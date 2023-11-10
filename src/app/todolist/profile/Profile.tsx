@@ -68,7 +68,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               <span
                 aria-hidden="true"
                   className={`${theme === "dark" ? 'translate-x-9 bg-slate-950' : 'translate-x-0 bg-white'} absolute z-10
-                    pointer-events-none inline-block h-6 w-6 transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out`}
+                    pointer-events-none inline-block h-6 w-6 transform rounded-full shadow-lg ring-0 transition duration-500 ease-in-out`}
               />
               <span className='scale-125'>🌞</span>
               </Switch>
