@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Transition } from '@headlessui/react';
-import { Close, Info, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
+import { Close, Moon, Info, Sun, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
 import Link from 'next/link';
 import './Profile.css';
 import { useTheme } from 'next-themes';
@@ -61,15 +61,16 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
               <Switch
                 checked={isLightTheme}
                 onChange={() => {setIsLightTheme(!isLightTheme); setTheme(theme === "dark" ? "light" : "dark")}}
-                className={`${isLightTheme ? 'bg-slate-500' : 'bg-slate-50'}
-                  relative  items-center inline-flex h-4 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+                className={`${theme === "dark" ? "bg-slate-50" : "bg-slate-950"} relative justify-between items-center inline-flex h-7 w-16 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
               >
-                <span className="sr-only">Use setting</span>
-                <span
-                  aria-hidden="true"
-                  className={`${isLightTheme ? 'translate-x-4' : '-translate-x-1'}
-                    pointer-events-none inline-block h-6 w-6 transform rounded-full bg-slate-950 shadow-lg ring-0 transition duration-200 ease-in-out`}
-                />
+              <span className='scale-125'>🌜</span>
+              <span className="sr-only">Use setting</span>
+              <span
+                aria-hidden="true"
+                  className={`${theme === "dark" ? 'translate-x-9 bg-slate-950' : 'translate-x-0 bg-white'} absolute z-10
+                    pointer-events-none inline-block h-6 w-6 transform rounded-full shadow-lg ring-0 transition duration-200 ease-in-out`}
+              />
+              <span className='scale-125'>🌞</span>
               </Switch>
             </section>
           </section>
