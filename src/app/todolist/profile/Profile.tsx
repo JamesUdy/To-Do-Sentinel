@@ -20,11 +20,16 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEmail, userEmailVerified, userName, userDp, handleLogout}) => {
   const { theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
+
+  const isDarkTheme = theme === "dark" ? true : false;
   
   useEffect(() => setHasMounted(true));
 
   if (!hasMounted) return null;
+
+  const handleDarkThemeChange = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   
   return (
     <Transition 
@@ -59,15 +64,15 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
             <section className='flex items-center space-x-2'>
               <span>Dark Theme:</span>
               <Switch
-                checked={isLightTheme}
-                onChange={() => {setIsLightTheme(!isLightTheme); setTheme(theme === "dark" ? "light" : "dark")}}
-                className={`${theme === "dark" ? "bg-slate-50" : "bg-slate-950"} relative justify-between items-center inline-flex h-7 w-16 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
+                checked={isDarkTheme}
+                onChange={() => handleDarkThemeChange()}
+                className={`${isDarkTheme ? "bg-slate-50" : "bg-slate-950"} relative justify-between items-center inline-flex h-7 w-16 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75`}
               >
               <span className='scale-125'>🌜</span>
               <span className="sr-only">Use setting</span>
               <span
                 aria-hidden="true"
-                  className={`${theme === "dark" ? 'translate-x-9 bg-slate-950' : 'translate-x-0 bg-white'} absolute z-10
+                  className={`${isDarkTheme ? 'translate-x-9 bg-slate-950' : 'translate-x-0 bg-white'} absolute z-10
                     pointer-events-none inline-block h-6 w-6 transform rounded-full shadow-lg ring-0 transition duration-500 ease-in-out`}
               />
               <span className='scale-125'>🌞</span>
