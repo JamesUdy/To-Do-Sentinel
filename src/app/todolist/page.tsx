@@ -27,7 +27,7 @@ const ToDoList = () => {
     <section className='relative flex flex-col w-full py-2 px-4'>
       {user ? (
         <div>
-          <Navbar handleShowProfile={handleShowProfile} showProfile={showProfile} userDp={user.photoURL}/>
+          <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
