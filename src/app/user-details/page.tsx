@@ -1,8 +1,37 @@
+'use client';
+
 import React from 'react';
+import useAuth from '../hooks/useAuth';
+import Image from 'next/image';
+import { ProfileName } from '@/assets';
 
 const UserDetails = () => {
+  const { user } = useAuth();
+
+  console.log(user);
+
+  const userDp = user?.photoURL;
+  const userName = user?.displayName;
+
   return (
-    <div>UserDetails</div>
+    <section className='container flex items-center justify-center'>
+      <div className='flex items-center'>
+        <div>
+          {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}
+        </div>
+        <div>
+          <section className='flex items-center'>
+            <div>
+              <ProfileName/>
+            </div>
+            <div className='flex flex-col'>
+              <span>Name</span>
+              <span>{userName}</span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
   );
 };
 

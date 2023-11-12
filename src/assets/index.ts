@@ -13,6 +13,8 @@ import Close from './svg/Close';
 import Info from './svg/Info';
 import Verified from './svg/Verified';
 
+import ProfileName from './svg/ProfileName';
+
 export {
     dark404,
     darkThemeLogo,
@@ -28,4 +30,6 @@ export {
     Close,
     Info,
     Verified,
+
+    ProfileName,
 };
