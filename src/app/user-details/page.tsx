@@ -15,7 +15,7 @@ const UserDetails = () => {
 
   return (
     <section className='container flex items-center justify-center'>
-      <div className='flex items-center'>
+      <div className='flex items-center bg-slate-900 py-12 px-8 rounded-xl'>
         <div>
           {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}
         </div>
