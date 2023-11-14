@@ -10,8 +10,6 @@ import './Details.css';
 
 const Details = () => {
   const { user } = useAuth();
-
-  console.log(user);
   
   const userDp = user?.photoURL;
   const userName = user?.displayName;
