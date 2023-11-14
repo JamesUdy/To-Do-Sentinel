@@ -40,16 +40,16 @@ const Details = () => {
                 <span>{user?.emailVerified ? 'Yes' : 'No'}</span>
             </section>
             <section className='flex flex-col items-start'>
+                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Phone Number</span>
+                <span>{user?.phoneNumber ? user.phoneNumber : "Null"}</span>
+            </section>
+            <section className='flex flex-col items-start'>
                 <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Created At</span>
                 <span>{formatAccountCreatedAt}</span>
             </section>
             <section className='flex flex-col items-start'>
                 <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Last Signed In</span>
                 <span>{formatAccountLastSignedIn}</span>
-            </section>
-            <section className='flex flex-col items-start'>
-                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Email Verified</span>
-                <span>{user?.emailVerified ? 'Yes' : 'No'}</span>
             </section>
         </div>
       </section>
