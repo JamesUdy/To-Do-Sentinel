@@ -10,7 +10,7 @@ const UserDetails = () => {
   return (
     <section className='container flex items-center justify-center font-mono relative'>
       <Details />
-      <Link href='/todolist' className='absolute top-4 left-10 flex items-center font-semibold cursor-pointer hover:scale-110'>
+      <Link href='/todolist' className='absolute top-4 left-10 flex items-center font-semibold cursor-pointer'>
         <div className='flex items-center relative'>
           <BackButton/>
         </div>
