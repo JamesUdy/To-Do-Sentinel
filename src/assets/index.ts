@@ -13,6 +13,7 @@ import Close from './svg/Close';
 import Info from './svg/Info';
 import Verified from './svg/Verified';
 
+import BackButton from './svg/BackButton';
 import ProfileName from './svg/ProfileName';
 
 export {
@@ -31,5 +32,6 @@ export {
     Info,
     Verified,
 
+    BackButton,
     ProfileName,
 };

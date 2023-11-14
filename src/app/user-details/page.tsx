@@ -3,8 +3,9 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
 import Image from 'next/image';
-import { ProfileName } from '@/assets';
+import { BackButton, ProfileName } from '@/assets';
 import ThemeToggleButton from '../themeToggleButton/ThemeToggleButton';
+import Link from 'next/link';
 
 const UserDetails = () => {
   const { user } = useAuth();
@@ -32,7 +33,7 @@ const UserDetails = () => {
   const formatUserName = formatName(userName);
 
   return (
-    <section className='container flex items-center justify-center font-mono'>
+    <section className='container flex items-center justify-center font-mono relative'>
       <div className='flex flex-col items-center space-y-6 bg-slate-400/80 dark:bg-slate-900 py-12 px-8 rounded-xl'>
         <div>
           {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl shadow-slate-950/80' priority={true} />}
@@ -62,6 +63,12 @@ const UserDetails = () => {
           </section> */}
         </div>
       </div>
+      <Link href='/todolist' className='absolute top-4 left-10 flex space-x-2 items-center cursor-pointer'>
+        <div className='flex items-center relative'>
+          <BackButton/>
+        </div>
+        <span>Back</span>
+      </Link>
       <ThemeToggleButton/>
     </section>
   );
