@@ -4,6 +4,8 @@ import useAuth from '@/app/hooks/useAuth';
 import Image from 'next/image';
 import React from 'react';
 import { ProfileName } from '@/assets';
+import formatName from '../formattingDetails/FormattingName';
+import formatTimeStamp from '../formattingDetails/FromattingTimeStamp';
 
 const Details = () => {
     const { user } = useAuth();
@@ -16,35 +18,8 @@ const Details = () => {
     const accountCreatedAt = user?.metadata.creationTime as string;
     const accountLastSignedIn = user?.metadata.lastSignInTime as string;
   
-    const formatName = (userName: string | null | undefined) => {
-      if(userName !== undefined && userName !== null) {
-        const words = userName?.split(' ');
-  
-        const formattedName = words?.map((word) => {
-          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        });
-  
-        return formattedName?.join(' ');
-      } else {
-        return '';
-      };
-    };
+    
 
-    const formatTimeStamp = (accountCreatedAt: string | number | Date | null | undefined) => {
-        if(accountCreatedAt !== undefined && accountCreatedAt !== null) {
-            const dateObject = new Date(accountCreatedAt);
-
-            if(!isNaN(dateObject.getTime())) {
-              const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
-              const formattedDate = dateObject.toLocaleDateString('en-US', options);    
-              return formattedDate;
-            } else {
-              return "Invalid Date";
-            };
-        } else {
-            return "Invalid Date";
-        };
-    };
 
     const formatAccountCreatedAt = formatTimeStamp(accountCreatedAt);
     const formatAccountLastSignedIn = formatTimeStamp(accountLastSignedIn);
