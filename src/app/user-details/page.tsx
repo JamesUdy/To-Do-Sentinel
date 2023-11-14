@@ -34,7 +34,7 @@ const UserDetails = () => {
 
   return (
     <section className='container flex items-center justify-center font-mono relative'>
-      <div className='flex flex-col items-center space-y-6 bg-slate-400/80 dark:bg-slate-900 py-12 px-8 rounded-xl'>
+      <div className='flex flex-col items-center space-y-6 bg-slate-400/80 dark:bg-slate-900 py-12 px-8 rounded-xl shadow-xl shadow-black/40'>
         <div>
           {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl shadow-slate-950/80' priority={true} />}
         </div>
