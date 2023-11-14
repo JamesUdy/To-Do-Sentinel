@@ -15,6 +15,22 @@ const UserDetails = () => {
   const userName = user?.displayName;
   const userEmail = user?.email;
 
+  const formatName = (userName: string | null | undefined) => {
+    if(userName !== undefined || userName !== null) {
+      const words = userName?.split(' ');
+
+      const formattedName = words?.map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      });
+
+      return formattedName?.join(' ');
+    } else {
+      return '';
+    };
+  };
+
+  const formatUserName = formatName(userName);
+
   return (
     <section className='container flex items-center justify-center'>
       <div className='flex items-center space-x-6 bg-slate-400/80 dark:bg-slate-900 py-12 px-8 rounded-xl'>
@@ -23,7 +39,7 @@ const UserDetails = () => {
         </div>
         <div>
           <section className='flex flex-col'>
-            <span className='text-xl tracking-tight font-bold text-slate-950 dark:text-slate-300'>{userName}</span>
+            <span className='text-xl tracking-tight font-bold text-slate-950 dark:text-slate-300'>{formatUserName}</span>
             <span className='text-md tracking-tighter font-medium text-slate-800 dark:text-slate-500'>{userEmail}</span>
           </section>
           {/* <section className='flex items-center'>
