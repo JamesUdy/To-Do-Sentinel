@@ -40,24 +40,6 @@ const Details = () => {
             <span className='text-2xl font-bold first-letter:font-bold text-slate-800 dark:text-slate-300'>{formatUserName}</span>
             <span className='text-md first-letter:font-medium text-slate-600 dark:text-slate-500'>{userEmail}</span>
           </section>
-          {/* <section className='flex items-center'>
-            <div>
-              <ProfileName/>
-            </div>
-            <div className='flex flex-col'>
-              <span className='text-slate-700 dark:text-slate-500 text-sm font-medium'>name</span>
-              <span className='text-xl'>{userName}</span>
-            </div>
-          </section>
-          <section className='flex items-center'>
-            <div>
-              <ProfileName/>
-            </div>
-            <div className='flex flex-col'>
-              <span className='text-slate-700 dark:text-slate-500 text-sm font-medium'>email</span>
-              <span className='text-xl'>{userEmail}</span>
-            </div>
-          </section> */}
         </div>
       </section>
   );
