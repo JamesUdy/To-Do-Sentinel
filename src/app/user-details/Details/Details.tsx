@@ -13,11 +13,11 @@ const Details = () => {
     const userDp = user?.photoURL;
     const userName = user?.displayName;
     const userEmail = user?.email;
-    const accountCreatedAt = user?.metadata.creationTime;
-    const accountLastSignedIn = user?.metadata.lastSignInTime;
+    const accountCreatedAt = user?.metadata.creationTime as string;
+    const accountLastSignedIn = user?.metadata.lastSignInTime as string;
   
     const formatName = (userName: string | null | undefined) => {
-      if(userName !== undefined || userName !== null) {
+      if(userName !== undefined && userName !== null) {
         const words = userName?.split(' ');
   
         const formattedName = words?.map((word) => {
@@ -30,14 +30,17 @@ const Details = () => {
       };
     };
 
-    const formatTimeStamp = (accountCreatedAt: string | null | undefined) => {
-        if(accountCreatedAt !== undefined || accountCreatedAt !== null) {
+    const formatTimeStamp = (accountCreatedAt: string | number | Date | null | undefined) => {
+        if(accountCreatedAt !== undefined && accountCreatedAt !== null) {
             const dateObject = new Date(accountCreatedAt);
 
-            const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
-            const formattedDate = dateObject.toLocaleDateString('en-US', options);
-
-            return formattedDate;
+            if(!isNaN(dateObject.getTime())) {
+              const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+              const formattedDate = dateObject.toLocaleDateString('en-US', options);    
+              return formattedDate;
+            } else {
+              return "Invalid Date";
+            };
         } else {
             return "Invalid Date";
         };
