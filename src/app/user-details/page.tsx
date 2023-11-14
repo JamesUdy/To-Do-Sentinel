@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { BackButton } from '@/assets';
@@ -11,7 +10,7 @@ const UserDetails = () => {
   return (
     <section className='container flex items-center justify-center font-mono relative'>
       <Details />
-      <Link href='/todolist' className='absolute top-4 left-10 flex space-x-2 items-center cursor-pointer'>
+      <Link href='/todolist' className='absolute top-4 left-10 flex items-center font-semibold cursor-pointer hover:scale-110'>
         <div className='flex items-center relative'>
           <BackButton/>
         </div>
