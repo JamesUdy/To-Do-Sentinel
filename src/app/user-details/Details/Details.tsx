@@ -6,6 +6,7 @@ import React from 'react';
 import { ProfileName } from '@/assets';
 import formatName from '../formattingDetails/FormattingName';
 import formatTimeStamp from '../formattingDetails/FromattingTimeStamp';
+import './Details.css';
 
 const Details = () => {
   const { user } = useAuth();
@@ -69,7 +70,7 @@ const Details = () => {
         </section>
       ) : (
         <section>
-          <span>Loading...</span>
+          <span className='loader'></span>
         </section>
       )}
     </>
