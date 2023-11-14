@@ -15,6 +15,7 @@ import Verified from './svg/Verified';
 
 import AccountCreated from './svg/AccountCreated';
 import BackButton from './svg/BackButton';
+import LastSignedIn from './svg/LastSignedIn';
 import Phone from './svg/Phone';
 import ProfileName from './svg/ProfileName';
 
@@ -36,6 +37,7 @@ export {
 
     AccountCreated,
     BackButton,
+    LastSignedIn,
     Phone,
     ProfileName,
 };
