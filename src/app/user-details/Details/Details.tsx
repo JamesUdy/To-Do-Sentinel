@@ -8,20 +8,43 @@ import formatName from '../formattingDetails/FormattingName';
 import formatTimeStamp from '../formattingDetails/FromattingTimeStamp';
 
 const Details = () => {
-    const { user } = useAuth();
+  const { user } = useAuth();
 
-    console.log(user);
+  console.log(user);
   
-    const userDp = user?.photoURL;
-    const userName = user?.displayName;
-    const userEmail = user?.email;
-    const accountCreatedAt = user?.metadata.creationTime as string;
-    const accountLastSignedIn = user?.metadata.lastSignInTime as string; 
+  const userDp = user?.photoURL;
+  const userName = user?.displayName;
+  const userEmail = user?.email;
+  const accountCreatedAt = user?.metadata.creationTime as string;
+  const accountLastSignedIn = user?.metadata.lastSignInTime as string; 
 
-    const formatAccountCreatedAt = formatTimeStamp(accountCreatedAt);
-    const formatAccountLastSignedIn = formatTimeStamp(accountLastSignedIn);
+  const formatAccountCreatedAt = formatTimeStamp(accountCreatedAt);
+  const formatAccountLastSignedIn = formatTimeStamp(accountLastSignedIn);
   
-    const formatUserName = formatName(userName);
+  const formatUserName = formatName(userName);
+
+  const userDetailsData = [
+    {
+      id: 1,
+      label: 'Email Verified',
+      value: user?.emailVerified ? 'Yes' : 'No',
+    },
+    {
+      id: 2,
+      label: 'Phone Number',
+      value: user?.phoneNumber || 'Null',
+    },
+    {
+      id: 3,
+      label: 'Created Date',
+      value: formatAccountCreatedAt,
+    },
+    {
+      id: 4,
+      label: 'Last SignedIn Date',
+      value: formatAccountLastSignedIn,
+    },
+  ];
 
   return (
     <section className='flex flex-col space-y-6 bg-white/90 dark:bg-slate-900 py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
@@ -35,22 +58,12 @@ const Details = () => {
           </section>
         </div>
         <div className='grid px-4 grid-cols-2 gap-6'>
-            <section className='flex flex-col items-start'>
-                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Email Verified</span>
-                <span>{user?.emailVerified ? 'Yes' : 'No'}</span>
+          {userDetailsData.map((detail) => (
+            <section className='flex flex-col items-start' key={detail.id}>
+                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>{detail.label}</span>
+                <span>{detail.value}</span>
             </section>
-            <section className='flex flex-col items-start'>
-                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Phone Number</span>
-                <span>{user?.phoneNumber ? user.phoneNumber : "Null"}</span>
-            </section>
-            <section className='flex flex-col items-start'>
-                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Created At</span>
-                <span>{formatAccountCreatedAt}</span>
-            </section>
-            <section className='flex flex-col items-start'>
-                <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>Last Signed In</span>
-                <span>{formatAccountLastSignedIn}</span>
-            </section>
+          ))}
         </div>
       </section>
   );
