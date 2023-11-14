@@ -16,10 +16,7 @@ const Details = () => {
     const userName = user?.displayName;
     const userEmail = user?.email;
     const accountCreatedAt = user?.metadata.creationTime as string;
-    const accountLastSignedIn = user?.metadata.lastSignInTime as string;
-  
-    
-
+    const accountLastSignedIn = user?.metadata.lastSignInTime as string; 
 
     const formatAccountCreatedAt = formatTimeStamp(accountCreatedAt);
     const formatAccountLastSignedIn = formatTimeStamp(accountLastSignedIn);
