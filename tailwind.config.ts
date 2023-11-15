@@ -11,6 +11,12 @@ const config: Config = {
       'w360': '360px',
       // => @media (min-width: 360px) { ... }
 
+      'w375': '375px',
+      // => @media (min-width: 375px) { ... }
+
+      'w414': '414px',
+      // => @media (min-width: 414px) { ... }
+
       'w425': '425px',
       // => @media (min-width: 425px) { ... }
 
