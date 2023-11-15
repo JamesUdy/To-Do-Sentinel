@@ -3,7 +3,7 @@
 import useAuth from '@/app/hooks/useAuth';
 import Image from 'next/image';
 import React from 'react';
-import { ProfileName } from '@/assets';
+import { AccountCreated, AccountVerified, LastSignedIn, Phone } from '@/assets';
 import formatName from '../formattingDetails/FormattingName';
 import formatTimeStamp from '../formattingDetails/FromattingTimeStamp';
 import Loader from '@/app/loader/Loader';
@@ -26,21 +26,25 @@ const Details = () => {
       id: 1,
       label: 'Email Verified',
       value: user?.emailVerified ? 'Yes' : 'No',
+      component: AccountVerified,
     },
     {
       id: 2,
       label: 'Phone Number',
       value: user?.phoneNumber || 'Null',
+      component: Phone,
     },
     {
       id: 3,
       label: 'Created Date',
       value: formatAccountCreatedAt,
+      component: AccountCreated,
     },
     {
       id: 4,
       label: 'Last SignedIn Date',
       value: formatAccountLastSignedIn,
+      component: LastSignedIn,
     },
   ];
 
@@ -57,11 +61,16 @@ const Details = () => {
               <span className='text-md first-letter:font-medium text-slate-600 dark:text-slate-500'>{userEmail}</span>
             </section>
           </div>
-          <div className='grid px-4 grid-cols-2 gap-6'>
+          <div className='grid px-6 grid-cols-2 gap-6'>
             {userDetailsData.map((detail) => (
-              <section className='flex flex-col items-start' key={detail.id}>
+              <section className='flex items-center space-x-2' key={detail.id}>
+                <div className='p-2 bg-slate-300 dark:bg-slate-950 rounded-full shadow-md shadow-slate-500 dark:shadow-black'>
+                  <detail.component/>
+                </div>
+                <div className='flex flex-col items-start'>
                   <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>{detail.label}</span>
                   <span>{detail.value}</span>
+                </div>
               </section>
             ))}
           </div>
