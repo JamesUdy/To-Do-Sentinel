@@ -53,14 +53,15 @@ const Details = () => {
       {user ? (
         <section className='flex flex-col space-y-6 bg-white/90 dark:bg-slate-900 py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
           <div className='px-8 flex place-content-center'>
-            {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl adow-slate-600 dark:shadow-slate-950/80' priority={true} />}
+            {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl shadow-slate-600 dark:shadow-slate-950/80' priority={true} />}
           </div>
           <div className='px-8'>
-            <section className='flex py-4 tracking-tighter flex-col items-center'>
+            <section className='flex pt-4 tracking-tighter flex-col items-center'>
               <span className='text-2xl font-bold first-letter:font-bold text-slate-800 dark:text-slate-300'>{formatUserName}</span>
               <span className='text-md first-letter:font-medium text-slate-600 dark:text-slate-500'>{userEmail}</span>
             </section>
           </div>
+          <div className='mx-6 border-2 border-slate-300 dark:border-white shadow-lg shadow-slate-400 dark:shadow-black'></div>
           <div className='grid px-6 grid-cols-2 gap-6'>
             {userDetailsData.map((detail) => (
               <section className='flex items-center space-x-2' key={detail.id}>
