@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Navbar from './navbar/Navbar';
 import Profile from './profile/Profile';
+import Loader from '../loader/Loader';
 
 const ToDoList = () => {
   const router = useRouter();
@@ -24,14 +25,14 @@ const ToDoList = () => {
   };
 
   return (
-    <section className='relative flex flex-col w-full py-2 px-4'>
+    <section className='relative flex flex-col w-full py-2 px-4 max-h-full'>
       {user ? (
         <div>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
-        <div>Sign in to access the page</div>
+        <Loader/>
       )}
     </section>
   )
