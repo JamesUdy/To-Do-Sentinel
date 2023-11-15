@@ -51,7 +51,7 @@ const Details = () => {
   return (
     <>
       {user ? (
-        <section className='flex flex-col space-y-6 bg-white/90 dark:bg-slate-900 py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
+        <section className='flex flex-col mx-4 sm:mx-0 space-y-6 bg-white/90 dark:bg-slate-900 py-8 sm:py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
           <div className='px-8 flex place-content-center'>
             {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl shadow-slate-600 dark:shadow-slate-950/80' priority={true} />}
           </div>
