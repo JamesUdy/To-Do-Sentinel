@@ -64,7 +64,7 @@ const Details = () => {
           <div className='mx-6 border-2 border-slate-300 dark:border-white shadow-lg shadow-slate-400 dark:shadow-black'></div>
           <div className='grid px-6 grid-cols-2 gap-6'>
             {userDetailsData.map((detail) => (
-              <section className='flex items-center' key={detail.id}>
+              <section className='flex items-center space-x-4' key={detail.id}>
                 <div className='p-2 bg-slate-300 dark:bg-slate-950 rounded-full shadow-md shadow-slate-500 dark:shadow-black'>
                   <detail.component/>
                 </div>
