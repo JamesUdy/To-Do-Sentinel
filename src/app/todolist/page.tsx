@@ -5,12 +5,7 @@ import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import Navbar from './navbar/Navbar';
-import Profile from './profile/Profile';
-import Loader from '../loader/Loader';
-import ToDoForm from './toDoForm/ToDoForm';
-import SearchTask from './searchTask/SearchTask';
-import TaskList from './taskList/TaskList';
+import { Navbar, TaskList, ToDoForm, SearchTask, Profile, Loader } from './todoAssets';
 
 const ToDoList = () => {
   const router = useRouter();
