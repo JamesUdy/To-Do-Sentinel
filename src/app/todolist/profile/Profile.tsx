@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Transition } from '@headlessui/react';
 import { Close, Info, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
 import Link from 'next/link';
-import './Profile.css';
 import SwitchButton from './SwitchButton';
 import { useTheme } from 'next-themes';
 
