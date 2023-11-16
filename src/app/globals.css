@@ -39,6 +39,6 @@
   font-family: 'Dancing Script', cursive;
 }
 
-.profile-page-font {
+.profile-page-font, .todo-form {
   font-family: 'Josefin Sans', sans-serif;
 }
