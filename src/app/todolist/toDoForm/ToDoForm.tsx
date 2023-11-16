@@ -2,7 +2,9 @@ import React from 'react';
 
 const ToDoForm = () => {
   return (
-    <div>ToDoForm</div>
+    <section className='container w-full flex justify-center'>
+      <span>ToDoForm</span>
+    </section>
   );
 };
 
