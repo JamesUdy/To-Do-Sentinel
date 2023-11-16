@@ -9,6 +9,7 @@ import Navbar from './navbar/Navbar';
 import Profile from './profile/Profile';
 import Loader from '../loader/Loader';
 import ToDoForm from './toDoForm/ToDoForm';
+import SearchTask from './searchTask/SearchTask';
 
 const ToDoList = () => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const ToDoList = () => {
         <div>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <ToDoForm/>
+          <SearchTask/>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </div>
       ) : (
