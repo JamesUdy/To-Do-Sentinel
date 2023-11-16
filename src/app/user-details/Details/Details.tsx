@@ -51,26 +51,26 @@ const Details = () => {
   return (
     <>
       {user ? (
-        <section className='flex flex-col mx-4 sm:mx-0 space-y-4 w360:space-y-6 bg-white/90 dark:bg-slate-900 py-4 w360:py-8 sm:py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
+        <section className='flex flex-col w-full sm:w-fit mx-4 sm:mx-0 space-y-4 w360:space-y-6 bg-white/90 dark:bg-slate-900 py-4 w360:py-8 sm:py-12 rounded-xl shadow-xl shadow-slate-500 dark:shadow-black/40'>
           <div className='px-8 flex place-content-center'>
             {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-full w-24 h-24 shadow-xl shadow-slate-600 dark:shadow-slate-950/80' priority={true} />}
           </div>
           <div className='px-8'>
             <section className='flex pt-4 tracking-tighter flex-col items-center'>
-              <span className='text-2xl font-bold first-letter:font-bold text-slate-800 dark:text-slate-300'>{formatUserName}</span>
-              <span className='text-md first-letter:font-medium text-slate-600 dark:text-slate-500'>{userEmail}</span>
+              <span className='text-xl sm:text-2xl font-bold first-letter:font-bold text-slate-800 dark:text-slate-300'>{formatUserName}</span>
+              <span className='text-sm sm:text-md first-letter:font-medium text-slate-600 dark:text-slate-500'>{userEmail}</span>
             </section>
           </div>
           <div className='mx-6 border-2 border-slate-300 dark:border-white shadow-lg shadow-slate-400 dark:shadow-black'></div>
-          <div className='grid px-6 grid-cols-2 gap-6'>
+          <div className='grid px-6 sm:grid-cols-2 mx-auto sm:mx-0 gap-6'>
             {userDetailsData.map((detail) => (
               <section className='flex items-center space-x-4' key={detail.id}>
                 <div className='p-2 bg-slate-300 dark:bg-slate-950 rounded-full shadow-md shadow-slate-500 dark:shadow-black'>
                   <detail.component/>
                 </div>
                 <div className='flex flex-col items-start'>
-                  <span className='text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>{detail.label}</span>
-                  <span>{detail.value}</span>
+                  <span className='text-xs sm:text-sm font-bold first-letter:font-medium text-slate-600 dark:text-slate-500'>{detail.label}</span>
+                  <span className='text-sm sm:text-md'>{detail.value}</span>
                 </div>
               </section>
             ))}
