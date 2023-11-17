@@ -31,6 +31,8 @@ const ToDoForm = () => {
           taskProgress: values.taskProgress,
           taskDueDate: values.taskDueDate,
         });
+
+        formikForm.resetForm();
       }
     }),
   });
