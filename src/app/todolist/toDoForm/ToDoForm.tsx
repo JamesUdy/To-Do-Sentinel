@@ -38,7 +38,7 @@ const ToDoForm = () => {
   });
 
   return (
-    <section className='container w-full flex flex-col items-center my-4 lg:my-7 space-y-4 font-medium todo-form'>
+    <section className='container w-full flex flex-col items-center my-4 lg:my-0 lg:mt-4 lg:mb-8 space-y-4 font-medium todo-form'>
       <span className='text-xl font-semibold text-slate-700 dark:text-slate-400'>🎯 Add a Quest</span>
       <form onSubmit={formikForm.handleSubmit} className='w-1/2 sm:w-1/3 lg:w-1/4 flex flex-col items-center space-y-4'>
         <input 
