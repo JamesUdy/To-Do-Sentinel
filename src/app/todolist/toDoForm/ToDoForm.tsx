@@ -7,9 +7,13 @@ import ToDoCategory from './toDoCategory/ToDoCategory';
 import ToDoStatus from './toDoStatus/ToDoStatus';
 import useAuth from '@/app/hooks/useAuth';
 import { addToDo } from '@/api/toDo';
+import './ToDoForm.css';
+import { useTheme } from 'next-themes';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ToDoForm = () => {
   const { user } = useAuth();
+  const { theme } = useTheme();
 
   const formikForm = useFormik<FormikValues>({
     initialValues: {
@@ -19,23 +23,35 @@ const ToDoForm = () => {
       taskProgress: progressStatus[0].status,
       taskDueDate: '',
     },
-    onSubmit: (values => {
+    onSubmit:async (values, { setSubmitting }) => {
       console.log(values);
       
       if(user !== null && user !== undefined) {
-        addToDo({
-          userId: user.uid,
-          taskTitle: values.taskTitle,
-          taskDescription: values.taskDescription,
-          taskPriority: values.taskPriority,
-          taskProgress: values.taskProgress,
-          taskDueDate: values.taskDueDate,
-        });
+        try {
+          setSubmitting(true);
 
-        formikForm.resetForm();
-      }
-    }),
+          await new Promise(resolve => setTimeout(resolve, 5000));
+
+          await addToDo({
+            userId: user.uid,
+            taskTitle: values.taskTitle,
+            taskDescription: values.taskDescription,
+            taskPriority: values.taskPriority,
+            taskProgress: values.taskProgress,
+            taskDueDate: values.taskDueDate,
+          });
+  
+          formikForm.resetForm();
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setSubmitting(false);
+        }
+      } 
+    },
   });
+
+  const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
   return (
     <section className='container w-full flex flex-col items-center my-4 lg:my-0 lg:mt-4 lg:mb-8 space-y-4 font-medium todo-form'>
@@ -72,7 +88,11 @@ const ToDoForm = () => {
             type='date' />
         </div>
         <div className='hidden sm:block'></div>
-        <button type='submit' className='w-full py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-900 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 dark:hover:ring-slate-100 ease-in duration-200'>Add</button>
+        <button type='submit' className='w-full py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-900 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 dark:hover:ring-slate-100 ease-in duration-200'>{formikForm.isSubmitting ? (
+          <div className={`flex mx-auto ${spinnerColor}`}></div>
+        ) : (
+          <span>Add</span>
+        )}</button>
       </form>
     </section>
   );
