@@ -11,13 +11,13 @@ const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
 
   return (
     <>    
-        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-4 text-md'>🔄️ Select Task Status</span>
+        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-2 lg:pt-4 text-md'>🔄️ Select Task Status</span>
         <Listbox value={formikForm.values.taskProgress} onChange={(value) => formikForm.setFieldValue('taskProgress', value)}>
           {({open}) => (
             <div className='relative w-full'>
               <Listbox.Button
                 as="button"
-                className='px-2 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 w-full py-1 rounded-md outline outline-2 outline-slate-400 dark:outline-slate-800 focus:outline-blue-500 focus:ease-in duration-200 flex flow-row justify-between'
+                className='py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 w-full rounded-md outline outline-2 outline-slate-400 dark:outline-slate-800 focus:outline-blue-500 focus:ease-in duration-200 flex flow-row justify-between'
               >
                 {formikForm.values.taskProgress}
                 <svg
