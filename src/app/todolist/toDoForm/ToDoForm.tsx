@@ -30,7 +30,7 @@ const ToDoForm = () => {
         try {
           setSubmitting(true);
 
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          await new Promise(resolve => setTimeout(resolve, 2000));
 
           await addToDo({
             userId: user.uid,
@@ -40,10 +40,13 @@ const ToDoForm = () => {
             taskProgress: values.taskProgress,
             taskDueDate: values.taskDueDate,
           });
+
+          toast.success('Task created successfully');
   
           formikForm.resetForm();
         } catch (error) {
           console.error(error);
+          toast.error('An error occurred while adding the task');
         } finally {
           setSubmitting(false);
         }
@@ -54,7 +57,12 @@ const ToDoForm = () => {
   const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
   return (
-    <section className='container w-full flex flex-col items-center my-4 lg:my-0 lg:mt-4 lg:mb-8 space-y-4 font-medium todo-form'>
+    <section className='container w-full flex flex-col items-center my-4 lg:my-0 lg:mb-8 space-y-4 font-medium todo-form'>
+      <Toaster toastOptions={{
+        className: '', style: {
+          marginTop: '32px',
+        }
+      }} position="bottom-right" />
       <span className='text-xl font-semibold text-slate-700 dark:text-slate-400'>🎯 Add a Quest</span>
       <form onSubmit={formikForm.handleSubmit} className='w-1/2 sm:w-1/3 lg:w-1/4 flex flex-col items-center space-y-4'>
         <input 
