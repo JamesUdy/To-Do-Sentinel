@@ -5,8 +5,12 @@ import { categories } from './toDoCategory/Categories';
 import { progressStatus } from './toDoStatus/ProgressStatus';
 import ToDoCategory from './toDoCategory/ToDoCategory';
 import ToDoStatus from './toDoStatus/ToDoStatus';
+import useAuth from '@/app/hooks/useAuth';
+import { addToDo } from '@/api/toDo';
 
 const ToDoForm = () => {
+  const { user } = useAuth();
+
   const formikForm = useFormik<FormikValues>({
     initialValues: {
       taskTitle: '',
@@ -17,6 +21,17 @@ const ToDoForm = () => {
     },
     onSubmit: (values => {
       console.log(values);
+      
+      if(user !== null && user !== undefined) {
+        addToDo({
+          userId: user.uid,
+          taskTitle: values.taskTitle,
+          taskDescription: values.taskDescription,
+          taskPriority: values.taskPriority,
+          taskProgress: values.taskProgress,
+          taskDueDate: values.taskDueDate,
+        });
+      }
     }),
   });
 
