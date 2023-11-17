@@ -2,7 +2,9 @@ import React from 'react';
 import { FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { categories } from './toDoCategory/Categories';
+import { progressStatus } from './toDoStatus/ProgressStatus';
 import ToDoCategory from './toDoCategory/ToDoCategory';
+import ToDoStatus from './toDoStatus/ToDoStatus';
 
 const ToDoForm = () => {
   const formikForm = useFormik<FormikValues>({
@@ -10,6 +12,7 @@ const ToDoForm = () => {
       taskTitle: '',
       taskDescription: '',
       taskPriority: categories[0].label,
+      taskProgress: progressStatus[0].status,
       taskDueDate: '',
     },
     onSubmit: (values => {
@@ -39,6 +42,7 @@ const ToDoForm = () => {
           placeholder='Describe your task' 
           className='w-full h-32 max-h-44 min-h-24 py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2'></textarea>
         <ToDoCategory formikForm={formikForm} />
+        <ToDoStatus formikForm={formikForm} />
         <div className='w-full flex flex-col text-slate-700 dark:text-slate-400 pt-4 space-y-2'>
           <label htmlFor="dueDate" className='text-md'>⏰ Due Date</label>
           <input 

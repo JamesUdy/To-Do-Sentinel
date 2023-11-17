@@ -1,25 +1,25 @@
 import React from 'react';
 import { Listbox } from '@headlessui/react';
-import { categories } from './Categories';
+import { progressStatus } from './ProgressStatus';
 import { FormikValues, useFormik } from 'formik';
 
-interface ToDoCategoryProps {
+interface ToDoStatusProps {
   formikForm: ReturnType<typeof useFormik<FormikValues>>,
 };
 
-const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
+const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
 
   return (
     <>    
-        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-4 text-md'>🚀 Priority Dropdown</span>
-        <Listbox value={formikForm.values.taskPriority} onChange={(value) => formikForm.setFieldValue('taskPriority', value)}>
+        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-4 text-md'>🔄️ Select Task Status</span>
+        <Listbox value={formikForm.values.taskProgress} onChange={(value) => formikForm.setFieldValue('taskProgress', value)}>
           {({open}) => (
             <div className='relative w-full'>
               <Listbox.Button
                 as="button"
                 className='px-2 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 w-full py-1 rounded-md outline outline-2 outline-slate-400 dark:outline-slate-800 focus:outline-blue-500 focus:ease-in duration-200 flex flow-row justify-between'
               >
-                {formikForm.values.taskPriority}
+                {formikForm.values.taskProgress}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -36,25 +36,26 @@ const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
               <Listbox.Options
                 className="absolute outline outline-2 mt-2 w-full z-10 text-sm bg-slate-300 dark:bg-slate-900 outline-slate-400 overflow-y-auto dark:outline-slate-800 rounded-md shadow-lg shadow-slate-600 dark:shadow-black/60"
               >
-                {categories.map((category) => (
-                  <Listbox.Option key={category.id} value={category.label}>
-                    {({active, selected}) => (
-                      <div
-                        className={`${
-                          active ? 'text-slate-100 bg-blue-500' : 'text-slate-800 dark:text-slate-300'
-                        } cursor-pointer select-none relative px-4 py-2`}
-                      >
-                        {category.label}
-                        {selected && (
-                          <span
+                {progressStatus.map((progress) => (
+                   progress.status !== 'Completed ✅' &&
+                    <Listbox.Option key={progress.id} value={progress.status}>
+                        {({active, selected}) => (
+                        <div
                             className={`${
-                              active ? 'text-slate-800 dark:text-slate-300' : 'text-blue-500'
-                            } absolute inset-y-0 left-0 flex items-center pl-3`}
-                          ></span>
+                            active ? 'text-slate-100 bg-blue-500' : 'text-slate-800 dark:text-slate-300'
+                            } cursor-pointer select-none relative px-4 py-2`}
+                        >
+                            {progress.status}
+                            {selected && (
+                            <span
+                                className={`${
+                                active ? 'text-slate-800 dark:text-slate-300' : 'text-blue-500'
+                                } absolute inset-y-0 left-0 flex items-center pl-3`}
+                            ></span>
+                            )}
+                        </div>
                         )}
-                      </div>
-                    )}
-                  </Listbox.Option>
+                    </Listbox.Option>
                 ))}
               </Listbox.Options>
             </div>
@@ -64,4 +65,4 @@ const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
   );
 };
 
-export default ToDoCategory;
+export default ToDoStatus;
