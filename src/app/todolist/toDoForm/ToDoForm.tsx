@@ -61,7 +61,7 @@ const ToDoForm = () => {
         <ToDoCategory formikForm={formikForm} />
         <ToDoStatus formikForm={formikForm} />
         <div className='w-full flex flex-col text-slate-700 dark:text-slate-400 pt-4 space-y-2'>
-          <label htmlFor="dueDate" className='text-md'>⏰ Due Date</label>
+          <label htmlFor="taskDueDate" className='text-md'>⏰ Due Date</label>
           <input 
             id='taskDueDate' 
             name='taskDueDate' 
