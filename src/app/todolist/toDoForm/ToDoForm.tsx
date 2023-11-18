@@ -80,10 +80,10 @@ const ToDoForm = () => {
           marginTop: '32px',
         }
       }} position="bottom-right" />
-      <span className='text-xl font-semibold'>🎯 Add a Quest</span>
-      <form onSubmit={formikForm.handleSubmit} className='w-1/2 sm:w-1/3 lg:w-1/4 flex flex-col items-center space-y-4'>
+      <span className='text-md w360:text-lg sm:text-xl font-semibold'>🎯 Add a Quest</span>
+      <form onSubmit={formikForm.handleSubmit} className='w-full sm:w-1/3 lg:w-1/4 flex flex-col items-center space-y-4'>
         <section className='w-full flex flex-col items-start space-y-1 pb-4'>
-          <label htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
+          <label className='text-md' htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
           <div className='relative w-full'>
             <input 
               id='taskTitle'
@@ -103,7 +103,7 @@ const ToDoForm = () => {
           </div>
         </section>
         <section className='w-full flex flex-col items-start space-y-1 pb-4'>
-          <label htmlFor="taskDescription">Describe your task<span className="text-red-500">*</span></label>
+          <label className='text-md' htmlFor="taskDescription">Describe your task<span className="text-red-500">*</span></label>
           <div className='relative w-full'>
             <textarea 
               id='taskDescription'
@@ -134,7 +134,7 @@ const ToDoForm = () => {
             className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
             type='date' />
         </div>
-        <div className='hidden sm:block'></div>
+        <div className='block'></div>
         <button type='submit' className='w-full py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-900 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 dark:hover:ring-slate-100 ease-in duration-200'>{formikForm.isSubmitting ? (
           <div className={`flex mx-auto ${spinnerColor}`}></div>
         ) : (
