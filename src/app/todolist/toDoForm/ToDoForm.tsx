@@ -58,8 +58,8 @@ const ToDoForm = () => {
 
           await addToDo({
             userId: user.uid,
-            taskTitle: values.taskTitle,
-            taskDescription: values.taskDescription,
+            taskTitle: values.taskTitle.trim(),
+            taskDescription: values.taskDescription.trim(),
             taskPriority: values.taskPriority,
             taskProgress: values.taskProgress,
             taskDueDate: values.taskDueDate,
