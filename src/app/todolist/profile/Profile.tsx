@@ -39,10 +39,10 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="translate-x-0"
       leaveTo="-translate-x-full"
-      className='absolute top-0 left-0 bg-white dark:bg-slate-800 max-h-full w-full w360:w-full sm:w-1/3 lg:w-1/4 xl:w-1/5 profile-page-font'
+      className='absolute top-0 left-0 bg-white dark:bg-slate-800 min-h-full w-full w360:w-full sm:w-1/3 lg:w-1/4 xl:w-1/5 profile-page-font'
     >
-      <section className='h-screen relative w-full'>
-        <div className='flex flex-col justify-between h-full py-10 items-center w-full'>
+      <section className='min-h-full relative w-full'>
+        <div className='flex flex-col justify-between min-h-screen py-10 items-center w-full'>
           <section className='flex flex-col items-center space-y-6'>
             <div>
               {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}

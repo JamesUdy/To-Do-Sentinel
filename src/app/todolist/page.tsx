@@ -25,13 +25,13 @@ const ToDoList = () => {
   return (
     <section className='relative flex flex-col w-full py-2 px-4 max-h-full'>
       {user ? (
-        <div>
+        <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <ToDoForm/>
           <SearchTask/>
           <TaskList/>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
-        </div>
+        </>
       ) : (
         <Loader/>
       )}
