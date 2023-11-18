@@ -19,7 +19,7 @@ const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
 
   return (
     <>    
-        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-2 lg:pt-4 text-md'>🚀 Priority Dropdown</span>
+        <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start text-md'>🚀 Priority Dropdown</span>
         <Listbox value={formikForm.values.taskPriority} onChange={(value: string) => formikForm.setFieldValue('taskPriority', value)}>
           {({open}) => (
             <div className='relative w-full'>
