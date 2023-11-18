@@ -1,10 +1,18 @@
 import React from 'react';
 import { Listbox } from '@headlessui/react';
 import { progressStatus } from './ProgressStatus';
-import { FormikValues, useFormik } from 'formik';
+import { useFormik } from 'formik';
+
+interface ToDoFormValues {
+  taskTitle: string;
+  taskDescription: string;
+  taskPriority: string;
+  taskProgress: string;
+  taskDueDate: string;
+};
 
 interface ToDoStatusProps {
-  formikForm: ReturnType<typeof useFormik<FormikValues>>,
+  formikForm: ReturnType<typeof useFormik<ToDoFormValues>>,
 };
 
 const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
@@ -12,7 +20,7 @@ const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
   return (
     <>    
         <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-2 lg:pt-4 text-md'>🔄️ Select Task Status</span>
-        <Listbox value={formikForm.values.taskProgress} onChange={(value) => formikForm.setFieldValue('taskProgress', value)}>
+        <Listbox value={formikForm.values.taskProgress} onChange={(value: string) => formikForm.setFieldValue('taskProgress', value)}>
           {({open}) => (
             <div className='relative w-full'>
               <Listbox.Button

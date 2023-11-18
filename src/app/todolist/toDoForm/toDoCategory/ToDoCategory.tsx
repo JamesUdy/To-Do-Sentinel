@@ -1,10 +1,18 @@
 import React from 'react';
 import { Listbox } from '@headlessui/react';
 import { categories } from './Categories';
-import { FormikValues, useFormik } from 'formik';
+import { useFormik } from 'formik';
+
+interface ToDoFormValues {
+  taskTitle: string;
+  taskDescription: string;
+  taskPriority: string;
+  taskProgress: string;
+  taskDueDate: string;
+};
 
 interface ToDoCategoryProps {
-  formikForm: ReturnType<typeof useFormik<FormikValues>>,
+  formikForm: ReturnType<typeof useFormik<ToDoFormValues>>,
 };
 
 const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
@@ -12,7 +20,7 @@ const ToDoCategory: React.FC<ToDoCategoryProps> = ({ formikForm }) => {
   return (
     <>    
         <span className='w-full text-slate-700 dark:text-slate-400 font-semibold text-start pt-2 lg:pt-4 text-md'>🚀 Priority Dropdown</span>
-        <Listbox value={formikForm.values.taskPriority} onChange={(value) => formikForm.setFieldValue('taskPriority', value)}>
+        <Listbox value={formikForm.values.taskPriority} onChange={(value: string) => formikForm.setFieldValue('taskPriority', value)}>
           {({open}) => (
             <div className='relative w-full'>
               <Listbox.Button

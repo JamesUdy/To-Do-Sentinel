@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormikValues, useFormik } from 'formik';
+import { FormikErrors, FormikValues, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { categories } from './toDoCategory/Categories';
 import { progressStatus } from './toDoStatus/ProgressStatus';
@@ -11,11 +11,27 @@ import './ToDoForm.css';
 import { useTheme } from 'next-themes';
 import toast, { Toaster } from 'react-hot-toast';
 
+const validationSchema = Yup.object({
+  taskTitle: Yup.string()
+    .transform((_, originalValue) => originalValue.trim())
+    .required('Please enter your task title')
+    .min(2, 'Title should have at least 2 letters')
+    .max(100, 'Title cannot have more than 100 letters'),
+});
+
+interface ToDoFormValues {
+  taskTitle: string;
+  taskDescription: string;
+  taskPriority: string;
+  taskProgress: string;
+  taskDueDate: string;
+}
+
 const ToDoForm = () => {
   const { user } = useAuth();
   const { theme } = useTheme();
 
-  const formikForm = useFormik<FormikValues>({
+  const formikForm = useFormik<ToDoFormValues>({
     initialValues: {
       taskTitle: '',
       taskDescription: '',
@@ -23,6 +39,9 @@ const ToDoForm = () => {
       taskProgress: progressStatus[0].status,
       taskDueDate: '',
     },
+
+    validationSchema: validationSchema,
+
     onSubmit:async (values, { setSubmitting }) => {
       console.log(values);
       
@@ -65,15 +84,23 @@ const ToDoForm = () => {
       }} position="bottom-right" />
       <span className='text-xl font-semibold text-slate-700 dark:text-slate-400'>🎯 Add a Quest</span>
       <form onSubmit={formikForm.handleSubmit} className='w-1/2 sm:w-1/3 lg:w-1/4 flex flex-col items-center space-y-4'>
-        <input 
-          id='taskTitle'
-          name='taskTitle'
-          onChange={formikForm.handleChange}
-          onBlur={formikForm.handleBlur}
-          value={formikForm.values.taskTitle}
-          className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
-          placeholder='Title' 
-          type='text' />
+        <section className='relative w-full'>
+          <input 
+            id='taskTitle'
+            name='taskTitle'
+            onChange={formikForm.handleChange}
+            onBlur={formikForm.handleBlur}
+            value={formikForm.values.taskTitle}
+            className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 text-slate-700 dark:text-slate-400 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
+            placeholder='Title' 
+            type='text' 
+          />
+          {formikForm.touched.taskTitle && formikForm.errors.taskTitle && (
+            <p className='w-full absolute pt-1 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
+              {formikForm.errors.taskTitle}
+            </p>
+          )}
+        </section>
         <textarea 
           id='taskDescription'
           name='taskDescription'
