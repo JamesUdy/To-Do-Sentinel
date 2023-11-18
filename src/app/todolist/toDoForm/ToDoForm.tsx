@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormikErrors, FormikValues, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { categories } from './toDoCategory/Categories';
 import { progressStatus } from './toDoStatus/ProgressStatus';
@@ -10,6 +10,7 @@ import { addToDo } from '@/api/toDo';
 import './ToDoForm.css';
 import { useTheme } from 'next-themes';
 import toast, { Toaster } from 'react-hot-toast';
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 const validationSchema = Yup.object({
   taskTitle: Yup.string()
@@ -24,19 +25,11 @@ const validationSchema = Yup.object({
     .max(255, 'Description cannot have more than 255 characters'),
 });
 
-interface ToDoFormValues {
-  taskTitle: string;
-  taskDescription: string;
-  taskPriority: string;
-  taskProgress: string;
-  taskDueDate: string;
-}
-
 const ToDoForm = () => {
   const { user } = useAuth();
   const { theme } = useTheme();
 
-  const formikForm = useFormik<ToDoFormValues>({
+  const formikForm = useFormik<ToDoValueProps>({
     initialValues: {
       taskTitle: '',
       taskDescription: '',

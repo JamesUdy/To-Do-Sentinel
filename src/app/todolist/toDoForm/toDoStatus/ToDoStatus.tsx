@@ -2,17 +2,10 @@ import React from 'react';
 import { Listbox } from '@headlessui/react';
 import { progressStatus } from './ProgressStatus';
 import { useFormik } from 'formik';
-
-interface ToDoFormValues {
-  taskTitle: string;
-  taskDescription: string;
-  taskPriority: string;
-  taskProgress: string;
-  taskDueDate: string;
-};
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 interface ToDoStatusProps {
-  formikForm: ReturnType<typeof useFormik<ToDoFormValues>>,
+  formikForm: ReturnType<typeof useFormik<ToDoValueProps>>,
 };
 
 const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {

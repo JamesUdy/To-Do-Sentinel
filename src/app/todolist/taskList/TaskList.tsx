@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 interface ListProps {
   id: string;
   userId: string;
-  taskTitle: string;
-  taskDescription: string;
-  taskPriority: string;
-  taskProgress: string;
-  taskDueDate: string;
+  toDoValue: ToDoValueProps;
 };
 
 const TaskList = () => {
