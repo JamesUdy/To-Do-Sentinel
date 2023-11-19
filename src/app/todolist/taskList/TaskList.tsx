@@ -1,48 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '@/firebaseAuth/FirebaseAuth';
-import useAuth from '@/app/hooks/useAuth';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
-import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
-
-interface ListProps {
-  id: string;
-  userId: string;
-  toDoValue: ToDoValueProps;
-};
+import React from 'react';
+import FetchToDoData, { ListProps } from '../fetchToDoData/FetchToDoData';
 
 const TaskList = () => {
-  const [toDoList, setToDoList] = useState<React.SetStateAction<ListProps[]>>([]);
-  const { user } = useAuth();
+  const toDoListData: ListProps[] = FetchToDoData();
 
-  const ListData = () => {
-    if(!user) {
-      setToDoList([]);
-      return;
-    };
-
-    const queryList = query(collection(db, "toDo"), where("userId", "==", user.uid));
-
-    onSnapshot(queryList, (querySnapshot) => {
-      let list: ListProps[] = [];
-
-      querySnapshot.docs.forEach((doc) => {
-        list.push({ id: doc.id, ...doc.data() } as ListProps);
-      });
-
-      setToDoList(list);
-    });
-  };
-
-  useEffect(() => {
-    ListData();    
-  }, [user]);
-
-  useEffect(() => {
-    console.log(toDoList);
-  }, [toDoList]);
+  console.log(toDoListData);
 
   return (
-    <div>TaskList</div>
+    <>
+      <div>TaskList</div>
+      {toDoListData.map((task) => (
+        <span></span>
+      ))}
+    </>
   );
 };
 
