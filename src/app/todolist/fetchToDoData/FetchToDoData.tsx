@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
-import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 export interface ListProps {
   id: string;
   userId: string;
-  toDoValue: ToDoValueProps;
+  taskTitle: string;
+  taskDescription: string;
+  taskPriority: string;
+  taskProgress: string;
+  taskDueDate: string; 
 };
 
 const FetchToDoData = () => {
