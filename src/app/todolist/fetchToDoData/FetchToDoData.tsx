@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore';
 
 export interface ListProps {
   id: string;
@@ -23,7 +23,7 @@ const FetchToDoData = () => {
       return;
     };
 
-    const queryList = query(collection(db, "toDo"), where("userId", "==", user.uid));
+    const queryList = query(collection(db, "toDo"), where("userId", "==", user.uid), orderBy("createdAt", "desc"));
 
     onSnapshot(queryList, (querySnapshot) => {
       let list: ListProps[] = [];
