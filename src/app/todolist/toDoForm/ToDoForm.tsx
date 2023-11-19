@@ -10,7 +10,7 @@ import { addToDo } from '@/api/toDo';
 import './ToDoForm.css';
 import { useTheme } from 'next-themes';
 import toast, { Toaster } from 'react-hot-toast';
-import { ToDoValueProps } from '@/app/toDoValueProps/ToDoValueProps';
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 const validationSchema = Yup.object({
   taskTitle: Yup.string()
