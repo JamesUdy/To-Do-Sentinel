@@ -23,13 +23,15 @@ const ToDoList = () => {
   };
 
   return (
-    <section className='relative flex flex-col w-full py-2 px-4 max-h-full'>
+    <section className='relative flex flex-col w-full py-2 px-4 sm:px-0 max-h-screen overflow-y-hidden'>
       {user ? (
         <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
-          <ToDoForm/>
-          <SearchTask/>
-          <TaskList/>
+          <section className='overflow-y-scroll'>
+            <ToDoForm/>
+            <SearchTask/>
+            <TaskList/>
+          </section>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </>
       ) : (

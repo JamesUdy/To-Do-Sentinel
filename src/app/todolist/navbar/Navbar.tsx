@@ -10,7 +10,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
 
   return (
-    <section className='flex w-full justify-between items-center'>
+    <section className='flex w-full justify-between items-center px-4'>
       <section className='flex items-center'>
         <div>
           <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-16 w360:w-20 inline-block dark:hidden"/>
