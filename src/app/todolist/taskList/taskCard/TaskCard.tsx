@@ -42,7 +42,3 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
 };
 
 export default TaskCard;
-function useThemeProps() {
-    throw new Error('Function not implemented.');
-}
-
