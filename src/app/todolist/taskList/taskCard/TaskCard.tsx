@@ -21,7 +21,7 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
     const backgroundColor = theme === 'dark' ? category?.colors.dark : category?.colors.light;
 
   return (
-    <section className='w-full bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-48 space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
+    <section className='w-full bg-white dark:bg-slate-900 p-2 flex flex-col justify-between sm:h-40 xlm:h-48 space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
         <div className='flex flex-col space-y-2'>
             <div className='flex justify-between items-center py-2'>
                 <span className={`${backgroundColor} ml-1 px-2 rounded-md text-sm text-white`}>{task.taskPriority}</span>
