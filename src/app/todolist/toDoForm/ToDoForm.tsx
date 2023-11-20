@@ -22,7 +22,7 @@ const validationSchema = Yup.object({
     .transform((_, originalValue) => originalValue.trim())
     .required('Please enter your task description')
     .min(2, 'Description should have at least 2 characters')
-    .max(255, 'Description cannot have more than 255 characters'),
+    .max(125, 'Description cannot have more than 125 characters'),
 });
 
 const ToDoForm = () => {
