@@ -21,6 +21,7 @@ import Phone from './svg/Phone';
 import ProfileName from './svg/ProfileName';
 
 import Delete from './svg/Delete';
+import Edit from './svg/Edit';
 
 export {
     dark404,
@@ -46,4 +47,5 @@ export {
     ProfileName,
 
     Delete,
+    Edit,
 };
