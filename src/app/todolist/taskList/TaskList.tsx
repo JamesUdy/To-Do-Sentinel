@@ -8,7 +8,7 @@ const TaskList = () => {
   console.log(toDoListData);
 
   return (
-    <div className='w-full container flex flex-col items-center my-4'>
+    <div className='w-full container flex flex-col items-center my-4 todo-list'>
       <span>TaskList</span>
         {toDoListData && (
           <section className='grid grid-cols-3 w-1/2 gap-6'>
