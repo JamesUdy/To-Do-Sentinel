@@ -5,7 +5,7 @@ import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { EarlyStageTasks, Loader, Navbar, Profile, SearchTask, ToDoForm } from './todoAssets';
+import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from './todoAssets';
 import './index.css';
 import { useTheme } from 'next-themes';
 
@@ -34,7 +34,6 @@ const ToDoList = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <ToDoForm/>
-            <SearchTask/>
             <EarlyStageTasks/>
           </section>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
