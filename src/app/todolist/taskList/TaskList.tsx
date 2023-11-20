@@ -1,19 +1,18 @@
 import React from 'react';
 import FetchToDoData, { ListProps } from '../fetchToDoData/FetchToDoData';
+import TaskCard from './taskCard/TaskCard';
 
 const TaskList = () => {
   const toDoListData: ListProps[] = FetchToDoData();
 
-  console.log(toDoListData)
+  console.log(toDoListData);
 
   return (
     <>
       <div>TaskList</div>
       {toDoListData && (
         toDoListData.map((task) => (
-          <section key={task.id}>
-            <span>{task.taskTitle}</span>
-          </section>
+          <TaskCard key={task.id} task={task} />
         ))
       )}
     </>
