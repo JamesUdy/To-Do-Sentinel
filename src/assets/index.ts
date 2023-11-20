@@ -20,6 +20,8 @@ import LastSignedIn from './svg/LastSignedIn';
 import Phone from './svg/Phone';
 import ProfileName from './svg/ProfileName';
 
+import Delete from './svg/Delete';
+
 export {
     dark404,
     darkThemeLogo,
@@ -42,4 +44,6 @@ export {
     LastSignedIn,
     Phone,
     ProfileName,
+
+    Delete,
 };
