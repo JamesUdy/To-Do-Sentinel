@@ -47,6 +47,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontSize: {
+        '2xs': '0.6rem',   // Example: Extra Extra Small
+        '3xs': '0.5rem',   // Example: Extra Extra Extra Small
+      },
     },
   },
   plugins: [],
