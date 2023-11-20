@@ -28,7 +28,7 @@ const addToDo = async ({userId, taskTitle, taskDescription, taskPriority, taskPr
             taskPriority: taskPriority,
             taskProgress: taskProgress,
             taskDueDate: taskDueDate,
-            createdAt: new Date(),
+            createdAt: new Date().toLocaleString(),
         });
     } catch (err) {
         console.error(err);

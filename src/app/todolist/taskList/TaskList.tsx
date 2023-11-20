@@ -8,14 +8,16 @@ const TaskList = () => {
   console.log(toDoListData);
 
   return (
-    <>
-      <div>TaskList</div>
-      {toDoListData && (
-        toDoListData.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))
-      )}
-    </>
+    <div className='w-full container flex flex-col items-center'>
+      <span>TaskList</span>
+        {toDoListData && (
+          <section className='grid grid-cols-3 w-1/2 gap-4'>
+          {toDoListData.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+          </section>
+        )}
+    </div>
   );
 };
 
