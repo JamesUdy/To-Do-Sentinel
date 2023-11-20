@@ -2,7 +2,7 @@
 
 import React from 'react';
 import FetchToDoData, { ListProps } from '../fetchToDoData/FetchToDoData';
-import TaskCard from './taskCard/TaskCard';
+import TaskCard from '../taskCard/TaskCard';
 
 const TaskList = () => {
   const toDoListData: ListProps[] = FetchToDoData();
