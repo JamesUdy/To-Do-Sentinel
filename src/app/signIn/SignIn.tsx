@@ -24,7 +24,7 @@ const SignIn = () => {
         const token = credential?.accessToken;
         const user = result.user;
 
-        router.push('/todolist');
+        router.push('/todo-list');
       })
       .catch((error) => {
         const errorCode = error.code;
