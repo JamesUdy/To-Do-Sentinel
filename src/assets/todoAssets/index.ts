@@ -1,4 +1,4 @@
-import EarlyStageTasks from '@/app/todo-list/earlyStageTasks/EarlyStageTasks';
+import EarlyStageTasks from '@/app/todo-list/toDoForm/EarlyStageTasks';
 import Loader from '@/app/loader/Loader';
 import Navbar from '@/app/navbar/Navbar';
 import Profile from '@/app/profile/Profile';

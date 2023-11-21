@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { Delete, Edit } from '@/assets';
-import { categories } from '@/app/todo-list/toDoForm/toDoCategory/Categories';
+import { categories } from '@/app/todo-list/toDoForm/Categories';
 import { useTheme } from 'next-themes';
 import { deleteToDo } from '@/api/toDo';
 import toast from 'react-hot-toast';

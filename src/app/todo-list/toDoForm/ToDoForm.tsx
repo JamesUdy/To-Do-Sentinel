@@ -1,10 +1,10 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { categories } from './toDoCategory/Categories';
-import { progressStatus } from './toDoStatus/ProgressStatus';
-import ToDoCategory from './toDoCategory/ToDoCategory';
-import ToDoStatus from './toDoStatus/ToDoStatus';
+import { categories } from './Categories';
+import { progressStatus } from './ProgressStatus';
+import ToDoCategory from './ToDoCategory';
+import ToDoStatus from './ToDoStatus';
 import useAuth from '@/app/hooks/useAuth';
 import { addToDo } from '@/api/toDo';
 import './ToDoForm.css';
