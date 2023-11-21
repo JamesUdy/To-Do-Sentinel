@@ -3,7 +3,7 @@ import React from 'react';
 import { BackButton } from '@/assets';
 import ThemeToggleButton from '../ThemeToggleButton';
 import Link from 'next/link';
-import Details from "@/app/user-details/details/Details";
+import Details from '@/app/user-details/Details/Details';
 
 const UserDetails = () => {
   
