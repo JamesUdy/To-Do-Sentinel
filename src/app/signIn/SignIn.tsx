@@ -7,7 +7,7 @@ import { DarkCurvedArrow, darkThemeLogo, LightCurvedArrow, lightThemeLogo } from
 import useAuth from "@/app/hooks/useAuth";
 import Image from "next/image";
 import "./SignIn.css";
-import ThemeToggleButton from "../themeToggleButton/ThemeToggleButton";
+import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const SignIn = () => {
     const router = useRouter(); 
@@ -38,7 +38,7 @@ const SignIn = () => {
   if(user) {
     router.push('/todo-list');
     return null;
-  };
+  }
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">

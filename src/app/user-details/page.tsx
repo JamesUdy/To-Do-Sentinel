@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { BackButton } from '@/assets';
-import ThemeToggleButton from '../themeToggleButton/ThemeToggleButton';
+import ThemeToggleButton from '../ThemeToggleButton';
 import Link from 'next/link';
 import Details from './details/Details';
 

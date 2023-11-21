@@ -5,7 +5,7 @@ import { dark404, light404 } from '@/assets';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import ThemeToggleButton from './themeToggleButton/ThemeToggleButton';
+import { ThemeToggleButton } from '@/assets/todoAssets';
 
 export default function NotFound() {
   const router = useRouter();
