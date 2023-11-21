@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import { AccountCreated, AccountVerified, LastSignedIn, Phone } from '@/assets';
 import formatName from './FormattingName';
-import formatTimeStamp from './FromattingTimeStamp';
+import formatTimeStamp from './FormattingTimeStamp';
 import Loader from '@/app/loader/Loader';
 
 const Details = () => {
