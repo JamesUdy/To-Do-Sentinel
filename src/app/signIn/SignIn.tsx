@@ -36,7 +36,7 @@ const SignIn = () => {
     };
 
   if(user) {
-    router.push('/todolist');
+    router.push('/todo-list');
     return null;
   };
 
