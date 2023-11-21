@@ -49,7 +49,7 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
             <div className='px-2 flex flex-col space-y-1'>
                 <div className='flex space-x-2 items-center'>
                     <span className={`text-md sm:text-lg font-semibold ${task.taskProgress === 'Completed ✅' ? 'line-through' : ''}`}>{task.taskTitle}</span>
-                    <span className={`${task.taskProgress === 'In Progress 🚧' ? 'bg-orange-600 animate-pulse' : task.taskProgress === 'Completed ✅' ? 'bg-green-600 animate-pulse' : 'bg-gray-600 dark:bg-gray-300 animate-bounce'} w-4 h-4 rounded-full`}></span>
+                    <span className={`${task.taskProgress === 'In Progress 🚧' ? 'bg-orange-600 animate-pulse' : task.taskProgress === 'Completed ✅' ? 'bg-green-600 animate-pulse' : 'bg-gray-600 dark:bg-gray-300 animate-bounce'} w-4 h-4 px-2 rounded-full`}></span>
                 </div>
                 <span className='text-xs sm:text-sm text-start font-normal'>{task.taskDescription}</span>
                 {/* <span>{task.taskDueDate}</span> */}
