@@ -7,7 +7,7 @@ import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
-import { Loader, Navbar, Profile } from '@/app/todo-list/todoAssets';
+import { Loader, Navbar, Profile } from '@/assets/todoAssets';
 import { useTheme } from 'next-themes';
 
 const TaskDatabase = () => {

@@ -5,7 +5,7 @@ import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from './todoAssets';
+import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from '@/assets/todoAssets';
 import './index.css';
 import { useTheme } from 'next-themes';
 
