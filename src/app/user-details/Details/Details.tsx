@@ -4,8 +4,8 @@ import useAuth from '@/app/hooks/useAuth';
 import Image from 'next/image';
 import React from 'react';
 import { AccountCreated, AccountVerified, LastSignedIn, Phone } from '@/assets';
-import formatName from '../formattingDetails/FormattingName';
-import formatTimeStamp from '../formattingDetails/FromattingTimeStamp';
+import formatName from './FormattingName';
+import formatTimeStamp from './FromattingTimeStamp';
 import Loader from '@/app/loader/Loader';
 
 const Details = () => {
