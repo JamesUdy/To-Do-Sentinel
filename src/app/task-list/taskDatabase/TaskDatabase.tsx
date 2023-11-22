@@ -17,6 +17,7 @@ const TaskDatabase = () => {
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData: ListProps[] = FetchToDoData();
   const { theme } = useTheme();
+  const [keyword, setKeyword] = useState<string>('');
   
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -27,6 +28,14 @@ const TaskDatabase = () => {
     setUser(null);
     router.push('/');
   };
+
+  const handleKeywordChanges = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(event.target.value);
+  };
+
+  const clearKeyword = () => {
+    setKeyword('');
+  };
   
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
@@ -36,7 +45,7 @@ const TaskDatabase = () => {
         <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold todo-list w-full text-center'>🗂️ Task Repository</span>
-          <SearchTask/>
+          <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4 todo-list'>
                 {toDoListData && (
