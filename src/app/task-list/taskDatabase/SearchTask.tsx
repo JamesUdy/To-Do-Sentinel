@@ -2,7 +2,9 @@ import React from 'react';
 
 const SearchTask = () => {
   return (
-    <div>SearchTask</div>
+    <section className='w-full flex justify-center my-6'>
+      <span>Search Task</span>
+    </section>
   );
 };
 

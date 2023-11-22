@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
 import { Loader, Navbar, Profile } from '@/assets/todoAssets';
+import SearchTask from './SearchTask';
 import { useTheme } from 'next-themes';
 
 const TaskDatabase = () => {
@@ -35,6 +36,7 @@ const TaskDatabase = () => {
         <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold todo-list w-full text-center'>🗂️ Task Repository</span>
+          <SearchTask/>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4 todo-list'>
                 {toDoListData && (
