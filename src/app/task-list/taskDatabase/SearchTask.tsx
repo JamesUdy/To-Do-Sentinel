@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Search } from '@/assets';
 
 interface SearchTaskProps {
   keyword: string;
@@ -29,8 +30,11 @@ const SearchTask: React.FC<SearchTaskProps> = ({keyword, handleKeywordChanges, c
   }, []);
 
   return (
-    <section className='w-full flex justify-center my-6'>
-      <div className="relative mt-2 flex items-center shadow-lg shadow-neutral-900">
+    <section className='w-1/2 flex mx-auto my-6'>
+      <div className="relative w-full mt-2 flex items-center shadow-lg shadow-neutral-900">
+        <div className='absolute left-0'>
+          <Search/>
+        </div>
         <input
           type="text"
           name="search"

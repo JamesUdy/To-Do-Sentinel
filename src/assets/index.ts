@@ -25,9 +25,12 @@ import LastSignedIn from './svg/LastSignedIn';
 import Phone from './svg/Phone';
 import ProfileName from './svg/ProfileName';
 
-// Svg used in TaskList component
+// Svg used in TaskCard component
 import Delete from './svg/Delete';
 import Edit from './svg/Edit';
+
+// Svg used in Task Repo component
+import Search from './svg/Search';
 
 export {
     dark404,
@@ -54,4 +57,6 @@ export {
 
     Delete,
     Edit,
+
+    Search,
 };
