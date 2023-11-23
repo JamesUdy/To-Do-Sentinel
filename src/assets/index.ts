@@ -30,6 +30,7 @@ import Delete from './svg/Delete';
 import Edit from './svg/Edit';
 
 // Svg used in Task Repo component
+import CloseTask from './svg/CloseTask';
 import Search from './svg/Search';
 
 export {
@@ -58,5 +59,6 @@ export {
     Delete,
     Edit,
 
+    CloseTask,
     Search,
 };
