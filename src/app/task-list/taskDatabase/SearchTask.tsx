@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Search } from '@/assets';
+import { CloseTask, Search } from '@/assets';
 
 interface SearchTaskProps {
   keyword: string;
@@ -45,8 +45,8 @@ const SearchTask: React.FC<SearchTaskProps> = ({keyword, handleKeywordChanges, c
           onChange={handleKeywordChanges}
           ref={searchInputRef}
         />
-        <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5" onClick={clearKeyword}>
-          {keyword.length > 0 && <ClearKeywordButton/>}
+        <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5 cursor-pointer" onClick={clearKeyword}>
+          {keyword.length > 0 && <CloseTask/>}
         </div>
       </div>
     </section>
