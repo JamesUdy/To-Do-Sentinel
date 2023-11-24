@@ -9,7 +9,9 @@ import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
 import { Loader, Navbar, Profile } from '@/assets/todoAssets';
 import SearchTask from './SearchTask';
+import CheckBox from './CheckBox';
 import { useTheme } from 'next-themes';
+import { categories } from '@/app/todo-list/toDoForm/Categories';
 
 const TaskDatabase = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const TaskDatabase = () => {
   const toDoListData: ListProps[] = FetchToDoData();
   const { theme } = useTheme();
   const [keyword, setKeyword] = useState<string>('');
+  const [itemChecked, setItemChecked] = useState(false);
   
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -46,6 +49,13 @@ const TaskDatabase = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
+          <section>
+            {categories && (
+              categories.map((category) => (
+                <CheckBox key={category.id} name={category.label} isChecked={itemChecked} onChange={setItemChecked} />
+              ))
+            )}
+          </section>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
               {toDoListData && (
@@ -66,4 +76,4 @@ const TaskDatabase = () => {
   );
 };
 
-export default TaskDatabase;;
+export default TaskDatabase;
