@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import DarkThemeProvider from './provider/ThemeProvider';
+import NextUIProvider from './provider/NextUIProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`flex bg-slate-200 text-slate-950 dark:bg-slate-950 dark:text-slate-200 flex-col min-h-screen ${inter.className} w-full`}>
         <DarkThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <main className='flex flex-1 w-full h-full'>
-            {children}
-          </main>
+          <NextUIProvider>
+            <main className='flex flex-1 w-full h-full'>
+              {children}
+            </main>
+          </NextUIProvider>
         </DarkThemeProvider>
       </body>
     </html>
