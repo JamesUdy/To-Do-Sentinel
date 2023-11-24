@@ -33,7 +33,7 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
   };
 
   return (
-    <section className='w-full bg-white dark:bg-slate-900 p-2 flex flex-col justify-between lg:h-44 xl:h-56 space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
+    <section className='w-full break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-full space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
         <div className='flex flex-col space-y-2'>
             <div className='flex justify-between items-center py-2'>
                 <span className={`${backgroundColor} ml-1 px-2 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{task.taskPriority}</span>
