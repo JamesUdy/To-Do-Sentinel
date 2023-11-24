@@ -9,22 +9,21 @@ import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
 import { Loader, Navbar, Profile } from '@/assets/todoAssets';
 import SearchTask from './SearchTask';
-import CheckBox from './CheckBox';
 import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
-import { CheckboxGroup, Checkbox, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-
-type Selection = React.Key[];
+import { progressStatus } from '@/app/todo-list/toDoForm/ProgressStatus';
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import './TaskDatabase.css';
 
 const TaskDatabase = () => {
   const router = useRouter();
   const {user, setUser} = useAuth();
   const [showProfile, setShowProfile] = useState(false);
-  const toDoListData: ListProps[] = FetchToDoData();
+  const toDoListData = FetchToDoData();
   const { theme } = useTheme();
-  const [keyword, setKeyword] = useState<string>('');
-  const [selectedKeys, setSelectedKeys] = React.useState<React.Key[]>([]);
-  
+  const [keyword, setKeyword] = useState('');
+  const [selectedKeys, setSelectedKeys] = useState(new Set([]));
+
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
   };
@@ -35,7 +34,7 @@ const TaskDatabase = () => {
     router.push('/');
   };
 
-  const handleKeywordChanges = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleKeywordChanges = (event) => {
     setKeyword(event.target.value);
   };
 
@@ -54,21 +53,51 @@ const TaskDatabase = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
-          <Dropdown>
-            <DropdownTrigger>
-              <Button variant="bordered" 
-          className="w-fit px-4 py-2 capitalize">
-              Select Category
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions" variant='flat' closeOnSelect={false} selectionMode='multiple' selectedKeys={selectedKeys} onSelectionChange={(keys: React.Key[]) => setSelectedKeys(keys)}>
-            {categories && (
+          <section className='flex justify-center w-1/4 mx-auto space-x-2'>
+            <Dropdown className='min-w-40 w-44'>
+              <DropdownTrigger>
+                <Button variant="bordered" className="w-1/2 flex mx-auto px-4 py-2 capitalize">
+                  Select Category
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu 
+                aria-label="Static Actions" 
+                className=''
+                variant='flat' 
+                closeOnSelect={false} 
+                selectionMode='multiple' 
+                selectedKeys={selectedKeys} 
+                onSelectionChange={setSelectedKeys}
+              >
+                {categories && (
                   categories.map((category) => (
-                    <DropdownItem key={category.label}>{category.label}</DropdownItem>
+                    <DropdownItem className='w-full' key={category.label}>{category.label}</DropdownItem>
                   ))
                 )}
-      </DropdownMenu>
-          </Dropdown>
+              </DropdownMenu>
+            </Dropdown>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button variant="bordered" className="w-1/2 flex mx-auto px-4 py-2 capitalize">
+                  Select Category
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu 
+                aria-label="Static Actions" 
+                variant='flat' 
+                closeOnSelect={false} 
+                selectionMode='multiple' 
+                selectedKeys={selectedKeys} 
+                onSelectionChange={setSelectedKeys}
+              >
+                {progressStatus && (
+                  progressStatus.map((progress) => (
+                    <DropdownItem key={progress.status}>{progress.status}</DropdownItem>
+                  ))
+                )}
+              </DropdownMenu>
+            </Dropdown>
+          </section>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
               {toDoListData && (
