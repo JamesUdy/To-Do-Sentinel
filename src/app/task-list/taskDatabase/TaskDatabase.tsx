@@ -12,6 +12,9 @@ import SearchTask from './SearchTask';
 import CheckBox from './CheckBox';
 import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
+import { CheckboxGroup, Checkbox, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+
+type Selection = React.Key[];
 
 const TaskDatabase = () => {
   const router = useRouter();
@@ -20,7 +23,7 @@ const TaskDatabase = () => {
   const toDoListData: ListProps[] = FetchToDoData();
   const { theme } = useTheme();
   const [keyword, setKeyword] = useState<string>('');
-  const [itemChecked, setItemChecked] = useState(false);
+  const [selectedKeys, setSelectedKeys] = React.useState<React.Key[]>([]);
   
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -42,6 +45,8 @@ const TaskDatabase = () => {
   
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
+  console.log(selectedKeys);
+
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
       {user ? (
@@ -49,13 +54,21 @@ const TaskDatabase = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
-          <section>
+          <Dropdown>
+            <DropdownTrigger>
+              <Button variant="bordered" 
+          className="w-fit px-4 py-2 capitalize">
+              Select Category
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Static Actions" variant='flat' closeOnSelect={false} selectionMode='multiple' selectedKeys={selectedKeys} onSelectionChange={(keys: React.Key[]) => setSelectedKeys(keys)}>
             {categories && (
-              categories.map((category) => (
-                <CheckBox key={category.id} name={category.label} isChecked={itemChecked} onChange={setItemChecked} />
-              ))
-            )}
-          </section>
+                  categories.map((category) => (
+                    <DropdownItem key={category.label}>{category.label}</DropdownItem>
+                  ))
+                )}
+      </DropdownMenu>
+          </Dropdown>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
               {toDoListData && (
