@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.tsx", "src/app/task-list/taskDatabase/TaskDatabase.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.tsx", "src/app/task-list/taskDatabase/TaskDatabase.jsx", "src/app/task-repo/taskRepositories/TaskDropdown.jsx"],
   "exclude": ["node_modules"]
 }

@@ -12,6 +12,7 @@ import SearchTask from './SearchTask';
 import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
 import { progressStatus } from '@/app/todo-list/toDoForm/ProgressStatus';
+import TaskDropdown from './TaskDropdown';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import './TaskRepositories.css';
 
@@ -53,50 +54,12 @@ const TaskRepositories = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
+          <section>{selectedKeys && Array.from(selectedKeys).map((item) => (
+            <span>{item}</span>
+          ))}</section>
           <section className='flex justify-center w-1/4 mx-auto space-x-2'>
-            <Dropdown className='min-w-40 w-44'>
-              <DropdownTrigger>
-                <Button variant="bordered" className="w-1/2 flex mx-auto px-4 py-2 capitalize">
-                  Select Category
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu 
-                aria-label="Static Actions" 
-                className=''
-                variant='flat' 
-                closeOnSelect={false} 
-                selectionMode='multiple' 
-                selectedKeys={selectedKeys} 
-                onSelectionChange={setSelectedKeys}
-              >
-                {categories && (
-                  categories.map((category) => (
-                    <DropdownItem className='w-full' key={category.label}>{category.label}</DropdownItem>
-                  ))
-                )}
-              </DropdownMenu>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger>
-                <Button variant="bordered" className="w-1/2 flex mx-auto px-4 py-2 capitalize">
-                  Select Category
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu 
-                aria-label="Static Actions" 
-                variant='flat' 
-                closeOnSelect={false} 
-                selectionMode='multiple' 
-                selectedKeys={selectedKeys} 
-                onSelectionChange={setSelectedKeys}
-              >
-                {progressStatus && (
-                  progressStatus.map((progress) => (
-                    <DropdownItem key={progress.status}>{progress.status}</DropdownItem>
-                  ))
-                )}
-              </DropdownMenu>
-            </Dropdown>
+            <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
+            <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
           </section>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
