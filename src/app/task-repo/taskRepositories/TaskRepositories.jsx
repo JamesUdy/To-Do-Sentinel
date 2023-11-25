@@ -13,9 +13,9 @@ import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
 import { progressStatus } from '@/app/todo-list/toDoForm/ProgressStatus';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import './TaskDatabase.css';
+import './TaskRepositories.css';
 
-const TaskDatabase = () => {
+const TaskRepositories = () => {
   const router = useRouter();
   const {user, setUser} = useAuth();
   const [showProfile, setShowProfile] = useState(false);
@@ -118,4 +118,4 @@ const TaskDatabase = () => {
   );
 };
 
-export default TaskDatabase;
+export default TaskRepositories;

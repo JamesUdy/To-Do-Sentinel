@@ -1,10 +1,10 @@
-import TaskDatabase from "./taskDatabase/TaskDatabase";
+import TaskRepositories from './taskRepositories/TaskRepositories';
 
 const TaskList = () => {
 
   return (
     <>
-      <TaskDatabase/>
+      <TaskRepositories/>
     </>
   );
 };
