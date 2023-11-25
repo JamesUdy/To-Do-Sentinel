@@ -54,9 +54,11 @@ const TaskRepositories = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
-          <section>{selectedKeys && Array.from(selectedKeys).map((item) => (
-            <span>{item}</span>
-          ))}</section>
+          <section className='flex sm:w-2/3 xl:w-1/2 flex-col items-center'>
+            <div className='flex flex-wrap space-x-2'>{selectedKeys && Array.from(selectedKeys).map((item, index) => (
+              <span key={index} className='px-4 py-1 bg-slate-700'>{item}</span>
+            ))}</div>
+          </section>
           <section className='flex justify-center w-1/4 mx-auto space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
