@@ -13,8 +13,8 @@ import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
 import { progressStatus } from '@/app/todo-list/toDoForm/ProgressStatus';
 import TaskDropdown from './TaskDropdown';
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import './TaskRepositories.css';
+import { ClearKeywordTask } from '@/assets';
 
 const TaskRepositories = () => {
   const router = useRouter();
@@ -47,6 +47,13 @@ const TaskRepositories = () => {
 
   console.log(selectedKeys);
 
+  const clearSelectedKey = (item) => {
+    if(selectedKeys.has(item)) {
+      const updatedSelectedKeys = new Set([...selectedKeys].filter(key => key !== item));
+      setSelectedKeys(updatedSelectedKeys);
+    };
+  };
+
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
       {user ? (
@@ -54,11 +61,20 @@ const TaskRepositories = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
-          <section className='flex sm:w-2/3 xl:w-1/2 flex-col items-center'>
-            <div className='flex flex-wrap space-x-2'>{selectedKeys && Array.from(selectedKeys).map((item, index) => (
-              <span key={index} className='px-4 py-1 bg-slate-700'>{item}</span>
-            ))}</div>
-          </section>
+          {selectedKeys && (
+            <section className='flex w-full flex-col items-center mt-2 mb-10'>
+              <div className='flex sm:w-2/3 xl:w-1/2 mx-auto flex-wrap gap-4'>
+                {selectedKeys && Array.from(selectedKeys).map((item, index) => (
+                  <span key={index} className='px-2 py-1 bg-slate-700 rounded-md justify-around flex items-center space-x-2 w-fit'>
+                    <span>{item}</span>
+                    <div className='cursor-pointer' onClick={() => clearSelectedKey(item)}>
+                      <ClearKeywordTask/>
+                    </div>
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
           <section className='flex justify-center w-1/4 mx-auto space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
