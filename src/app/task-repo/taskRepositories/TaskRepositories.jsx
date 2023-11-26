@@ -54,6 +54,24 @@ const TaskRepositories = () => {
     };
   };
 
+  // Filter tasks based on the search keyword and selected keys
+  const filteredTasks = toDoListData.filter(task => {
+    // Filter by search keyword
+    const matchesKeyword = task.taskTitle.toLowerCase().includes(keyword.toLowerCase());
+
+    // Filter by selected keys
+    const prioritySelected = selectedKeys.has(task.taskPriority);
+  const progressSelected = selectedKeys.has(task.taskProgress);
+
+  const matchesSelectedKeys =
+    selectedKeys.size === 0 ||
+    (prioritySelected && progressSelected) ||
+    (!prioritySelected && progressSelected) ||
+    (prioritySelected && !progressSelected);
+
+    return matchesKeyword && matchesSelectedKeys;
+  });
+
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
       {user ? (
@@ -61,7 +79,7 @@ const TaskRepositories = () => {
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
-          {selectedKeys && (
+          {selectedKeys !== null && (
             <section className='flex w-full flex-col items-center mt-2 mb-10'>
               <div className='flex sm:w-2/3 xl:w-1/2 mx-auto flex-wrap gap-4'>
                 {selectedKeys && Array.from(selectedKeys).map((item, index) => (
@@ -75,18 +93,27 @@ const TaskRepositories = () => {
               </div>
             </section>
           )}
-          <section className='flex justify-center w-1/4 mx-auto space-x-2'>
+          <section className='flex justify-center w-1/4 mx-auto mb-4 space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
           </section>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
-              {toDoListData && (
+              {/* {toDoListData && (
                 <div className='sm:columns-2 xl:columns-3 sm:w-2/3 xl:w-1/2 gap-x-4 space-y-6'>
                     {toDoListData.map((task) => (
                         <TaskCard key={task.id} task={task} />
                     ))}
                 </div>
+              )} */}
+              {filteredTasks.length > 0 ? (
+                <div className='sm:columns-2 xl:columns-3 sm:w-2/3 xl:w-1/2 gap-x-4 space-y-6'>
+                  {filteredTasks.map((task) => (
+                    <TaskCard key={task.id} task={task} />
+                  ))}
+                </div>
+              ) : (
+                <p>No tasks found</p>
               )}
             </div>
           </section>
