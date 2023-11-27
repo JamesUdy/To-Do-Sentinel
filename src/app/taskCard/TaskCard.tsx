@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { Delete, Edit } from '@/assets';
 import { categories } from '@/app/todo-list/toDoForm/Categories';
 import { useTheme } from 'next-themes';
-import { deleteToDo } from '@/api/toDo';
+import { deleteToDo, updateToDo } from '@/api/toDo';
 import toast from 'react-hot-toast';
 
 const formatDate = (dateString: string): string => {
@@ -18,6 +19,7 @@ const formatDate = (dateString: string): string => {
 const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
   const formattedDate = formatDate(task.createdAt);
   const { theme } = useTheme();
+  let [isOpen, setIsOpen] = useState(false);
 
   const category = categories.find(category => category.label === task.taskPriority);
   const backgroundColor = theme === 'dark' ? category?.colors.dark : category?.colors.light;
@@ -38,9 +40,62 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
             <div className='flex justify-between items-center py-2'>
                 <span className={`${backgroundColor} ml-1 px-2 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{task.taskPriority}</span>
                 <div className='flex space-x-2'>
-                    <span>
+                    <span className='cursor-pointer' onClick={() => setIsOpen(true)}>
                         <Edit/>
                     </span>
+                    <Transition appear show={isOpen} as={Fragment}>
+                        <Dialog className='relative z-10' as="div" open={isOpen} onClose={() => setIsOpen(false)}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div className="fixed inset-0 bg-black/25" />
+                            </Transition.Child>
+                            <div className="fixed inset-0 overflow-y-auto">
+                                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="ease-out duration-300"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="ease-in duration-200"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Title
+                                        as="h3"
+                                        className="text-lg font-medium leading-6 text-gray-900"
+                                    >
+                                        Payment successful
+                                    </Dialog.Title>
+                                    <div className="mt-2">
+                                        <p className="text-sm text-gray-500">
+                                        Your payment has been successfully submitted. We’ve sent
+                                        you an email with all of the details of your order.
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <button
+                                        type="button"
+                                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                        onClick={() => setIsOpen(false)}
+                                        >
+                                        Got it, thanks!
+                                        </button>
+                                    </div>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                                </div>
+                            </div>
+                        </Dialog>
+                    </Transition>
                     <span className='cursor-pointer' onClick={() => handleDeleteTask(task.id)}>
                         <Delete/>
                     </span>

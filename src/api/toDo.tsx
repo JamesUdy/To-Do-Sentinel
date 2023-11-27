@@ -10,7 +10,7 @@ interface AddToDoProps {
     taskDueDate: string;
 };
 
-interface ToggleToDoStatusProps {
+interface UpdateToDoProps {
     docId: string;
     taskProgress: string;
 };
@@ -35,7 +35,7 @@ const addToDo = async ({userId, taskTitle, taskDescription, taskPriority, taskPr
     };
 };
 
-const toggleToDoStatus = async ({docId, taskProgress}: ToggleToDoStatusProps) => {
+const updateToDo = async ({docId, taskProgress}: UpdateToDoProps) => {
     try {
         const todoRef = doc(db, "toDo", docId);
         await updateDoc(todoRef, {
@@ -55,4 +55,4 @@ const deleteToDo = async ({docId}: DeleteToDoProps) => {
     };
 };
 
-export { addToDo, toggleToDoStatus, deleteToDo };
+export { addToDo, updateToDo, deleteToDo };
