@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import { DownArrow } from '@/assets';
 
 const TaskDropdown = ({keys, onChange, selectField}) => {
   console.log(selectField);
@@ -7,10 +8,11 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
   const isCategory = selectField.some(item => 'label' in item);
 
   return (
-    <Dropdown className='min-w-40 w-44'>
+    <Dropdown className='min-w-40 w-80'>
       <DropdownTrigger>
-        <Button variant="bordered" className="w-1/2 border-2 bg-white dark:bg-slate-900 border-slate-500/50 dark:border-slate-600 flex mx-auto px-4 py-2 capitalize">
-          {isCategory ? 'Category' : 'Progress'}
+        <Button variant="bordered" className="w-full border-2 bg-white dark:bg-slate-900 border-slate-500/50 dark:border-slate-600 flex py-2 justify-between capitalize">
+          <span>{isCategory ? 'Category' : 'Progress'}</span>
+          <DownArrow/>
         </Button>
       </DropdownTrigger>
       <DropdownMenu 
