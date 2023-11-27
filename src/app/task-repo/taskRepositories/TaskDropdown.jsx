@@ -9,7 +9,7 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
   return (
     <Dropdown className='min-w-40 w-44'>
       <DropdownTrigger>
-        <Button variant="bordered" className="w-1/2 flex mx-auto px-4 py-2 capitalize">
+        <Button variant="bordered" className="w-1/2 border-2 bg-white dark:bg-slate-900 border-slate-500/50 dark:border-slate-600 flex mx-auto px-4 py-2 capitalize">
           {isCategory ? 'Category' : 'Progress'}
         </Button>
       </DropdownTrigger>

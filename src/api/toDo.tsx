@@ -12,7 +12,11 @@ interface AddToDoProps {
 
 interface UpdateToDoProps {
     docId: string;
+    taskTitle: string;
+    taskDescription: string;
+    taskPriority: string;
     taskProgress: string;
+    taskDueDate: string;
 };
 
 interface DeleteToDoProps {
@@ -35,11 +39,15 @@ const addToDo = async ({userId, taskTitle, taskDescription, taskPriority, taskPr
     };
 };
 
-const updateToDo = async ({docId, taskProgress}: UpdateToDoProps) => {
+const updateToDo = async ({docId, taskTitle, taskDescription, taskPriority, taskProgress, taskDueDate}: UpdateToDoProps) => {
     try {
         const todoRef = doc(db, "toDo", docId);
         await updateDoc(todoRef, {
+            taskTitle,
+            taskDescription,
+            taskPriority,
             taskProgress,
+            taskDueDate,
         });
     } catch (err) {
         console.log(err);
