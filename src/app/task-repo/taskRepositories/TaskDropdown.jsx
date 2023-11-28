@@ -6,7 +6,7 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
   const isCategory = selectField.some(item => 'label' in item);
 
   return (
-    <Dropdown className='min-w-40 w-72 w360:w-80 sm:w-64 lg:w-80 z-10'>
+    <Dropdown className='min-w-40 w-72 w360:w-80 sm:w-64 lg:w-80 z-10 bg-white dark:bg-slate-900 border-2 border-slate-500/50 dark:border-slate-600/10'>
       <DropdownTrigger>
         <Button variant="bordered" className="w-full border-2 bg-white dark:bg-slate-900 border-slate-500/50 dark:border-slate-600 flex py-2 justify-between capitalize">
           <span>{isCategory ? 'Category' : 'Progress'}</span>
@@ -27,7 +27,7 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
             const keyValue = isCategory ? field.label : field.status;
 
             return (
-              <DropdownItem className='w-full' key={keyValue}>{keyValue}</DropdownItem>
+              <DropdownItem className='w-full hover:bg-slate-300 dark:hover:bg-slate-950 focus:bg-slate-300 dark:focus:bg-slate-950' key={keyValue}>{keyValue}</DropdownItem>
             );
           })
         )}
