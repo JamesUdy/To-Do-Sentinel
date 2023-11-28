@@ -15,6 +15,8 @@ import { progressStatus } from '@/app/todo-list/toDoForm/ProgressStatus';
 import TaskDropdown from './TaskDropdown';
 import './TaskRepositories.css';
 import { ClearKeywordTask } from '@/assets';
+import { Toaster } from 'react-hot-toast';
+
 
 const TaskRepositories = () => {
   const router = useRouter();
@@ -74,6 +76,11 @@ const TaskRepositories = () => {
 
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
+                                              <Toaster toastOptions={{
+                                            className: '', style: {
+                                            marginTop: '32px',
+                                            }
+                                        }} position="bottom-right" />
       {user ? (
         <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
