@@ -48,10 +48,9 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
           });
           setIsOpen(false);
 
-          toast.success('Task created successfully');
+          toast.success('Task updated successfully ✅');
         } catch (error) {
-          console.error(error);
-          toast.error('An error occurred while adding the task');
+            toast.error('An error occurred while updating the task');
         } finally {
           setSubmitting(false);
         }
