@@ -89,9 +89,9 @@ const TaskRepositories = () => {
             <section className='flex w-full flex-col items-center mt-2 mb-10'>
               <div className='flex sm:w-2/3 xl:w-1/2 mx-auto flex-wrap gap-4'>
                 {selectedKeys && Array.from(selectedKeys).map((item, index) => (
-                  <span key={index} className='px-2 py-1 bg-white dark:bg-slate-900 shadow-lg shadow-slate-600 dark:shadow-black rounded-md justify-around flex items-center space-x-2 w-fit'>
+                  <span key={index} className='px-2 py-1 bg-white dark:bg-slate-900 shadow-lg shadow-slate-600 dark:shadow-black rounded-md justify-around flex items-center space-x-2 w-fit cursor-pointer' onClick={() => clearSelectedKey(item)}>
                     <span>{item}</span>
-                    <div className='cursor-pointer' onClick={() => clearSelectedKey(item)}>
+                    <div className='cursor-pointer' >
                       <ClearKeywordTask/>
                     </div>
                   </span>

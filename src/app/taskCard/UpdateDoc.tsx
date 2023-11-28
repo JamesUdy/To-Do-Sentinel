@@ -87,17 +87,16 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                 >
-                    <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-950 pt-4 px-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full border-2 border-slate-500/50 dark:border-slate-600/10 max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-950 pt-4 px-6 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title
                         as="h3"
                         className="text-lg font-medium leading-6"
                     >
                         Edit Task 📝
                     </Dialog.Title>
-                    <div className="mt-2">
+                    <div className="my-4">
                         <p className="text-sm text-gray-500">
-                        Your payment has been successfully submitted. We’ve sent
-                        you an email with all of the details of your order.
+                        🔄 Tailor your tasks with our seamless editing feature. Make updates, stay organized, and achieve more, effortlessly!
                         </p>
                     </div>
 
