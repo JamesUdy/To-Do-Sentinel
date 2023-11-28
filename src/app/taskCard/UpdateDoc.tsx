@@ -30,8 +30,6 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
     },
 
     onSubmit:async (values, { setSubmitting }) => {
-      console.log(values);
-
       const taskId = task.id;
       
       if(user !== null && user !== undefined) {

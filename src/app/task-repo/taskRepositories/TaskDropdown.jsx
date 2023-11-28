@@ -3,8 +3,6 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@
 import { DownArrow } from '@/assets';
 
 const TaskDropdown = ({keys, onChange, selectField}) => {
-  console.log(selectField);
-
   const isCategory = selectField.some(item => 'label' in item);
 
   return (

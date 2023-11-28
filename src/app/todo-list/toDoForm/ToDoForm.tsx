@@ -40,9 +40,7 @@ const ToDoForm = () => {
 
     validationSchema: validationSchema,
 
-    onSubmit:async (values, { setSubmitting }) => {
-      console.log(values);
-      
+    onSubmit:async (values, { setSubmitting }) => {      
       if(user !== null && user !== undefined) {
         try {
           setSubmitting(true);

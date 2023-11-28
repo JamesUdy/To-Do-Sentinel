@@ -47,8 +47,6 @@ const TaskRepositories = () => {
   
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
-  console.log(selectedKeys);
-
   const clearSelectedKey = (item) => {
     if(selectedKeys.has(item)) {
       const updatedSelectedKeys = new Set([...selectedKeys].filter(key => key !== item));
