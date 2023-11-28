@@ -59,6 +59,8 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
     },
   });
 
+  const isFormDirty = formikForm.dirty;
+
   const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
   return (
@@ -163,7 +165,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                                 >
                                 Cancel
                                 </button>
-                                <button type='submit' className='py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-blue-500 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-900 hover:scale-105 ease-in duration-200'>{formikForm.isSubmitting ? (
+                                <button type='submit'disabled={!isFormDirty || formikForm.isSubmitting} className={`${!isFormDirty ? 'cursor-not-allowed' : 'cursor-pointer'} py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-blue-500 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-900 hover:scale-105 ease-in duration-200`}>{formikForm.isSubmitting ? (
                                 <div className={`flex mx-auto ${spinnerColor}`}></div>
                                 ) : (
                                 <span>Save</span>
