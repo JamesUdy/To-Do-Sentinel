@@ -99,7 +99,7 @@ const TaskRepositories = () => {
               </div>
             </section>
           )}
-          <section className='flex justify-center w-1/2 mx-auto mb-4 space-x-2'>
+          <section className='flex flex-col sm:flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-y-2 sm:space-y-0 sm:space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
           </section>
