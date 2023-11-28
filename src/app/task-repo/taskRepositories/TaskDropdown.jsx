@@ -8,7 +8,7 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
   const isCategory = selectField.some(item => 'label' in item);
 
   return (
-    <Dropdown className='min-w-40 w-80'>
+    <Dropdown className='min-w-40 w-80 z-10'>
       <DropdownTrigger>
         <Button variant="bordered" className="w-full border-2 bg-white dark:bg-slate-900 border-slate-500/50 dark:border-slate-600 flex py-2 justify-between capitalize">
           <span>{isCategory ? 'Category' : 'Progress'}</span>
@@ -17,7 +17,7 @@ const TaskDropdown = ({keys, onChange, selectField}) => {
       </DropdownTrigger>
       <DropdownMenu 
         aria-label="Static Actions" 
-        className=''
+        className='z-10'
         variant='flat' 
         closeOnSelect={false} 
         selectionMode='multiple' 
