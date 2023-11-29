@@ -40,13 +40,17 @@ const SearchTask: React.FC<SearchTaskProps> = ({keyword, handleKeywordChanges, c
           name="search"
           id="search"
           placeholder={'Find a specific task title...'}
-          className="block pl-10 sm:pl-12 w-full text-sm rounded-md border-0 py-1.5 pr-12 dark:text-neutral-300 shadow-sm ring-1 ring-inset ring-slate-400 dark:ring-slate-900 placeholder:text-neutral-600 focus:ring-1 focus:ring-inset bg-white dark:bg-slate-900 focus-visible:outline-2 focus-visible:outline focus-visible:outline-blue-600"
+          className="block pl-10 sm:pl-12 w-full text-sm rounded-md border-0 py-1.5 pr-12 dark:text-neutral-300 shadow-sm ring-1 ring-inset ring-slate-400 dark:ring-slate-900 placeholder:text-neutral-600 bg-white dark:bg-slate-900 focus:ring-1 focus:ring-inset hover:outline-2 hover:outline hover:outline-blue-600 focus-visible:outline-2 focus-visible:outline focus-visible:outline-blue-600"
           value={keyword}
           onChange={handleKeywordChanges}
           ref={searchInputRef}
         />
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5 cursor-pointer" onClick={clearKeyword}>
-          {keyword.length > 0 && <ClearKeywordTask/>}
+          {keyword.length > 0 ? (
+            <ClearKeywordTask/>
+          ) : (
+            <span className='text-xs pt-1 pr-2 text-neutral-600'>CTRL + F</span>
+          )}
         </div>
       </div>
     </section>
