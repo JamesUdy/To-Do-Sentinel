@@ -6,9 +6,23 @@ import ToDoCategory from '../todo-list/toDoForm/ToDoCategory';
 import ToDoStatus from '../todo-list/toDoForm/ToDoStatus';
 import { updateToDo } from '@/api/toDo';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import useAuth from '../hooks/useAuth';
 import { Dialog, Transition } from '@headlessui/react';
 import toast from 'react-hot-toast';
+
+const validationSchema = Yup.object({
+    taskTitle: Yup.string()
+      .transform((_, originalValue) => originalValue.trim())
+      .required('Please enter your task title')
+      .min(2, 'Title should have at least 2 letters')
+      .max(100, 'Title cannot have more than 100 letters'),
+      taskDescription: Yup.string()
+      .transform((_, originalValue) => originalValue.trim())
+      .required('Please enter your task description')
+      .min(2, 'Description should have at least 2 characters')
+      .max(125, 'Description cannot have more than 125 characters'),
+  });
 
 interface UpdateDocProps {
     task: ListProps;
@@ -28,6 +42,8 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
       taskProgress: task.taskProgress,
       taskDueDate: task.taskDueDate,
     },
+
+    validationSchema: validationSchema,
 
     onSubmit:async (values, { setSubmitting }) => {
       const taskId = task.id;
@@ -111,12 +127,12 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                                 onChange={formikForm.handleChange}
                                 onBlur={formikForm.handleBlur}
                                 value={formikForm.values.taskTitle}
-                                className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
+                                className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2 mb-4' 
                                 placeholder='E.g., Test preparation' 
                                 type='text' 
                                 />
                                 {formikForm.touched.taskTitle && formikForm.errors.taskTitle && (
-                                <p className='w-full absolute pt-2 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
+                                <p className='w-full -bottom-2 absolute tracking-tighter text-red-500 font-semibold text-xs ml-1'>
                                     {formikForm.errors.taskTitle}
                                 </p>
                                 )}
@@ -132,10 +148,10 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                                 onBlur={formikForm.handleBlur}
                                 value={formikForm.values.taskDescription}
                                 placeholder='E.g., Complete the book and take notes' 
-                                className='w-full h-24 sm:h-24 max-h-44 min-h-24 py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2'>                
+                                className='w-full h-24 sm:h-24 max-h-44 min-h-24 py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2 mb-4'>                
                                 </textarea>
                                 {formikForm.touched.taskDescription && formikForm.errors.taskDescription && (
-                                <p className='w-full absolute pt-1 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
+                                <p className='w-full absolute -bottom-2 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
                                     {formikForm.errors.taskDescription}
                                 </p>
                                 )}
