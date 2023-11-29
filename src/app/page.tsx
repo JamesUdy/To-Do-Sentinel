@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
-import SignIn from './signIn/SignIn';
+import HomePage from './HomePage';
 
 const Home = () => {
 
   return (
-    <SignIn />
+    <HomePage />
   );
 };
 

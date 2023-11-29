@@ -1,4 +1,3 @@
-'use client';
 
 import { auth } from "@/firebaseAuth/FirebaseAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -8,6 +7,7 @@ import useAuth from "@/app/hooks/useAuth";
 import Image from "next/image";
 import "./SignIn.css";
 import { ThemeToggleButton } from '@/assets/todoAssets';
+import Link from "next/link";
 
 const SignIn = () => {
     const router = useRouter(); 
@@ -35,10 +35,10 @@ const SignIn = () => {
       });
     };
 
-  if(user) {
-    router.push('/todo-list');
-    return null;
-  }
+  // if(user) {
+  //   router.push('/todo-list');
+  //   return null;
+  // }
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
@@ -56,7 +56,11 @@ const SignIn = () => {
         <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/2 sm:w-1/4 hidden dark:inline-block"/>
       </section>
       <section className="relative w-1/2 flex justify-center">
-        <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
+        {!user ? (
+          <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
+        ) : (
+          <Link href='/todo-list' className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
+        )}
         <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
           <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
           <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
