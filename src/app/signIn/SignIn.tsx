@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const SignIn = () => {
     const router = useRouter(); 
-    const { user } = useAuth();
+    const { user, isLoggedIn, setIsLoggedIn, loading } = useAuth();
     
     const handleAuth = async () => {
       const googleSignIn = new GoogleAuthProvider();
@@ -24,7 +24,7 @@ const SignIn = () => {
         const token = credential?.accessToken;
         const user = result.user;
 
-        router.push('/todo-list');
+        setIsLoggedIn(true);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -34,11 +34,6 @@ const SignIn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
     };
-
-  // if(user) {
-  //   router.push('/todo-list');
-  //   return null;
-  // }
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
@@ -56,11 +51,20 @@ const SignIn = () => {
         <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/2 sm:w-1/4 hidden dark:inline-block"/>
       </section>
       <section className="relative w-1/2 flex justify-center">
-        {!user ? (
-          <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
+      { !loading ? (
+          !isLoggedIn ? (
+            <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
+          ) : (
+            <>
+              <Link href='/todo-list' className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
+            </>
+          )
         ) : (
-          <Link href='/todo-list' className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-800 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
-        )}
+          <div className="w-24 py-1 sm:px-3 text-md font-bold text-slate-200 dark:text-slate-950 bg-slate-950 dark:bg-slate-200 rounded-md shadow-lg shadow-slate-900 ease-in duration-200">
+            <div className='flex mx-auto loader'></div>
+          </div>
+        )
+      }
         <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
           <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
           <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
