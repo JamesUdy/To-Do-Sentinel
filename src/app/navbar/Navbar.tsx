@@ -29,15 +29,15 @@ const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
 
   return (
     <section className='flex w-full justify-between items-center px-4'>
-      <section className='flex items-center'>
+      <Link href='/' className='flex items-center'>
         <div>
           <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-16 w360:w-20 inline-block dark:hidden"/>
           <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-16 w360:w-20 hidden dark:inline-block"/>
         </div>
-        <span className="text-xl w360:text-2xl sm:text-2xl xl:text-3xl font-bold website-name">To Do Sentinel</span>
-      </section>
-      <div className='flex items-center space-x-12'>
-        <section className='text-sm font-bold space-x-4 profile-page-font'>
+        <span className="hidden sm:block sm:text-2xl xl:text-3xl font-bold website-name">To Do Sentinel</span>
+      </Link>
+      <div className='flex items-center space-x-4 sm:space-x-12'>
+        <section className='text-2xs sm:text-sm font-bold space-x-4 profile-page-font'>
           {links.map((link) => (
             <Link key={link.href} href={link.href}>
               <span className={`ease-in duration-200 ${pathName === link.href ? 'underline underline-offset-2' : 'hover:underline hover:underline-offset-2'}`}>
@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
             </Link>
           ))}
         </section>
-        <div onClick={() => handleShowProfile()}>
+        <div className='w-6 w360:w-8 lg:w-10' onClick={() => handleShowProfile()}>
           {userDp && <Image src={userDp} alt='User Dp' width={40} height={40} className='rounded-full cursor-pointer' priority={true} />}
         </div>
       </div>

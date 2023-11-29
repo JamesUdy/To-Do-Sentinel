@@ -71,7 +71,7 @@ const SignIn = () => {
         </section>
       </section>
        {/* <a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Freepik - Flaticon</a>*/}
-       <ThemeToggleButton />
+       {!user && <ThemeToggleButton />}
     </section>
   )
 };
