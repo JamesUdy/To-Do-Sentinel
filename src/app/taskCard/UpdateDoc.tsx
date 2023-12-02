@@ -116,8 +116,8 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                         </p>
                     </div>
 
-                    <section className='container text-slate-700 dark:text-slate-400 w-full flex flex-col items-center my-4 lg:my-0 lg:mb-8 space-y-2 font-medium todo-form'>
-                        <form onSubmit={formikForm.handleSubmit} className='flex w-full flex-col items-center space-y-2'>
+                    <section className='container h-72 w360:h-96 overflow-hidden text-slate-700 dark:text-slate-400 w-full flex flex-col items-center my-4 lg:my-0 lg:mb-8 space-y-2 font-medium todo-form'>
+                        <form onSubmit={formikForm.handleSubmit} className='flex w-full overflow-y-scroll flex-col items-center pb-10 px-4 space-y-2'>
                             <section className='w-full flex flex-col items-start space-y-1 pb-2'>
                             <label className='text-md' htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
                             <div className='relative w-full'>
