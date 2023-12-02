@@ -77,6 +77,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
   const isFormDirty = formikForm.dirty;
 
   const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
+  const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -117,7 +118,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                     </div>
 
                     <section className='container h-72 w360:h-96 overflow-hidden text-slate-700 dark:text-slate-400 w-full flex flex-col items-center my-4 lg:my-0 lg:mb-8 space-y-2 font-medium todo-form'>
-                        <form onSubmit={formikForm.handleSubmit} className='flex w-full overflow-y-scroll flex-col items-center pb-10 px-4 space-y-2'>
+                        <form onSubmit={formikForm.handleSubmit} className={`flex w-full overflow-y-scroll flex-col items-center pb-10 px-4 space-y-2 ${scrollBar}`}>
                             <section className='w-full flex flex-col items-start space-y-1 pb-2'>
                             <label className='text-md' htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
                             <div className='relative w-full'>
