@@ -6,9 +6,10 @@ import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
 interface ToDoStatusProps {
   formikForm: ReturnType<typeof useFormik<ToDoValueProps>>,
+  showComplete: boolean,
 };
 
-const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
+const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm, showComplete }) => {
 
   return (
     <>    
@@ -38,7 +39,7 @@ const ToDoStatus: React.FC<ToDoStatusProps> = ({ formikForm }) => {
                 className="absolute outline outline-2 mt-2 w-full z-10 text-sm bg-slate-300 dark:bg-slate-900 outline-slate-400 overflow-y-auto dark:outline-slate-800 rounded-md shadow-lg shadow-slate-600 dark:shadow-black/60"
               >
                 {progressStatus.map((progress) => (
-                   progress.status !== 'Completed ✅' &&
+                   (showComplete || progress.status !== 'Completed ✅') &&
                     <Listbox.Option key={progress.id} value={progress.status}>
                         {({active, selected}) => (
                         <div

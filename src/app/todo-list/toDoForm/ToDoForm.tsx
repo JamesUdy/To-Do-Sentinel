@@ -120,7 +120,7 @@ const ToDoForm = () => {
           </div>
         </section>
         <ToDoCategory formikForm={formikForm} />
-        <ToDoStatus formikForm={formikForm} />
+        <ToDoStatus formikForm={formikForm} showComplete={false} />
         <div className='w-full flex flex-col pt-4 space-y-2'>
           <label htmlFor="taskDueDate" className='text-md'>⏰ Due Date</label>
           <input 
