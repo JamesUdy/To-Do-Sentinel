@@ -56,11 +56,11 @@ const SignIn = () => {
             <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
           ) : (
             <>
-              <Link href='/todo-list' className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
+              <Link href='/todo-list' className="text-2xs w414:text-xs sm:text-md lg:text-lg px-3 sm:px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
             </>
           )
         ) : (
-          <div className="w-24 py-1 sm:px-3 text-md font-bold text-slate-200 dark:text-slate-950 bg-slate-950 dark:bg-slate-200 rounded-md shadow-lg shadow-slate-900 ease-in duration-200">
+          <div className="w-20 w360:w-24 py-1 sm:px-3 text-2xs w414:text-xs sm:text-md font-bold text-slate-200 dark:text-slate-950 bg-slate-950 dark:bg-slate-200 rounded-md shadow-lg shadow-slate-900 ease-in duration-200">
             <div className='flex mx-auto loader'></div>
           </div>
         )

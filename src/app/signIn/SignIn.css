@@ -25,3 +25,9 @@
 }
 
 @keyframes l2 {to{background-size: 100% 3px}}
+
+@media (max-width: 414px) {
+  .loader {
+    font-size: 12px;
+  }
+}
