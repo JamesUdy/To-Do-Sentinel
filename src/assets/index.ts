@@ -32,6 +32,7 @@ import Edit from './svg/Edit';
 // Svg used in Task Repo component
 import ClearKeywordTask from './svg/ClearKeywordTask';
 import DownArrow from './svg/DownArrow';
+import LeftArrow from './svg/LeftArrow';
 import Search from './svg/Search';
 
 export {
@@ -61,6 +62,7 @@ export {
     Edit,
 
     ClearKeywordTask,
+    LeftArrow,
     DownArrow,
     Search,
 };
