@@ -1,13 +1,16 @@
 import React from 'react';
-import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
+import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
 import TaskLoader from '@/app/loader/taskLoader/TaskLoader';
 import Link from 'next/link';
 
-const EarlyStageTasks = () => {
-  const toDoListData: ListProps[] = FetchToDoData();
+interface EarlyStageTasksProps {
+  taskData: ListProps[];
+};
 
-  const earlyStageTasks = toDoListData.filter(
+const EarlyStageTasks: React.FC<EarlyStageTasksProps> = ({taskData}) => {
+
+  const earlyStageTasks = taskData.filter(
     task => task.taskProgress !== "Completed ✅"
   );
 
