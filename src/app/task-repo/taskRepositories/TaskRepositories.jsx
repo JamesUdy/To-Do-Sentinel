@@ -16,7 +16,7 @@ import TaskDropdown from './TaskDropdown';
 import './TaskRepositories.css';
 import { ClearKeywordTask } from '@/assets';
 import { Toaster } from 'react-hot-toast';
-import { Info, LeftArrow } from '@/assets';
+import TaskRepoHeader from './TaskRepoHeader';
 
 
 const TaskRepositories = () => {
@@ -27,7 +27,6 @@ const TaskRepositories = () => {
   const { theme } = useTheme();
   const [keyword, setKeyword] = useState('');
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -85,14 +84,7 @@ const TaskRepositories = () => {
       {user ? (
         <>
           <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
-          <div className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center flex items-center justify-center space-x-4'>
-            <span>🗂️ Task Repository</span>
-            <span className='relative ease-in duration-200' onMouseEnter={() => setIsPopoverOpen(true)} onMouseLeave={() => setIsPopoverOpen(false)}>
-              <Info/>
-              <span className={`absolute hidden ${isPopoverOpen ? 'sm:block' : 'sm:hidden'} left-10 -top-1 bg-slate-950 dark:bg-slate-200 text-slate-300 dark:text-slate-950 px-2 py-1 text-xs ease-in duration-200 rounded-md`}>User Instructions</span>
-              <span className={`absolute hidden ${isPopoverOpen ? 'sm:block' : 'sm:hidden'} left-6 top-0`}><LeftArrow/></span>
-            </span>
-          </div>
+          <TaskRepoHeader/>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
           {selectedKeys !== null && (
             <section className='flex w-full flex-col items-center mt-2 mb-4 sm:mb-10'>
