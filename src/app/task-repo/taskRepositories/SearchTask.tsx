@@ -30,7 +30,7 @@ const SearchTask: React.FC<SearchTaskProps> = ({keyword, handleKeywordChanges, c
   }, []);
 
   return (
-    <section className='w-full px-4 sm:px-0 sm:w-2/3 lg:w-1/2 flex mx-auto my-6'>
+    <section className='w-full px-4 sm:px-0 sm:w-2/3 lg:w-1/2 flex mx-auto mt-2 mb-4 sm:my-6'>
       <div className="relative w-full mt-2 rounded-md flex items-center shadow-lg shadow-slate-600 dark:shadow-black">
         <div className='absolute left-4'>
           <Search/>

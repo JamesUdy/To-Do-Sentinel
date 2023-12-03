@@ -86,7 +86,7 @@ const TaskRepositories = () => {
           <span className='text-md w360:text-lg sm:text-xl font-semibold w-full text-center'>🗂️ Task Repository</span>
           <SearchTask keyword={keyword} handleKeywordChanges={handleKeywordChanges} clearKeyword={clearKeyword} />
           {selectedKeys !== null && (
-            <section className='flex w-full flex-col items-center mt-2 mb-10'>
+            <section className='flex w-full flex-col items-center mt-2 mb-4 sm:mb-10'>
               <div className='flex sm:w-2/3 xl:w-1/2 mx-auto flex-wrap justify-center sm:justify-start gap-2 sm:gap-4'>
                 {selectedKeys && Array.from(selectedKeys).map((item, index) => (
                   <span key={index} className='px-2 py-1 text-2xs sm:text-xs bg-white dark:bg-slate-900 shadow-lg shadow-slate-600 dark:shadow-black rounded-md justify-around flex items-center space-x-2 w-fit cursor-pointer' onClick={() => clearSelectedKey(item)}>
@@ -99,7 +99,8 @@ const TaskRepositories = () => {
               </div>
             </section>
           )}
-          <section className='flex flex-col sm:flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-y-2 sm:space-y-0 sm:space-x-2'>
+          {/* <section className='flex flex-col sm:flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-y-2 sm:space-y-0 sm:space-x-2'> */}
+          <section className='flex flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />
           </section>
