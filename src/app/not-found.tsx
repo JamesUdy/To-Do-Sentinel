@@ -35,7 +35,7 @@ export default function NotFound() {
       <div className="my-4">
         <Image src={errorImage} alt="Task not Found" className='w-48 sm:w-64 h-48 sm:h-64' />
       </div>
-      <p className="text-sm sm:text-xl text-blue-950 dark:text-blue-500">Fear not! We&apos;re redirecting you to the sign-in page in {countdown} seconds.</p>
+      <p className="text-sm sm:text-xl text-blue-950 dark:text-blue-500">Fear not! We&apos;re redirecting you to the homepage in {countdown} seconds.</p>
       <ThemeToggleButton />
     </section>
   )
