@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
       label: 'Home' 
     },
     { 
-      href: '/todo-list', 
+      href: '/todo-form', 
       label: 'Form' 
     },
     { 

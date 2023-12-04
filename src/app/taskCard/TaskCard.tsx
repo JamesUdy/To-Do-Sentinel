@@ -4,7 +4,7 @@ import { Delete, Edit } from '@/assets';
 import { useTheme } from 'next-themes';
 import { deleteToDo } from '@/api/toDo';
 import toast from 'react-hot-toast';
-import { categories } from '@/app/todo-list/toDoForm/Categories';
+import { categories } from '@/app/todo-form/toDoForm/Categories';
 import UpdateDoc from './UpdateDoc';
 
 const formatDate = (dateString: string): string => {

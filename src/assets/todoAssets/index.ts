@@ -1,9 +1,9 @@
-import EarlyStageTasks from '@/app/todo-list/toDoForm/EarlyStageTasks';
+import EarlyStageTasks from '@/app/todo-form/toDoForm/EarlyStageTasks';
 import Loader from '@/app/loader/Loader';
 import Navbar from '@/app/navbar/Navbar';
 import Profile from '@/app/profile/Profile';
-import ToDoForm from "@/app/todo-list/toDoForm/ToDoForm";
 import ThemeToggleButton from "@/app/ThemeToggleButton";
+import ToDoForm from '@/app/todo-form/toDoForm/ToDoForm';
 
 export {
   EarlyStageTasks,

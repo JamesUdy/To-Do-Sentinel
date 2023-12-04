@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './index.css';
-import ToDoFormPage from "@/app/todo-list/ToDoFormPage";
+import ToDoFormPage from './ToDoFormPage';
 
 const ToDoList = () => {
   return (
