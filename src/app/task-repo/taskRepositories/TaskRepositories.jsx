@@ -74,7 +74,7 @@ const TaskRepositories = () => {
   });
 
   return (
-    <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
+    <section className='relative flex flex-col justify-start w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden todo-list'>
       <Toaster toastOptions={{
         className: '', 
         style: {

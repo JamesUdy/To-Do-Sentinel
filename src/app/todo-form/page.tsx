@@ -5,7 +5,7 @@ import ToDoFormPage from './ToDoFormPage';
 
 const ToDoList = () => {
   return (
-    <section className='flex flex-col place-content-center w-full max-h-screen'>
+    <section className='flex flex-col place-content-start w-full max-h-screen'>
       <ToDoFormPage/>
     </section>
   );
