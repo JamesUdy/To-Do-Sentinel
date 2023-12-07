@@ -43,7 +43,7 @@ const TaskRepoHeader = () => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full py-4 border-2 text-slate-700 dark:text-slate-400 border-slate-500/50 dark:border-slate-600/10 max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-950 pt-4 px-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full border-2 text-slate-700 dark:text-slate-400 border-slate-500/50 dark:border-slate-600/10 max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-950 py-6 px-8 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h3"
                       className="text-lg font-medium leading-6"
