@@ -59,7 +59,7 @@ To-Do Sentinel relies on Firebase Firestore for data storage and authentication.
 
 ## Live Link
 
-Embark on a productivity journey with [To-Do Sentinel](to-do-sentinel.vercel.app)! 🌟 Unleash the power of organized tasks and efficiency. 🚀
+Embark on a productivity journey with [To-Do Sentinel](https://to-do-sentinel.vercel.app/)! 🌟 Unleash the power of organized tasks and efficiency. 🚀
 
 ## Contact
 
