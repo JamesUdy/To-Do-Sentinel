@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
             </Link>
           ))}
         </section>
-        <div className='w-6 w360:w-8 lg:w-10' onClick={() => handleShowProfile()}>
+        <div className='w-6 w360:w-8 lg:w-10 hover:scale-110 ease-in duration-200' onClick={() => handleShowProfile()}>
           {userDp && <Image src={userDp} alt='User Dp' width={40} height={40} className='rounded-full cursor-pointer' priority={true} />}
         </div>
       </div>
