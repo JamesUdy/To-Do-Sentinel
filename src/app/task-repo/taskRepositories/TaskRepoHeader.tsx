@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-import { Delete, Edit, Info, LeftArrow } from '@/assets';
+import { Close, Delete, Edit, Info, LeftArrow } from '@/assets';
 import { useTheme } from 'next-themes';
 
 const TaskRepoHeader = () => {
@@ -47,7 +47,7 @@ const TaskRepoHeader = () => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full border-2 text-slate-700 dark:text-slate-400 border-slate-500/50 dark:border-slate-600/10 max-w-md transform rounded-2xl bg-white dark:bg-slate-950 py-4 sm:py-6 px-8 text-left align-middle shadow-xl transition-all space-y-4">
+                  <Dialog.Panel className="w-full relative border-2 text-slate-700 dark:text-slate-400 border-slate-500/50 dark:border-slate-600/10 max-w-md transform rounded-2xl bg-white dark:bg-slate-950 py-4 sm:py-6 px-6 text-left align-middle shadow-xl transition-all space-y-4">
                     <Dialog.Title
                       as="h3"
                       className="text-xl font-bold w-full"
@@ -107,16 +107,18 @@ const TaskRepoHeader = () => {
                         </li>
                       </ol>
                     </div>
-
-                    <div className="mt-4">
+                    {/* <div className="mt-4 flex justify-end">
                       <button
                         type="button"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                         onClick={() => handleClose()}
                       >
-                        Got it, thanks!
+                        Start using
                       </button>
-                    </div>
+                    </div> */}
+                    <button className='absolute top-2 right-6 hover:scale-125' onClick={() => handleClose()}>
+                      <Close/>
+                    </button>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
