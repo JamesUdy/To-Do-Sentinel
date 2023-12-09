@@ -24,14 +24,31 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
   const category = categories.find(category => category.label === task.taskPriority);
   const backgroundColor = theme === 'dark' ? category?.colors.dark : category?.colors.light;
 
-  const handleDeleteTask = (taskId: string) => {
-    const isConfirmed = window.confirm("❗️ Are you sure you want to permanently delete this task? This action cannot be undone.");
-    if(isConfirmed) {
+  const handleDeleteTask = (taskId: string, taskProgress: string) => {
+    let confirmationMessage = "❗️ Are you sure you want to permanently delete this task? This action cannot be undone.";
+
+    switch (taskProgress) {
+        case 'Yet to start ⏳':
+            confirmationMessage = "⚠️ This task has not started yet. Are you sure you want to delete it?";
+            break;
+        case 'In Progress 🚧':
+            confirmationMessage = "⚠️ This task is currently in progress. Are you sure you want to delete it?";
+            break;
+        case 'Completed ✅':
+            confirmationMessage = "✅ This task has been completed. You can safely delete it now. Are you sure?";
+            break;
+        default:
+            break;
+    }
+
+    const isConfirmed = window.confirm(confirmationMessage);
+
+    if (isConfirmed) {
         deleteToDo({ docId: taskId });
         toast.success('Task successfully deleted!');
     } else {
         toast.error('Task deletion cancelled.');
-    };
+    }
   };
 
   return (
@@ -44,7 +61,7 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
                         <Edit/>
                     </span>
                     <UpdateDoc task={task} isOpen={isOpen} setIsOpen={setIsOpen} />
-                    <span className='cursor-pointer' onClick={() => handleDeleteTask(task.id)}>
+                    <span className='cursor-pointer' onClick={() => handleDeleteTask(task.id, task.taskProgress)}>
                         <Delete/>
                     </span>
                 </div>
