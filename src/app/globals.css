@@ -53,6 +53,7 @@
 .to-do-list-light::-webkit-scrollbar
 {
 	width: 0.4rem;
+  border-radius: 10px;
 	background-color: #e2e8f0;
 }
 
