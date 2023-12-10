@@ -43,12 +43,12 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
     >
       <section className='min-h-full relative w-full'>
         <div className='flex flex-col justify-between min-h-screen py-10 items-center w-full'>
-          <section className='flex flex-col items-center space-y-6'>
+          <section className='flex flex-col items-center space-y-6 w-full'>
             <div>
               {userDp && <Image src={userDp} alt='User Dp' width={100} height={100} className='rounded-md' priority={true} />}
             </div>
-            <div className='flex flex-col items-center'>
-              <span className='uppercase'>{userName}</span>
+            <div className='flex flex-col items-center w-full px-6 break-all'>
+              <span className='uppercase text-center'>{userName}</span>
               <div className='flex items-center space-x-2'>
                 <span>{userEmail}</span>
                 <span>{userEmailVerified ? <Verified/> : ''}</span>
