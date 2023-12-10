@@ -68,7 +68,7 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
           </div>
           <button className='w-5/6 bg-slate-950 shadow-lg text-slate-50 shadow-slate-900 py-1 rounded-md hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-900 hover:ring-slate-900 ease-in duration-200' onClick={() => handleLogout()}>Logout</button>
         </div>
-        <button className='absolute top-4 right-4' onClick={() => handleShowProfile()}>
+        <button className='absolute top-4 right-4 hover:scale-125 ease-in duration-200' onClick={() => handleShowProfile()}>
           <Close/>
         </button>
       </section>
