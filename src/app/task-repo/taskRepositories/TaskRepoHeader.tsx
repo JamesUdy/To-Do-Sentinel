@@ -105,17 +105,37 @@ const TaskRepoHeader = () => {
                             <li><em>DD-MM-YYYY Date Format:</em> Displays the task creation date.</li>
                           </ul>
                         </li>
+                        <li>
+                          6. <strong>Due Date Instructions:</strong>
+                          <ul className='flex flex-col space-y-2 py-2 px-2 text-sm'>
+                            <li>
+                              <span className='flex space-x-2 items-start'>
+                                <span className="block w-fit bg-transparent text-transparent px-2 text-sm rounded-md">Due</span>
+                                <span> - If the due date is more than 6 days away, it will be hidden.</span>
+                              </span>
+                            </li>
+                            <li>
+                              <span className='flex space-x-2 items-start'>
+                                <span className="block w-fit bg-red-400 text-white animate-pulse px-2 text-sm rounded-md">Due</span>
+                                <span> - If the due date is between 3 and 6 days away, it will have a red background and pulse animation.</span>
+                              </span>
+                            </li>
+                            <li>
+                              <span className='flex space-x-2 items-start'>
+                                <span className="block w-fit bg-red-700 text-white animate-pulse px-2 text-sm rounded-md">Due</span>
+                                <span> - If the due date is overdue (less than 0 days away), it will have a red background and bounce animation.</span>
+                              </span>
+                            </li>
+                            <li>
+                              <span className='flex space-x-2 items-start'>
+                                <span className="block w-fit bg-red-950 text-white animate-bounce px-2 text-sm rounded-md">Due</span>
+                                <span> - If the due date is overdue (less than 0 days away), it will have a red background and bounce animation.</span>
+                              </span>
+                            </li>
+                          </ul>
+                        </li>
                       </ol>
                     </div>
-                    {/* <div className="mt-4 flex justify-end">
-                      <button
-                        type="button"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        onClick={() => handleClose()}
-                      >
-                        Start using
-                      </button>
-                    </div> */}
                     <button className='absolute top-2 right-6 hover:scale-125' onClick={() => handleClose()}>
                       <Close/>
                     </button>

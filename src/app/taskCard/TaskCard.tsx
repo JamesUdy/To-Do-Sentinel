@@ -6,6 +6,7 @@ import { deleteToDo } from '@/api/toDo';
 import toast from 'react-hot-toast';
 import { categories } from '@/app/todo-form/toDoForm/Categories';
 import UpdateDoc from './UpdateDoc';
+import DueDate from './DueDate';
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
@@ -51,6 +52,8 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
     }
   };
 
+  console.log(task.taskDueDate);
+
   return (
     <section className='w-full break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-full space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
         <div className='flex flex-col space-y-2'>
@@ -72,10 +75,12 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
                     <span className={`${task.taskProgress === 'In Progress 🚧' ? 'bg-orange-600 animate-pulse' : task.taskProgress === 'Completed ✅' ? 'bg-green-600 animate-pulse' : 'bg-gray-600 dark:bg-gray-300 animate-bounce'} w-4 h-4 px-2 rounded-full`}></span>
                 </div>
                 <span className='text-xs sm:text-sm text-start font-normal'>{task.taskDescription}</span>
-                {/* <span>{task.taskDueDate}</span> */}
             </div>
         </div>
-        <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>
+        <div className='flex w-full items-center justify-between pt-4 pb-2 px-2 sm:px-0 sm:pl-2'>
+            {task.taskDueDate && <DueDate dueDate={task.taskDueDate} />}
+            <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>
+        </div>
     </section>
   );
 };
