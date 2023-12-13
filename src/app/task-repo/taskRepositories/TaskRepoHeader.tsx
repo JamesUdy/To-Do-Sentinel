@@ -12,6 +12,8 @@ const TaskRepoHeader = () => {
     setIsOpen(false);
   };
 
+  const due = "Due";
+
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
   return (
@@ -107,28 +109,28 @@ const TaskRepoHeader = () => {
                         </li>
                         <li>
                           6. <strong>Due Date Instructions:</strong>
-                          <ul className='flex flex-col space-y-2 py-2 px-2 text-sm'>
+                          <ul className='flex flex-col space-y-4 py-2 px-2 text-sm'>
                             <li>
                               <span className='flex space-x-2 items-start'>
-                                <span className="block w-fit bg-transparent text-transparent px-2 text-sm rounded-md">Due</span>
+                                <span className="block w-fit bg-transparent text-transparent px-2 text-sm rounded-md">{due}</span>
                                 <span> - If the due date is more than 6 days away, it will be hidden.</span>
                               </span>
                             </li>
                             <li>
                               <span className='flex space-x-2 items-start'>
-                                <span className="block w-fit bg-red-400 text-white animate-pulse px-2 text-sm rounded-md">Due</span>
+                                <span className="block w-fit bg-red-400 text-white animate-pulse px-2 text-sm rounded-md">{due}</span>
                                 <span> - If the due date is between 3 and 6 days away, it will have a red background and pulse animation.</span>
                               </span>
                             </li>
                             <li>
                               <span className='flex space-x-2 items-start'>
-                                <span className="block w-fit bg-red-700 text-white animate-pulse px-2 text-sm rounded-md">Due</span>
-                                <span> - If the due date is overdue (less than 0 days away), it will have a red background and bounce animation.</span>
+                                <span className="block w-fit bg-red-700 text-white animate-pulse px-2 text-sm rounded-md">{due}</span>
+                                <span> - If the due date is less than 3 days away, it will have a red background and pulse animation.</span>
                               </span>
                             </li>
                             <li>
                               <span className='flex space-x-2 items-start'>
-                                <span className="block w-fit bg-red-950 text-white animate-bounce px-2 text-sm rounded-md">Due</span>
+                                <span className="block w-fit bg-red-950 text-white animate-bounce px-2 text-sm rounded-md">{due}</span>
                                 <span> - If the due date is overdue (less than 0 days away), it will have a red background and bounce animation.</span>
                               </span>
                             </li>

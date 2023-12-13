@@ -32,7 +32,7 @@ const DueDate: React.FC<DueDateProps> = ({dueDate}) => {
   return (
     <>
         <span className='relative ease-in duration-200 w-full'>
-            <span className={`${Number(diffDate.toFixed(0)) > 6 ? "hidden" : Number(diffDate.toFixed(0)) > 3 ? "block bg-red-400  animate-pulse" : Number(diffDate.toFixed(0)) < 0 ? "block bg-red-950 animate-bounce" : "bg-red-700 animate-pulse"} text-white px-2 text-sm rounded-md w-fit`} data-tip={true}data-tooltip-id='dueDateTooltip' data-tooltip-html={Number(diffDate.toFixed(0)) > 6
+            <span className={`${Number(diffDate.toFixed(0)) > 6 ? "hidden" : Number(diffDate.toFixed(0)) > 3 ? "block bg-red-400  animate-pulse" : Number(diffDate.toFixed(0)) < 0 ? "block bg-red-950 animate-bounce" : "block bg-red-700 animate-pulse"} text-white px-2 py-0.5 text-sm rounded-md w-fit`} data-tip={true}data-tooltip-id='dueDateTooltip' data-tooltip-html={Number(diffDate.toFixed(0)) > 6
                 ? `Due in more than 6 days (${dueDate})`
                 : Number(diffDate.toFixed(0)) > 3
                 ? `Due within (${diffDate.toFixed(0)}) days (${dueDate})`
