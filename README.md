@@ -9,7 +9,6 @@ Welcome to To-Do Sentinel, your ultimate task management platform with a touch o
 - [Getting Started](#getting-started)
 - [API Data Source](#api-data-source)
 - [Live Link](#live-link)
-- [Contribute](#contribute)
 - [Contact](#contact)
 - [Check out my other projects](#check-out-my-other-projects)
 
