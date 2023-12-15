@@ -16,6 +16,7 @@ export interface ListProps {
   taskDescription: string;
   taskPriority: string;
   taskProgress: string;
+  taskFileDetails: FileObject[];
   taskFileUpload: FileList;
   taskDueDate: string; 
   createdAt: string;

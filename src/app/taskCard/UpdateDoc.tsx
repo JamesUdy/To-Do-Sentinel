@@ -42,6 +42,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
       taskDescription: task.taskDescription,
       taskPriority: task.taskPriority,
       taskProgress: task.taskProgress,
+      taskFileDetails: task.taskFileDetails,
       taskFileUpload: task.taskFileUpload,
       taskDueDate: task.taskDueDate,
     },
@@ -165,14 +166,14 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                             <ToDoCategory formikForm={formikForm} />
                             <ToDoStatus formikForm={formikForm} showComplete={true} />
                             <section className='w-full flex flex-col items-start space-y-1 pb-4'>
-                                <label className='text-md' htmlFor="taskFileUpload">Task Title<span className="text-red-500">*</span></label>
+                                <label className='text-md' htmlFor="taskFileUpload">Upload Task Files<span className="text-red-500">*</span></label>
                                 <div className='relative w-full'>
                                     <input 
                                     id='taskFileUpload'
                                     onChange={(event) => formikForm.setFieldValue('taskFileUpload', event.currentTarget.files)}
                                     onBlur={formikForm.handleBlur}
                                     className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
-                                    placeholder='E.g., Test preparation' 
+                                    placeholder='Select files...' 
                                     multiple
                                     type='file' 
                                     />
@@ -182,6 +183,19 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                                     </p>
                                     )}
                                 </div>
+                                {/* Display selected file names */}
+                                {formikForm.values.taskFileUpload && formikForm.values.taskFileUpload.length > 0 && (
+                                    <div className='mt-2'>
+                                    <p className='text-sm font-medium text-gray-600 dark:text-gray-400'>
+                                        Selected Files:
+                                    </p>
+                                    <ul className='list-disc list-inside text-sm text-gray-600 dark:text-gray-400'>
+                                        {Array.from(formikForm.values.taskFileUpload).map((file, index) => (
+                                        <li key={index}>{file.name}</li>
+                                        ))}
+                                    </ul>
+                                    </div>
+                                )}
                             </section>
                             <div className='w-full flex flex-col pt-4 space-y-2'>
                             <label htmlFor="taskDueDate" className='text-md'>⏰ Due Date</label>

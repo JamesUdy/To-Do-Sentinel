@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { Delete, Edit } from '@/assets';
 import { useTheme } from 'next-themes';
-// import { deleteToDo, fileUrl } from '@/api/toDo';
 import ToDoMethodComponent from '@/api/toDo';
 import toast from 'react-hot-toast';
 import { categories } from '@/app/todo-form/toDoForm/Categories';
@@ -55,11 +54,6 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
     }
   };
 
-    task.taskFileUpload && task.taskFileUpload.length > 0 && Array.from(task.taskFileUpload).map((taskFile, index) => {
-        console.log(taskFile.fileName)
-        console.log(taskFile.fileUrl)
-    });
-
   return (
     <section className='w-full break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-full space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black' key={task.id}>
         <div className='flex flex-col space-y-2'>
@@ -83,7 +77,11 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
                 <span className='text-xs sm:text-sm text-start font-normal'>{task.taskDescription}</span>
             </div>
         </div>
-        
+        {
+            task.taskFileDetails && task.taskFileDetails.length > 0 && Array.from(task.taskFileDetails).map((taskFile, index) => (
+                <a href={taskFile.fileUrl} target='_blank' key={taskFile.id}>{taskFile.fileName}</a>
+            ))
+        }
         <div className='flex w-full items-center justify-between pt-4 pb-2 px-2 sm:px-0 sm:pl-2'>
             {task.taskDueDate && <DueDate dueDate={task.taskDueDate} />}
             <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>

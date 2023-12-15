@@ -16,6 +16,7 @@ interface AddToDoProps {
     taskDescription: string;
     taskPriority: string;
     taskProgress: string;
+    taskFileDetails: FileObject[];
     taskFileUpload: FileList;
     taskDueDate: string;
 };
@@ -62,7 +63,7 @@ const ToDoMethodComponent = () => {
     //     user?.uid && getPreviousFileUrls(user.uid);
     // }, []);
 
-    const addToDo = async ({ userId, taskTitle, taskDescription, taskPriority, taskProgress, taskFileUpload, taskDueDate }: AddToDoProps) => {
+    const addToDo = async ({ userId, taskTitle, taskDescription, taskPriority, taskProgress, taskFileDetails, taskFileUpload, taskDueDate }: AddToDoProps) => {
         try {
             const fielDetails = await Promise.all(Array.from(taskFileUpload).map(async (file, index) => {
                 const storageRef = ref(storage, `toDoFiles/${userId}/${file.name}`);
@@ -86,7 +87,7 @@ const ToDoMethodComponent = () => {
                 taskDescription: taskDescription,
                 taskPriority: taskPriority,
                 taskProgress: taskProgress,
-                taskFileUpload: fielDetails,
+                taskFileDetails: fielDetails,
                 taskDueDate: taskDueDate,
                 createdAt: new Date().toLocaleString(),
             });
@@ -118,11 +119,11 @@ const ToDoMethodComponent = () => {
             // Get the taskFileUpload array from the document
             const docSnapshot = await getDoc(todoRef);
             if (docSnapshot.exists()) {
-                const { taskFileUpload } = docSnapshot.data();
+                const { taskFileDetails } = docSnapshot.data();
     
                 // Delete each file in storage
                 const storageRef = ref(storage, `toDoFiles/${user?.uid}/`);
-                taskFileUpload.forEach(async (fileUrl: string) => {
+                taskFileDetails.forEach(async (fileUrl: string) => {
                     const fileRef = ref(storage, fileUrl);
                     await deleteObject(fileRef);
                 });

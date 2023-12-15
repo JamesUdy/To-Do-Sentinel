@@ -9,6 +9,7 @@ export interface ToDoValueProps {
   taskDescription: string;
   taskPriority: string;
   taskProgress: string;
+  taskFileDetails: FileObject[];
   taskFileUpload: FileList;
   taskDueDate: string; 
 };
