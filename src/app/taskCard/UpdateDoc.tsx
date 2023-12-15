@@ -4,7 +4,8 @@ import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 import ToDoCategory from '@/app/todo-form/toDoForm/ToDoCategory';
 import ToDoStatus from '@/app/todo-form/toDoForm/ToDoStatus';
-import { updateToDo } from '@/api/toDo';
+// import { updateToDo } from '@/api/toDo';
+import ToDoMethodComponent from '@/api/toDo';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import useAuth from '../hooks/useAuth';
@@ -33,6 +34,7 @@ interface UpdateDocProps {
 const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
   const { user } = useAuth();
   const { theme } = useTheme();
+  const { updateToDo } = ToDoMethodComponent();
     
   const formikForm = useFormik<ToDoValueProps>({
     initialValues: {
@@ -40,6 +42,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
       taskDescription: task.taskDescription,
       taskPriority: task.taskPriority,
       taskProgress: task.taskProgress,
+      taskFileUpload: task.taskFileUpload,
       taskDueDate: task.taskDueDate,
     },
 
@@ -60,6 +63,7 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
             taskDescription: values.taskDescription.trim(),
             taskPriority: values.taskPriority,
             taskProgress: values.taskProgress,
+            taskFileUpload: values.taskFileUpload,
             taskDueDate: values.taskDueDate,
           });
           setIsOpen(false);
@@ -160,6 +164,25 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                             </section>
                             <ToDoCategory formikForm={formikForm} />
                             <ToDoStatus formikForm={formikForm} showComplete={true} />
+                            <section className='w-full flex flex-col items-start space-y-1 pb-4'>
+                                <label className='text-md' htmlFor="taskFileUpload">Task Title<span className="text-red-500">*</span></label>
+                                <div className='relative w-full'>
+                                    <input 
+                                    id='taskFileUpload'
+                                    onChange={(event) => formikForm.setFieldValue('taskFileUpload', event.currentTarget.files)}
+                                    onBlur={formikForm.handleBlur}
+                                    className='w-full py-2 px-3 text-sm bg-slate-300 dark:bg-slate-900 caret-slate-700 dark:caret-slate-400 placeholder:text-slate-600 dark:placeholder:text-slate-600 placeholder:text-sm rounded-md outline outline-1 outline-offset-2 outline-slate-400 dark:outline-slate-900 focus:outline focus:outline-2' 
+                                    placeholder='E.g., Test preparation' 
+                                    multiple
+                                    type='file' 
+                                    />
+                                    {formikForm.touched.taskFileUpload && formikForm.errors.taskFileUpload && typeof formikForm.errors.taskFileUpload === 'string' && (
+                                    <p className='w-full absolute pt-2 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
+                                        {formikForm.errors.taskFileUpload}
+                                    </p>
+                                    )}
+                                </div>
+                            </section>
                             <div className='w-full flex flex-col pt-4 space-y-2'>
                             <label htmlFor="taskDueDate" className='text-md'>⏰ Due Date</label>
                             <input 

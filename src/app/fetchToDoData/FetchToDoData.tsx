@@ -3,6 +3,12 @@ import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
 import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore';
 
+interface FileObject {
+  fileName: string;
+  fileUrl: string;
+  id: number;
+}
+
 export interface ListProps {
   id: string;
   userId: string;
@@ -10,6 +16,7 @@ export interface ListProps {
   taskDescription: string;
   taskPriority: string;
   taskProgress: string;
+  taskFileUpload: FileList;
   taskDueDate: string; 
   createdAt: string;
 };
