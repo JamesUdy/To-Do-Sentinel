@@ -27,7 +27,7 @@ const validationSchema = Yup.object({
 });
 
 const ToDoForm = () => {
-  const { theme, user } = Constants();
+  const { spinnerColor, user } = Constants();
   const { addToDo } = ToDoMethodComponent();
 
   const formikForm = useFormik<ToDoValueProps>({
@@ -76,8 +76,6 @@ const ToDoForm = () => {
       } 
     },
   });
-
-  const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
   return (
     <section className='container text-slate-700 dark:text-slate-400 w-full flex flex-col items-center my-4 lg:my-0 lg:mb-8 space-y-4 font-medium todo-form'>

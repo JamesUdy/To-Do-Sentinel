@@ -7,8 +7,9 @@ const Constants = () => {
   const { isLoggedIn, loading, setIsLoggedIn, setUser, user } = useAuth();
   const router = useRouter();
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
+  const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
-  return {isLoggedIn, loading, router, scrollBar, setIsLoggedIn, setUser, theme, user};
+  return {isLoggedIn, loading, router, scrollBar, setIsLoggedIn, setUser, spinnerColor, theme, user};
 };
 
 export default Constants;
