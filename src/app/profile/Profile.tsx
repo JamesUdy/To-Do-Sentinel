@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react';
 import { Close, Info, Verified, darkThemeLogo, lightThemeLogo } from '@/assets';
 import Link from 'next/link';
 import SwitchButton from './SwitchButton';
-import { useTheme } from 'next-themes';
+import Constants from '@/constants/Constants';
 
 interface ProfileProps {
   handleShowProfile: () => void;
@@ -17,7 +17,7 @@ interface ProfileProps {
 };
 
 const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEmail, userEmailVerified, userName, userDp, handleLogout}) => {
-  const { theme, setTheme } = useTheme();
+  const { handleDarkThemeChange, theme } = Constants();
   const [hasMounted, setHasMounted] = useState(false);
 
   const isDarkTheme = theme === "dark" ? true : false;
@@ -25,10 +25,6 @@ const Profile: React.FC<ProfileProps> = ({handleShowProfile, showProfile, userEm
   useEffect(() => setHasMounted(true));
 
   if (!hasMounted) return null;
-
-  const handleDarkThemeChange = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
   
   return (
     <Transition 
