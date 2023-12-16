@@ -2,23 +2,11 @@ import { useEffect, useState } from 'react';
 import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
 import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore';
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 
-interface FileObject {
-  fileName: string;
-  fileUrl: string;
-  id: number;
-}
-
-export interface ListProps {
+export interface ListProps extends ToDoValueProps {
   id: string;
   userId: string;
-  taskTitle: string;
-  taskDescription: string;
-  taskPriority: string;
-  taskProgress: string;
-  taskFileDetails: FileObject[];
-  taskFileUpload: FileList;
-  taskDueDate: string; 
   createdAt: string;
 };
 

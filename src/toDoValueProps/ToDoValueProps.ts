@@ -1,8 +1,8 @@
-interface FileObject {
+export interface FileObject {
   fileName: string;
   fileUrl: string;
   id: number;
-}
+};
 
 export interface ToDoValueProps {
   taskTitle: string;
