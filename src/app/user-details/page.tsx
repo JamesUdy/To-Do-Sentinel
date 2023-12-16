@@ -1,6 +1,6 @@
 
 import React from 'react';
-import DetailsPage from './detailsPage';
+import DetailsPage from './DetailsPage';
 
 const UserDetails = () => {
   
