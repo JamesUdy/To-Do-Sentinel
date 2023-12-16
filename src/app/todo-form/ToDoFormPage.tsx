@@ -7,14 +7,14 @@ import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from '@/assets/todoAssets';
 import './index.css';
-import { useTheme } from 'next-themes';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
+import Constants from '@/constants/Constants';
 
 const ToDoFormPage = () => {
   const router = useRouter();
-  const {user, setUser} = useAuth();
+  const { theme, user } = Constants();
+  const {setUser} = useAuth();
   const [showProfile, setShowProfile] = useState(false);
-  const { theme } = useTheme();
   const toDoListData: ListProps[] = FetchToDoData();
 
   const handleShowProfile = () => {

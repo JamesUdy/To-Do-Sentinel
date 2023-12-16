@@ -27,8 +27,7 @@ const validationSchema = Yup.object({
 });
 
 const ToDoForm = () => {
-  const { user } = Constants();
-  const { theme } = useTheme();
+  const { theme, user } = Constants();
   const { addToDo } = ToDoMethodComponent();
 
   const formikForm = useFormik<ToDoValueProps>({

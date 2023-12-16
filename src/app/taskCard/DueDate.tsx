@@ -1,13 +1,13 @@
 import React from 'react';
 import { Tooltip } from 'react-tooltip';
-import { useTheme } from 'next-themes';
+import Constants from '@/constants/Constants';
 
 interface DueDateProps{
     dueDate: string;
 };
 
 const DueDate: React.FC<DueDateProps> = ({dueDate}) => {
-  const { theme } = useTheme();
+  const { theme } = Constants();
   
   const currentDate = new Date();  
   const DueDate = new Date(dueDate);  

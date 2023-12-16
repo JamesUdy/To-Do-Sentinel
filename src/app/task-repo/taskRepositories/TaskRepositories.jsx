@@ -17,14 +17,15 @@ import './TaskRepositories.css';
 import { ClearKeywordTask } from '@/assets';
 import { Toaster } from 'react-hot-toast';
 import TaskRepoHeader from './TaskRepoHeader';
+import Constants from '@/constants/Constants';
 
 
 const TaskRepositories = () => {
   const router = useRouter();
-  const {user, setUser} = useAuth();
+  const {theme, user} = Constants();
+  const { setUser } = useAuth();
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData = FetchToDoData();
-  const { theme } = useTheme();
   const [keyword, setKeyword] = useState('');
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
 

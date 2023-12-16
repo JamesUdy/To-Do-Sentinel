@@ -2,14 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import { dark404, light404 } from '@/assets';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ThemeToggleButton } from '@/assets/todoAssets';
+import Constants from '@/constants/Constants';
 
 export default function NotFound() {
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme } = Constants();
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {

@@ -1,10 +1,11 @@
 import useAuth from '@/app/hooks/useAuth';
-import React from 'react';
+import { useTheme } from 'next-themes';
 
 const Constants = () => {
+  const { theme } = useTheme();
   const { user } = useAuth();
 
-  return {user};
+  return {theme, user};
 };
 
 export default Constants;

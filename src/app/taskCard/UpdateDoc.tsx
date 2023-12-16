@@ -32,8 +32,7 @@ interface UpdateDocProps {
 };
 
 const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
-  const { user } = Constants();
-  const { theme } = useTheme();
+  const { theme, user } = Constants();
   const { updateToDo } = ToDoMethodComponent();
     
   const formikForm = useFormik<ToDoValueProps>({

@@ -1,12 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { Close, Delete, Edit, Info, LeftArrow } from '@/assets';
-import { useTheme } from 'next-themes';
+import Constants from '@/constants/Constants';
 
 const TaskRepoHeader = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme } = useTheme();
+  const { theme } = Constants();
 
   const handleClose = () => {
     setIsOpen(false);

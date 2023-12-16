@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { Delete, Edit } from '@/assets';
-import { useTheme } from 'next-themes';
 import ToDoMethodComponent from '@/api/toDo';
 import toast from 'react-hot-toast';
 import { categories } from '@/app/todo-form/toDoForm/Categories';
 import UpdateDoc from './UpdateDoc';
 import DueDate from './DueDate';
+import Constants from '@/constants/Constants';
 
 const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
@@ -19,7 +19,7 @@ const formatDate = (dateString: string): string => {
 
 const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
   const formattedDate = formatDate(task.createdAt);
-  const { theme } = useTheme();
+  const { theme } = Constants();
   const [isOpen, setIsOpen] = useState(false);
 
   const { deleteToDo } = ToDoMethodComponent();
