@@ -3,16 +3,14 @@
 import React, { useState } from 'react';
 import SignIn from './signIn/SignIn';
 import Navbar from './navbar/Navbar';
-import useAuth from './hooks/useAuth';
 import Profile from './profile/Profile';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
-import { useRouter } from 'next/navigation';
+import Constants from '@/constants/Constants';
 
 const HomePage = () => {
   const [showProfile, setShowProfile] = useState(false);
-  const {user, setUser} = useAuth();
-  const router = useRouter();
+  const {router, setUser, user} = Constants();
   
   const handleShowProfile = () => {
     setShowProfile(!showProfile);

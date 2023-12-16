@@ -1,19 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import useAuth from "@/app/hooks/useAuth";
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
-import { useRouter } from 'next/navigation';
 import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from '@/assets/todoAssets';
 import './index.css';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import Constants from '@/constants/Constants';
 
 const ToDoFormPage = () => {
-  const router = useRouter();
-  const { theme, user } = Constants();
-  const {setUser} = useAuth();
+  const { router } = Constants();
+  const { setUser, theme, user } = Constants();
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData: ListProps[] = FetchToDoData();
 

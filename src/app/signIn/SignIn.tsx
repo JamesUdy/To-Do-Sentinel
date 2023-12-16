@@ -1,17 +1,15 @@
 
 import { auth } from "@/firebaseAuth/FirebaseAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useRouter } from "next/navigation";
 import { DarkCurvedArrow, darkThemeLogo, LightCurvedArrow, lightThemeLogo } from "@/assets";
-import useAuth from "@/app/hooks/useAuth";
 import Image from "next/image";
 import "./SignIn.css";
 import { ThemeToggleButton } from '@/assets/todoAssets';
 import Link from "next/link";
+import Constants from "@/constants/Constants";
 
 const SignIn = () => {
-    const router = useRouter(); 
-    const { user, isLoggedIn, setIsLoggedIn, loading } = useAuth();
+    const { isLoggedIn, loading, setIsLoggedIn, user } = Constants();
     
     const handleAuth = async () => {
       const googleSignIn = new GoogleAuthProvider();

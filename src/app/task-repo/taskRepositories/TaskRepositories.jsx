@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import useAuth from "@/app/hooks/useAuth";
+import React, { useState } from 'react';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
-import { useRouter } from 'next/navigation';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
 import { Loader, Navbar, Profile } from '@/assets/todoAssets';
@@ -21,9 +19,7 @@ import Constants from '@/constants/Constants';
 
 
 const TaskRepositories = () => {
-  const router = useRouter();
-  const {theme, user} = Constants();
-  const { setUser } = useAuth();
+  const {router, setUser, theme, user} = Constants();
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData = FetchToDoData();
   const [keyword, setKeyword] = useState('');

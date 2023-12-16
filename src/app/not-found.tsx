@@ -8,8 +8,7 @@ import { ThemeToggleButton } from '@/assets/todoAssets';
 import Constants from '@/constants/Constants';
 
 export default function NotFound() {
-  const router = useRouter();
-  const { theme } = Constants();
+  const { router, theme } = Constants();
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
