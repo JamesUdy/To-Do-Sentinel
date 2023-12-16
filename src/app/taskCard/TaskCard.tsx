@@ -78,9 +78,20 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
             </div>
         </div>
         {
-            task.taskFileDetails && task.taskFileDetails.length > 0 && Array.from(task.taskFileDetails).map((taskFile, index) => (
-                <a href={taskFile.fileUrl} target='_blank' key={taskFile.id}>{taskFile.fileName}</a>
-            ))
+            task.taskFileDetails && task.taskFileDetails.length > 0 && (
+                <div className='flex flex-col px-2 break-all text-sm w-full'>
+                    <span>Related Files:</span>
+                    <ul className='list-disc px-6 text-xs space-y-2 py-1'>
+                        {
+                            Array.from(task.taskFileDetails).map((taskFile) => (
+                                <li key={taskFile.id} className='hover:underline hover:underline-offset-2 hover:text-blue-700 dark:hover:text-blue-500 font-semibold'>
+                                    <a href={taskFile.fileUrl} target='_blank'>{taskFile.fileName}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            )
         }
         <div className='flex w-full items-center justify-between pt-4 pb-2 px-2 sm:px-0 sm:pl-2'>
             {task.taskDueDate && <DueDate dueDate={task.taskDueDate} />}
