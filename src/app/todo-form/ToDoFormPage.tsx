@@ -9,8 +9,7 @@ import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import Constants from '@/constants/Constants';
 
 const ToDoFormPage = () => {
-  const { router } = Constants();
-  const { setUser, theme, user } = Constants();
+  const { router, scrollBar, setUser, user } = Constants();
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData: ListProps[] = FetchToDoData();
 
@@ -23,8 +22,6 @@ const ToDoFormPage = () => {
     setUser(null);
     router.push('/');
   };
-
-  const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden'>

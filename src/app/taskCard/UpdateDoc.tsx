@@ -32,7 +32,7 @@ interface UpdateDocProps {
 };
 
 const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
-  const { theme, user } = Constants();
+  const { scrollBar, theme, user } = Constants();
   const { updateToDo } = ToDoMethodComponent();
     
   const formikForm = useFormik<ToDoValueProps>({
@@ -81,7 +81,6 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
   const isFormDirty = formikForm.dirty;
 
   const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
-  const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
   return (
     <Transition appear show={isOpen} as={Fragment}>

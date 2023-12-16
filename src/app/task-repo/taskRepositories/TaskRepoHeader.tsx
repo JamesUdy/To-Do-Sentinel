@@ -6,15 +6,13 @@ import Constants from '@/constants/Constants';
 const TaskRepoHeader = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme } = Constants();
+  const { scrollBar } = Constants();
 
   const handleClose = () => {
     setIsOpen(false);
   };
 
   const due = "Due";
-
-  const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
 
   return (
     <div className='text-md w360:text-lg sm:text-xl font-semibold text-center flex items-center justify-center space-x-4'>

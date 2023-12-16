@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { dark404, light404 } from '@/assets';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';

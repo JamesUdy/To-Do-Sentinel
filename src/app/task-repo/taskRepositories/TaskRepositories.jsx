@@ -19,7 +19,7 @@ import Constants from '@/constants/Constants';
 
 
 const TaskRepositories = () => {
-  const {router, setUser, theme, user} = Constants();
+  const {router, scrollBar, setUser, user} = Constants();
   const [showProfile, setShowProfile] = useState(false);
   const toDoListData = FetchToDoData();
   const [keyword, setKeyword] = useState('');
@@ -43,8 +43,6 @@ const TaskRepositories = () => {
     setKeyword('');
   };
   
-  const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
-
   const clearSelectedKey = (item) => {
     if(selectedKeys.has(item)) {
       const updatedSelectedKeys = new Set([...selectedKeys].filter(key => key !== item));
