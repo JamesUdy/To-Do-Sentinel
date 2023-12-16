@@ -1,4 +1,3 @@
-'use client';
 
 import useAuth from '@/app/hooks/useAuth';
 import Image from 'next/image';
