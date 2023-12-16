@@ -1,14 +1,14 @@
 
-import useAuth from '@/app/hooks/useAuth';
 import Image from 'next/image';
 import React from 'react';
 import { AccountCreated, AccountVerified, LastSignedIn, Phone } from '@/assets';
 import formatName from './FormattingName';
 import formatTimeStamp from './FormattingTimeStamp';
 import Loader from '@/app/loader/Loader';
+import Constants from '@/constants/Constants';
 
 const Details = () => {
-  const { user } = useAuth();
+  const { user } = Constants();
   
   const userDp = user?.photoURL;
   const userName = user?.displayName;

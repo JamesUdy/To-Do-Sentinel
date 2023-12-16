@@ -8,9 +8,9 @@ import ToDoStatus from '@/app/todo-form/toDoForm/ToDoStatus';
 import ToDoMethodComponent from '@/api/toDo';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import useAuth from '../hooks/useAuth';
 import { Dialog, Transition } from '@headlessui/react';
 import toast from 'react-hot-toast';
+import Constants from '@/constants/Constants';
 
 const validationSchema = Yup.object({
     taskTitle: Yup.string()
@@ -32,7 +32,7 @@ interface UpdateDocProps {
 };
 
 const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
-  const { user } = useAuth();
+  const { user } = Constants();
   const { theme } = useTheme();
   const { updateToDo } = ToDoMethodComponent();
     

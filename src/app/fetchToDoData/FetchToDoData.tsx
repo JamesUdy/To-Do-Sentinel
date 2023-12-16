@@ -3,6 +3,7 @@ import { db } from '@/firebaseAuth/FirebaseAuth';
 import useAuth from '@/app/hooks/useAuth';
 import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore';
 import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
+import Constants from '@/constants/Constants';
 
 export interface ListProps extends ToDoValueProps {
   id: string;
@@ -12,7 +13,7 @@ export interface ListProps extends ToDoValueProps {
 
 const FetchToDoData = () => {
   const [toDoList, setToDoList] = useState<ListProps[]>([]);
-  const { user } = useAuth();
+  const { user } = Constants();
 
   const ListData = () => {
     if(!user) {

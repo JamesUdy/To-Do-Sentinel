@@ -1,8 +1,8 @@
 import { db, storage } from "@/firebaseAuth/FirebaseAuth";
 import { collection, addDoc, updateDoc, doc, deleteDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import useAuth from "@/app/hooks/useAuth";
 import { ToDoValueProps } from "@/toDoValueProps/ToDoValueProps";
+import Constants from "@/constants/Constants";
 
 interface AddToDoProps extends ToDoValueProps {
     userId: string;
@@ -23,7 +23,7 @@ interface DeleteToDoProps {
 };
 
 const ToDoMethodComponent = () => {
-    const { user } = useAuth();
+    const { user } = Constants();
    
     const addToDo = async ({ userId, taskTitle, taskDescription, taskPriority, taskProgress, taskFileDetails, taskFileUpload, taskDueDate }: AddToDoProps) => {
         try {
