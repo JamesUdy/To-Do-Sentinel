@@ -8,7 +8,6 @@ import ToDoStatus from './ToDoStatus';
 // import { addToDo } from '@/api/toDo';
 import ToDoMethodComponent from '@/api/toDo';
 import './ToDoForm.css';
-import { useTheme } from 'next-themes';
 import toast, { Toaster } from 'react-hot-toast';
 import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 import Constants from '@/constants/Constants';
@@ -151,7 +150,7 @@ const ToDoForm = () => {
               <p className='text-sm font-medium text-gray-600 dark:text-gray-400'>
                 Selected Files:
               </p>
-              <ul className='list-disc list-inside text-sm text-gray-600 dark:text-gray-400'>
+              <ul className='list-disc break-all list-inside text-sm text-gray-600 dark:text-gray-400'>
                 {Array.from(formikForm.values.taskFileUpload).map((file, index) => (
                   <li key={index}>{file.name}</li>
                 ))}

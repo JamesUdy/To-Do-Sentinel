@@ -58,10 +58,12 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
 
           await updateToDo({
             docId: taskId,
+            userId: user.uid,
             taskTitle: values.taskTitle.trim(),
             taskDescription: values.taskDescription.trim(),
             taskPriority: values.taskPriority,
             taskProgress: values.taskProgress,
+            taskFileDetails: values.taskFileDetails,
             taskFileUpload: values.taskFileUpload,
             taskDueDate: values.taskDueDate,
           });

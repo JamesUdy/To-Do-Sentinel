@@ -8,14 +8,9 @@ interface AddToDoProps extends ToDoValueProps {
     userId: string;
 };
 
-interface UpdateToDoProps {
+interface UpdateToDoProps extends ToDoValueProps {
     docId: string;
-    taskTitle: string;
-    taskDescription: string;
-    taskPriority: string;
-    taskProgress: string;
-    taskFileUpload: FileList;
-    taskDueDate: string;
+    userId: string;
 };
 
 interface DeleteToDoProps {
@@ -55,15 +50,40 @@ const ToDoMethodComponent = () => {
         }
     };
 
-    const updateToDo = async ({docId, taskTitle, taskDescription, taskPriority, taskProgress, taskFileUpload, taskDueDate}: UpdateToDoProps) => {
+    const updateToDo = async ({docId, userId, taskTitle, taskDescription, taskPriority, taskProgress, taskFileUpload, taskDueDate}: UpdateToDoProps) => {
         try {
-                        const todoRef = doc(db, "toDo", docId);
+            const fileDetails = await Promise.all(Array.from(taskFileUpload).map(async (file, index) => {
+                const storageRef = ref(storage, `toDoFiles/${docId}/${file.name}`);
+            
+                try {
+                    await uploadBytes(storageRef, file);
+                    const url = await getDownloadURL(storageRef);
+                    return { fileName: file.name, fileUrl: url, id: index };
+                } catch (error) {
+                    console.error('Error getting file URL:', error);
+                    throw error; 
+                }
+            }));
+            
+            const todoRef = doc(db, "toDo", docId);
+
+            const docSnapshot = await getDoc(todoRef);
+            if (docSnapshot.exists()) {
+                const { taskFileDetails } = docSnapshot.data();
+    
+                const storageRef = ref(storage, `toDoFiles/${docId}/`);
+                taskFileDetails.forEach(async (fileDetails: { fileUrl: string }) => {
+                    const fileRef = ref(storage, fileDetails.fileUrl);
+                    await deleteObject(fileRef);
+                });
+            };
+
             await updateDoc(todoRef, {
                 taskTitle,
                 taskDescription,
                 taskPriority,
                 taskProgress,
-                taskFileUpload,
+                taskFileDetails: fileDetails,
                 taskDueDate,
             });
     
@@ -82,8 +102,8 @@ const ToDoMethodComponent = () => {
                 const { taskFileDetails } = docSnapshot.data();
     
                 const storageRef = ref(storage, `toDoFiles/${user?.uid}/`);
-                taskFileDetails.forEach(async (fileUrl: string) => {
-                    const fileRef = ref(storage, fileUrl);
+                taskFileDetails.forEach(async (fileDetails: { fileUrl: string }) => {
+                    const fileRef = ref(storage, fileDetails.fileUrl);
                     await deleteObject(fileRef);
                 });
             }
