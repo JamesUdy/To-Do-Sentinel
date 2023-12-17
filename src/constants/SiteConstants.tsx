@@ -12,6 +12,9 @@ const SiteConstants = () => {
   const siteToDoFormPageTitle = "Form";
   const siteToDoFormPageDescription = "Elevate your productivity with ToDo Sentinel! Kickstart your journey on our ToDo Form page by seamlessly adding and organizing tasks. Your path to success begins here—make each task count and conquer with confidence. Start shaping your day with purpose now!";
 
+  const siteTaskRepositoryPageTitle = "Task Repository";
+  const siteTaskRepositoryPageDescription = "Unlock the power of organization with ToDo Sentinel's Repositories! Immerse yourself in seamlessly managed tasks, categorize with logic, and conquer your goals step by step. Monitor progress, stay motivated, and transform your productivity journey into a triumph. Dive into the art of efficient task management now!";
+
   const siteUserDetailsPageTitle = "User Details";
   const siteUserDetailsPageDescription = "Your ToDo Sentinel User Details page - your command center for a personalized experience. Track your journey with joined date and last login details, while ensuring security with verified email status. Easily manage your profile information, including your name, email, and profile image. Stay connected, stay informed - it's all about you at ToDo Sentinel.";
 
@@ -27,6 +30,10 @@ const SiteConstants = () => {
     // Metadata for form page 
     siteToDoFormPageTitle,
     siteToDoFormPageDescription,
+
+    // Metadata for repository page 
+    siteTaskRepositoryPageTitle,
+    siteTaskRepositoryPageDescription,
     
     // Metadata for user details page 
     siteUserDetailsPageTitle,
