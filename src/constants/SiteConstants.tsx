@@ -9,16 +9,26 @@ const SiteConstants = () => {
   const siteCatchPhrase = "Your perfect 'to-do list' partner!";
   const siteDescription = "Discover productivity like never before with ToDo Sentinel - your go-to to-do list platform! Navigate your tasks with ease, set priorities, and stay on top of your goals effortlessly. ToDo Sentinel offers a sleek and intuitive interface to elevate your task management experience. Maximize your efficiency, track progress, and conquer your to-do list with confidence. Join ToDo Sentinel now and take control of your productivity journey!";
 
+  const siteToDoFormPageTitle = "Form";
+  const siteToDoFormPageDescription = "Elevate your productivity with ToDo Sentinel! Kickstart your journey on our ToDo Form page by seamlessly adding and organizing tasks. Your path to success begins here—make each task count and conquer with confidence. Start shaping your day with purpose now!";
+
   const siteUserDetailsPageTitle = "User Details";
   const siteUserDetailsPageDescription = "Your ToDo Sentinel User Details page - your command center for a personalized experience. Track your journey with joined date and last login details, while ensuring security with verified email status. Easily manage your profile information, including your name, email, and profile image. Stay connected, stay informed - it's all about you at ToDo Sentinel.";
 
   return {
     devBaseURL,
     prodBaseURL,
+
+    // Metadata for homepage 
     siteCatchPhrase,
     siteDescription,
     siteName,
+
+    // Metadata for form page 
+    siteToDoFormPageTitle,
+    siteToDoFormPageDescription,
     
+    // Metadata for user details page 
     siteUserDetailsPageTitle,
     siteUserDetailsPageDescription,
   };

@@ -5,9 +5,9 @@ import { Metadata } from 'next';
 import SiteConstants from '@/constants/SiteConstants';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const { devBaseURL, prodBaseURL, siteUserDetailsPageTitle, siteUserDetailsPageDescription } = SiteConstants();
+  const { devBaseURL, prodBaseURL, siteName, siteUserDetailsPageTitle, siteUserDetailsPageDescription } = SiteConstants();
 
-  let pageTitle = `${siteUserDetailsPageTitle}`;
+  let pageTitle = `${siteName} / ${siteUserDetailsPageTitle}`;
   let pageDescription = `${siteUserDetailsPageDescription}`;
 
   let metadataBaseUrl: string = prodBaseURL ?? devBaseURL ?? '';
