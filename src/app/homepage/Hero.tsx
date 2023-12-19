@@ -1,9 +1,10 @@
 import React from 'react';
+import Typed from 'react-typed';
 
 const Hero = () => {
   return (
     <div className="flex flex-col items-center mx-auto my-auto w-full xl:max-w-7xl space-y-4 hero-section-font">
-      <div className='mx-auto w-full pt-10 pb-8 text-center lg:pt-20 lg:pb-16 border-b-2 border-dotted'>
+      <div className='mx-auto w-full pt-10 text-center lg:pt-24'>
         <h1 className='mx-auto max-w-5xl text-5xl sm:text-7xl font-medium tracking-tight leading-10'>
           <span>Seamlessly Organize, Prioritize and </span> 
           <span className='relative whitespace-nowrap text-blue-600'>
@@ -20,11 +21,15 @@ const Hero = () => {
           <span> with <strong>To Do Sentinel
           </strong></span>
         </h1>
-        <div className='text-xl sm:text-2xl mt-4 font-light'>
-        Let To Do Sentinel be your guide to a more organised and productive life, all in one place.
+        <div className='text-xl sm:text-2xl my-6 font-normal dark:font-light'>
+          <Typed 
+            strings={["Let To Do Sentinel be your guide to a more organized and productive life, all in one place."]}
+            typeSpeed={50}
+            backSpeed={20}
+            loop
+          />
         </div>
-      </div>
-      
+      </div>      
     </div>
   );
 };
