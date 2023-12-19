@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./SignIn.css";
 import Link from "next/link";
 import Constants from "@/constants/Constants";
+import { darkThemeLogo, lightThemeLogo } from "@/assets";
 
 const SignIn = () => {
     const { isLoggedIn, loading, setIsLoggedIn, user } = Constants();
@@ -34,6 +35,10 @@ const SignIn = () => {
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
+    <section className="overflow-hidden w-full mx-auto flex justify-center" aria-disabled='true'>
+      <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/2 sm:w-1/4 inline-block dark:hidden"/>
+      <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="rotate-logo w-1/2 sm:w-1/4 hidden dark:inline-block"/>
+    </section>
     <section className="relative w-1/2 flex justify-center">
       { !loading ? (
           !isLoggedIn ? (
