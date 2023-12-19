@@ -1,5 +1,5 @@
 import React from 'react';
-import Typed from 'react-typed';
+import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   return (
@@ -22,11 +22,12 @@ const Hero = () => {
           </strong></span>
         </h1>
         <div className='text-xl sm:text-2xl my-6 font-normal dark:font-light'>
-          <Typed 
-            strings={["Let To Do Sentinel be your guide to a more organized and productive life, all in one place."]}
-            typeSpeed={50}
-            backSpeed={20}
-            loop
+          <Typewriter options={{
+            strings: ['Let To Do Sentinel be your guide to a more organized and productive life, all in one place.'],
+            delay: 64,
+            autoStart: true,
+            loop: true,
+          }}
           />
         </div>
       </div>      
