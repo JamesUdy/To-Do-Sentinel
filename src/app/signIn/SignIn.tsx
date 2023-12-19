@@ -35,8 +35,7 @@ const SignIn = () => {
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
-      
-      <section className="relative w-1/2 flex justify-center">
+    <section className="relative w-1/2 flex justify-center">
       { !loading ? (
           !isLoggedIn ? (
             <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>

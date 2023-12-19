@@ -25,21 +25,20 @@ const HomePage = () => {
 
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1'>
-      {
-        user ? (
-          <>
-            <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
-            <Hero/>
-            <SignIn/>
-            <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
-          </>
-        ) : (
-          <>
-          <Hero/>
-          <SignIn/>
-        </>
-        )
-      }
+      <Navbar handleShowProfile={handleShowProfile} userDp={user?.photoURL}/>
+      <Hero/>
+      <SignIn/>
+      {user && (
+        <Profile
+          handleShowProfile={handleShowProfile}
+          showProfile={showProfile}
+          userEmail={user.email}
+          userEmailVerified={user.emailVerified}
+          userName={user.displayName}
+          userDp={user.photoURL}
+          handleLogout={handleLogout}
+        />
+      )}
     </section>
   );
 };
