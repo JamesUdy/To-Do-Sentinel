@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import { darkThemeLogo, lightThemeLogo } from "@/assets";
 
-const Header = () => {
+const Hero = () => {
   return (
     <div className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
         <span className="text-3xl w360:text-5xl sm:text-6xl font-bold website-name">To Do Sentinel</span>
@@ -22,4 +22,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Hero;

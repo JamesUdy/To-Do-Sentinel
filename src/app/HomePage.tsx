@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from './homepage/Header';
+import Hero from './homepage/Hero';
 import SignIn from './signIn/SignIn';
 import Navbar from './navbar/Navbar';
 import Profile from './profile/Profile';
@@ -29,13 +29,13 @@ const HomePage = () => {
         user ? (
           <>
             <Navbar handleShowProfile={handleShowProfile} userDp={user.photoURL}/>
-            <Header/>
+            <Hero/>
             <SignIn/>
             <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
           </>
         ) : (
           <>
-          <Header/>
+          <Hero/>
           <SignIn/>
         </>
         )
