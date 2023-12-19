@@ -34,6 +34,37 @@
     background-size: var(--s) calc(var(--s)/0.577);
     /* 0.577=tan(30deg)*/
 }
+
+:root {
+  --scrollbar-track-color: #e2e8f0;
+  --scrollbar-thumb-color: #334155;
+  --scrollbar-shadow-color: #e2e8f0;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px var(--scrollbar-shadow-color);
+  border-radius: 10px;
+  background-color: var(--scrollbar-track-color);
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+  border-radius: 10px;
+  background-color: var(--scrollbar-track-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--scrollbar-thumb-color);
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --scrollbar-track-color: #020617;
+  --scrollbar-thumb-color: #64748b;
+  --scrollbar-shadow-color: #020617;
+}
+
   
 .website-name {
   font-family: 'Chakra Petch', sans-serif;
