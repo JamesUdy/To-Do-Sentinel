@@ -8,6 +8,7 @@ import Profile from './profile/Profile';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import Constants from '@/constants/Constants';
+import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
   const [showProfile, setShowProfile] = useState(false);
@@ -39,6 +40,7 @@ const HomePage = () => {
           handleLogout={handleLogout}
         />
       )}
+      {!user && <ThemeToggleButton />}
     </section>
   );
 };

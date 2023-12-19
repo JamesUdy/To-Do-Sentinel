@@ -4,7 +4,6 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { DarkCurvedArrow, LightCurvedArrow } from "@/assets";
 import Image from "next/image";
 import "./SignIn.css";
-import { ThemeToggleButton } from '@/assets/todoAssets';
 import Link from "next/link";
 import Constants from "@/constants/Constants";
 
@@ -56,7 +55,7 @@ const SignIn = () => {
         </section>
       </section>
        {/* <a href="https://www.flaticon.com/free-icons/curved-arrow" title="curved arrow icons">Curved arrow icons created by Freepik - Flaticon</a>*/}
-       {!user && <ThemeToggleButton />}
+       
     </section>
   )
 };
