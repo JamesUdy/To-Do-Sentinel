@@ -20,7 +20,7 @@ const Hero = () => {
           <span> with <strong>To Do Sentinel
           </strong></span>
         </h1>
-        <div className='text-xl sm:text-2xl mt-4 font-light text-gray-200'>
+        <div className='text-xl sm:text-2xl mt-4 font-light'>
         Let To Do Sentinel be your guide to a more organised and productive life, all in one place.
         </div>
       </div>
