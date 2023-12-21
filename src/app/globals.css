@@ -65,11 +65,6 @@ body.dark-theme {
   --scrollbar-shadow-color: #020617;
 }
 
-  
-.website-name {
-  font-family: 'Chakra Petch', sans-serif;
-}
-
 .rotate-logo {
   animation: rotate 5s linear infinite;
 }
@@ -83,7 +78,7 @@ body.dark-theme {
   }
 }
 
-.profile-page-font, .hero-section-font, .navbar-link-font, .todo-form, .todo-list {
+.profile-page-font, .hero-section-font, .navbar-link-font, .todo-form, .todo-list, .website-name {
   font-family: 'Josefin Sans', sans-serif;
 }
 

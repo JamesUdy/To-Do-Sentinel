@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({handleShowProfile, userDp}) => {
           <Image loading="lazy" src={lightThemeLogo} alt="ToDo Sentinel Logo" className="w-16 w360:w-20 inline-block dark:hidden"/>
           <Image loading="lazy" src={darkThemeLogo} alt="ToDo Sentinel Logo" className="w-16 w360:w-20 hidden dark:inline-block"/>
         </div>
-        <span className="hidden sm:block sm:text-2xl xl:text-4xl font-bold website-name">To Do Sentinel</span>
+        <span className="hidden sm:block sm:text-2xl xl:text-4xl font-bold website-name pt-2 tracking-tight">To Do Sentinel</span>
       </Link>
       {handleShowProfile && userDp && (
         <div className='flex items-center space-x-4 sm:space-x-12'>
