@@ -18,8 +18,12 @@ const Hero = () => {
             </svg>
             <span className='relative'>Tailor Tasks</span>
           </span>
-          <span> with <strong>To Do Sentinel
-          </strong></span>
+          <span>
+            <span> with</span>
+            <br/>
+            <strong>To Do Sentinel
+          </strong>
+          </span>
         </h1>
         <div className='text-xl sm:text-2xl my-6 font-normal dark:font-light'>
           <Typewriter options={{
