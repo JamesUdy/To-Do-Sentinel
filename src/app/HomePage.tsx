@@ -8,6 +8,7 @@ import Profile from './profile/Profile';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import Constants from '@/constants/Constants';
+import Features from './homepage/Features';
 import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
@@ -27,10 +28,13 @@ const HomePage = () => {
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden'>
       <Navbar handleShowProfile={handleShowProfile} userDp={user?.photoURL}/>
-      <div className={`overflow-y-scroll ${scrollBar}`}>
+      <div className={`flex flex-col space-y-10 items-center overflow-y-scroll ${scrollBar}`}>
         <Hero/>
         <SignIn/>
-        {user && (
+        <div className=' py-8 border-b-2 border-dotted w-full max-w-7xl border-slate-600 dark:border-slate-300'></div>
+        <Features/>
+      </div>
+      {user && (
           <Profile
             handleShowProfile={handleShowProfile}
             showProfile={showProfile}
@@ -41,7 +45,6 @@ const HomePage = () => {
             handleLogout={handleLogout}
           />
         )}
-      </div>
       {!user && <ThemeToggleButton />}
     </section>
   );

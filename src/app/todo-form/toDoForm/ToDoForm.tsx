@@ -5,7 +5,6 @@ import { categories } from './Categories';
 import { progressStatus } from './ProgressStatus';
 import ToDoCategory from './ToDoCategory';
 import ToDoStatus from './ToDoStatus';
-// import { addToDo } from '@/api/toDo';
 import ToDoMethodComponent from '@/api/toDo';
 import './ToDoForm.css';
 import toast, { Toaster } from 'react-hot-toast';
