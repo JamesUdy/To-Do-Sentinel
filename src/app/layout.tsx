@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <body className={`flex bg-slate-200 text-slate-950 dark:bg-slate-950 dark:text-slate-200 flex-col min-h-screen dark:dark-theme ${inter.className} w-full`}>
+      <body className={`flex bg-slate-200 text-slate-950 dark:bg-slate-950 dark:text-slate-200 flex-col min-h-screen ${inter.className} w-full`}>
         <DarkThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <NextUIProvider>
             <main className='flex flex-1 w-full min-h-screen'>

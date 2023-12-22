@@ -1,6 +1,5 @@
 
 import React from 'react';
-import './index.css';
 import ToDoFormPage from './ToDoFormPage';
 import { Metadata } from 'next';
 import SiteConstants from '@/constants/SiteConstants';

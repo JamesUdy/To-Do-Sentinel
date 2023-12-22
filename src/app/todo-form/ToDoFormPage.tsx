@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import { EarlyStageTasks, Loader, Navbar, Profile, ToDoForm } from '@/assets/todoAssets';
-import './index.css';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import Constants from '@/constants/Constants';
 

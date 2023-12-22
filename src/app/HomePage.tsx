@@ -12,7 +12,7 @@ import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
   const [showProfile, setShowProfile] = useState(false);
-  const {router, scrollBar, setUser, user} = Constants();
+  const {router, setUser, user} = Constants();
   
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -27,7 +27,8 @@ const HomePage = () => {
   return (
     <section className='relative flex flex-col w-full py-2 px-4 sm:px-1 max-h-screen overflow-y-hidden'>
       <Navbar handleShowProfile={handleShowProfile} userDp={user?.photoURL}/>
-      <div className={`overflow-y-scroll ${scrollBar}`}>
+      <div className={`overflow-y-scroll scrollBar`}>
+        <Hero/>
         <Hero/>
         <SignIn/>
         {user && (

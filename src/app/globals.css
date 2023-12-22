@@ -5,6 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --scrollbar-track-color: #e2e8f0;
+  --scrollbar-thumb-color: #334155;
+  --scrollbar-shadow-color: #e2e8f0;
+}
+
+:root[data-theme="dark"] {
+  --scrollbar-track-color: #020617;
+  --scrollbar-thumb-color: #64748b;
+  --scrollbar-shadow-color: #020617;
+}
+
 .darkBackground {
     --s: 200px;
     --c1: #1d1d1d;
@@ -35,34 +47,22 @@
     /* 0.577=tan(30deg)*/
 }
 
-:root {
-  --scrollbar-track-color: #e2e8f0;
-  --scrollbar-thumb-color: #334155;
-  --scrollbar-shadow-color: #e2e8f0;
-}
 
-body::-webkit-scrollbar-track {
+.scrollBar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px var(--scrollbar-shadow-color);
   border-radius: 10px;
   background-color: var(--scrollbar-track-color);
 }
 
-body::-webkit-scrollbar {
+.scrollBar::-webkit-scrollbar {
   width: 0.4rem;
   border-radius: 10px;
   background-color: var(--scrollbar-track-color);
 }
 
-body::-webkit-scrollbar-thumb {
+.scrollBar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: var(--scrollbar-thumb-color);
-}
-
-/* Dark Theme */
-body.dark-theme {
-  --scrollbar-track-color: #020617;
-  --scrollbar-thumb-color: #64748b;
-  --scrollbar-shadow-color: #020617;
 }
 
 .rotate-logo {
@@ -98,7 +98,8 @@ body.dark-theme {
 
 .to-do-list-light::-webkit-scrollbar-thumb
 {
-	border-radius: 10px;
+	width: 0.4rem;
+  border-radius: 10px;
 	background-color: #334155;
 }
 
@@ -112,11 +113,13 @@ body.dark-theme {
 .to-do-list-dark::-webkit-scrollbar
 {
 	width: 0.4rem;
+  border-radius: 10px;
 	background-color: #020617;
 }
 
 .to-do-list-dark::-webkit-scrollbar-thumb
 {
+	width: 0.4rem;
 	border-radius: 10px;
 	background-color: #64748b;
 }
