@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import Constants from '@/constants/Constants';
 
 const FeatForm = () => {
-    const [taskTitle, SetTaskTitle] = useState('');
-    const [taskDescription, setTaskDescription] = useState('');
+    const [taskTitle, SetTaskTitle] = useState('Test preparation');
+    const [taskDescription, setTaskDescription] = useState('Complete the book and take notes');
+
+    const { user } = Constants();
 
     const taskTitleRef = useRef<HTMLInputElement>(null);
 
@@ -13,8 +16,8 @@ const FeatForm = () => {
 
     const ResetFields = () => {
         toast.success('Your trial task is created successfully');
-        SetTaskTitle('');
-        setTaskDescription('');
+        SetTaskTitle('Test preparation');
+        setTaskDescription('Complete the book and take notes');
     };
   
     return (
@@ -24,10 +27,20 @@ const FeatForm = () => {
                 marginTop: '32px',
                 }
             }} position="bottom-right" />
-            <div className='w-1/2'>
-                <p>Ready to make each task count? Start adding and organizing tasks now!  Your productivity journey starts now - conquer with confidence!</p>
+            <div className='w-1/2 space-y-4'>
+                <p className='max-w-xl'>
+                    Ready to make each task count? Start adding and organizing tasks now! Your productivity journey starts now - conquer with confidence! This is a trial for how the form works. If you want to explore the entire task submission, click the button below.
+                </p>
+                {user && (
+                    <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-950 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-950 hover:ring-slate-950 dark:hover:ring-slate-100 ease-in duration-200'>Form</button>
+                )}
                 <div>
-                    <span>{taskTitle} + {taskDescription}</span>
+                    <h3 className='text-lg font-semibold mb-2'>Example Task:</h3>
+                    <p>
+                        <strong>Title:</strong> {taskTitle}
+                        <br />
+                        <strong>Description:</strong> {taskDescription}.
+                    </p>
                 </div>
             </div>
             <div className='w-1/2 bg-slate-50 dark:bg-slate-800 py-4 px-6 rounded-lg shadow-xl'>
