@@ -35,6 +35,9 @@ import DownArrow from './svg/DownArrow';
 import LeftArrow from './svg/LeftArrow';
 import Search from './svg/Search';
 
+// Svg used in Homepage
+import NavigateArrow from './svg/NavigateArrow';
+
 export {
     dark404,
     darkThemeLogo,
@@ -65,4 +68,6 @@ export {
     LeftArrow,
     DownArrow,
     Search,
+
+    NavigateArrow,
 };
