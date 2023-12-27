@@ -34,7 +34,7 @@ const FeatForm = () => {
                     Ready to make each task count? Start adding and organizing tasks now! Your productivity journey starts now - conquer with confidence! This is a trial for how the form works. If you want to explore the entire task submission, click the button below.
                 </p>
                 {user && (
-                    <div className='w-full flex justify-end'>
+                    <div className='w-full flex justify-center sm:justify-end'>
                         <Link href='/todo-form'>
                             <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-950 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-950 hover:ring-slate-950 dark:hover:ring-slate-100 ease-in duration-200 flex space-x-2 items-center'>
                                 <span>Form</span>
