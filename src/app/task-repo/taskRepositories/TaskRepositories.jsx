@@ -50,20 +50,17 @@ const TaskRepositories = () => {
     };
   };
 
-  // Filter tasks based on the search keyword and selected keys
   const filteredTasks = toDoListData.filter(task => {
-    // Filter by search keyword
     const matchesKeyword = task.taskTitle.toLowerCase().includes(keyword.toLowerCase());
 
-    // Filter by selected keys
     const prioritySelected = selectedKeys.has(task.taskPriority);
-  const progressSelected = selectedKeys.has(task.taskProgress);
+    const progressSelected = selectedKeys.has(task.taskProgress);
 
-  const matchesSelectedKeys =
-    selectedKeys.size === 0 ||
-    (prioritySelected && progressSelected) ||
-    (!prioritySelected && progressSelected) ||
-    (prioritySelected && !progressSelected);
+    const matchesSelectedKeys =
+      selectedKeys.size === 0 ||
+      (prioritySelected && progressSelected) ||
+      (!prioritySelected && progressSelected) ||
+      (prioritySelected && !progressSelected);
 
     return matchesKeyword && matchesSelectedKeys;
   });
@@ -95,7 +92,6 @@ const TaskRepositories = () => {
               </div>
             </section>
           )}
-          {/* <section className='flex flex-col sm:flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-y-2 sm:space-y-0 sm:space-x-2'> */}
           <section className='flex flex-row justify-center w-72 w360:w-80 sm:w-2/3 lg:w-1/2 mx-auto mb-4 space-x-2'>
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={categories} />
             <TaskDropdown keys={selectedKeys} onChange={setSelectedKeys} selectField={progressStatus} />

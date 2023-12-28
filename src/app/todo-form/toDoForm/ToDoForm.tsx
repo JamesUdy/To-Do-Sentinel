@@ -143,7 +143,6 @@ const ToDoForm = () => {
               </p>
             )}
           </div>
-          {/* Display selected file names */}
           {formikForm.values.taskFileUpload && formikForm.values.taskFileUpload.length > 0 && (
             <div className='mt-2'>
               <p className='text-sm font-medium text-gray-600 dark:text-gray-400'>

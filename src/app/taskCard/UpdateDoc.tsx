@@ -3,7 +3,6 @@ import { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
 import ToDoCategory from '@/app/todo-form/toDoForm/ToDoCategory';
 import ToDoStatus from '@/app/todo-form/toDoForm/ToDoStatus';
-// import { updateToDo } from '@/api/toDo';
 import ToDoMethodComponent from '@/api/toDo';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -180,7 +179,6 @@ const UpdateDoc: React.FC<UpdateDocProps> = ({task, isOpen, setIsOpen}) => {
                                     </p>
                                     )}
                                 </div>
-                                {/* Display selected file names */}
                                 {formikForm.values.taskFileUpload && formikForm.values.taskFileUpload.length > 0 && (
                                     <div className='mt-2'>
                                     <p className='text-sm font-medium text-gray-600 dark:text-gray-400'>
