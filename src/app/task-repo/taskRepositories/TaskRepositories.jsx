@@ -102,13 +102,6 @@ const TaskRepositories = () => {
           </section>
           <section className={`overflow-y-scroll ${scrollBar}`}>
             <div className='w-full px-2 container flex flex-col items-center my-4'>
-              {/* {toDoListData && (
-                <div className='sm:columns-2 xl:columns-3 sm:w-2/3 xl:w-1/2 gap-x-4 space-y-6'>
-                    {toDoListData.map((task) => (
-                        <TaskCard key={task.id} task={task} />
-                    ))}
-                </div>
-              )} */}
               {filteredTasks.length > 0 ? (
                 <div className='sm:columns-2 xl:columns-3 sm:w-2/3 xl:w-1/2 gap-x-4 space-y-6'>
                   {filteredTasks.map((task) => (
