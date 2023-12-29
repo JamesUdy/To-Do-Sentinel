@@ -23,7 +23,7 @@ const FeatForm = () => {
     };
   
     return (
-        <section className='flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-8 sm:space-y-0 w-full'>
+        <section className='flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-8 sm:space-y-0 w-full font-medium'>
             <Toaster toastOptions={{
                 className: '', style: {
                 marginTop: '32px',
@@ -36,8 +36,8 @@ const FeatForm = () => {
                 {user && (
                     <div className='w-full flex justify-center sm:justify-end'>
                         <Link href='/todo-form'>
-                            <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-md font-bold bg-slate-950 dark:bg-slate-200 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-950 hover:ring-1 hover:ring-offset-2 hover:ring-offset-slate-950 hover:ring-slate-950 dark:hover:ring-slate-100 ease-in duration-200 flex space-x-2 items-center'>
-                                <span>Form</span>
+                            <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-400 hover:bg-slate-950 dark:hover:bg-slate-100 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-950 ease-in duration-200 flex space-x-2 items-center'>
+                                <span>Get Started</span>
                                 <NavigateArrow/>
                             </button>
                         </Link>
