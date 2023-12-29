@@ -30,13 +30,13 @@ const FeatForm = () => {
                 }
             }} position="bottom-right" />
             <div className='w-full sm:w-1/2 space-y-4 sm:pr-10 max-w-xl'>
-                <p className=''>
+                <p>
                     Ready to make each task count? Start adding and organizing tasks now! Your productivity journey starts now - conquer with confidence! This is a trial for how the form works. If you want to explore the entire task submission, click the button below.
                 </p>
                 {user && (
                     <div className='w-full flex justify-center sm:justify-end'>
                         <Link href='/todo-form'>
-                            <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-400 hover:bg-slate-950 dark:hover:bg-slate-100 text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-slate-950 ease-in duration-200 flex space-x-2 items-center'>
+                            <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
                                 <span>Get Started</span>
                                 <NavigateArrow/>
                             </button>
@@ -53,9 +53,15 @@ const FeatForm = () => {
                     </p>
                 </div>
             </div>
-            <div className='w-1/2 bg-slate-50 dark:bg-slate-800 py-4 px-6 rounded-lg shadow-xl hidden sm:block'>
+            <div className='w-1/2 bg-slate-50 dark:bg-slate-800/40 px-6 rounded-lg shadow-xl hidden sm:block relative pt-3 pb-4'>
                 <div>
-                    <section className='w-full flex flex-col items-start space-y-1 pb-4'>
+                    <section className='flex space-x-1.5 absolute left-3 top-3'>
+                        <span className='bg-red-400 dark:bg-red-600/80 w-5 h-5 rounded-full text-transparent'></span>
+                        <span className='bg-orange-400 dark:bg-orange-600/80 w-5 h-5 rounded-full text-transparent'></span>
+                        <span className='bg-green-400 dark:bg-green-600/80 w-5 h-5 rounded-full text-transparent'></span>
+                    </section> 
+                    <span className='flex items-center justify-center text-md'>Demo Form</span>
+                    <section className='w-full flex flex-col items-start space-y-1 py-6'>
                         <label className='text-md' htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
                         <div className='relative w-full'>
                             <input 
