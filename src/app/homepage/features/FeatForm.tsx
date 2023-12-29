@@ -56,10 +56,13 @@ const FeatForm = () => {
             <div className='w-1/2 bg-slate-50 dark:bg-slate-800/40 px-6 rounded-lg shadow-xl hidden sm:block relative pt-3 pb-4'>
                 <div>
                     <section className='flex space-x-1.5 absolute left-3 top-3'>
-                        <span className='bg-red-400 dark:bg-red-600/80 w-5 h-5 rounded-full text-transparent'></span>
-                        <span className='bg-orange-400 dark:bg-orange-600/80 w-5 h-5 rounded-full text-transparent'></span>
-                        <span className='bg-green-400 dark:bg-green-600/80 w-5 h-5 rounded-full text-transparent'></span>
-                    </section> 
+                        {['red', 'orange', 'green'].map((color, index) => (
+                            <span
+                            key={index}
+                            className={`bg-${color}-400 dark:bg-${color}-600/80 w-5 h-5 rounded-full text-transparent`}
+                            ></span>
+                        ))}
+                    </section>
                     <span className='flex items-center justify-center text-md'>Demo Form</span>
                     <section className='w-full flex flex-col items-start space-y-1 py-6'>
                         <label className='text-md' htmlFor="taskTitle">Task Title<span className="text-red-500">*</span></label>
