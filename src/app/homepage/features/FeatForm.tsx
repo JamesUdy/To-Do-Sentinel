@@ -38,7 +38,7 @@ const FeatForm = () => {
                     <span className="text-3xl font-bolder">Tailor your to-do list with precision and specific task details.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500'>
-                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form's functionality. For a thorough task entry, click the button below to explore the complete submission process.
+                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form&apos;s functionality. For a thorough task entry, click the button below to explore the complete submission process.
                 </p>
                 {user && (
                     <div className='w-full flex justify-center sm:justify-end'>
