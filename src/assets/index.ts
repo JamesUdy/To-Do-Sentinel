@@ -37,6 +37,7 @@ import Search from './svg/Search';
 
 // Svg used in Homepage
 import NavigateArrow from './svg/NavigateArrow';
+import TaskForm from './svg/TaskForm';
 
 export {
     dark404,
@@ -70,4 +71,5 @@ export {
     Search,
 
     NavigateArrow,
+    TaskForm,
 };

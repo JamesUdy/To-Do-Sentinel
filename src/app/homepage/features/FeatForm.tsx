@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavigateArrow } from '@/assets';
+import { NavigateArrow, TaskForm } from '@/assets';
 import toast, { Toaster } from 'react-hot-toast';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
@@ -30,8 +30,15 @@ const FeatForm = () => {
                 }
             }} position="bottom-right" />
             <div className='w-full sm:w-1/2 space-y-4 sm:pr-10 max-w-xl'>
-                <p>
-                    Ready to make each task count? Start adding and organizing tasks now! Your productivity journey starts now - conquer with confidence! This is a trial for how the form works. If you want to explore the entire task submission, click the button below.
+                <div className='bg-pink-300 dark:bg-pink-600 border-3 dark:border-2 border-pink-400 w-fit p-2 mb-6 rounded-full'>
+                    <TaskForm/>
+                </div>
+                <div className='flex flex-col space-y-2'>
+                    <span className="text-md text-pink-600">Unlock possibilities</span>
+                    <span className="text-3xl font-bolder">Tailor your to-do list with precision and specific task details.</span>
+                </div>
+                <p className='text-slate-600 dark:text-slate-500'>
+                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form's functionality. For a thorough task entry, click the button below to explore the complete submission process.
                 </p>
                 {user && (
                     <div className='w-full flex justify-center sm:justify-end'>
