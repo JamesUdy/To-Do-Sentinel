@@ -53,7 +53,7 @@ const FeatForm = () => {
                     </p>
                 </div>
             </div>
-            <div className='w-1/2 bg-slate-50 dark:bg-slate-800/40 px-6 rounded-lg shadow-xl hidden sm:block relative pt-3 pb-4'>
+            <div className='w-1/2 bg-slate-50 dark:bg-slate-800/40 border-2 border-slate-400/40 dark:border-slate-700/40 px-6 rounded-lg shadow-xl hidden sm:block relative pt-3 pb-4'>
                 <div>
                     <section className='flex space-x-1.5 absolute left-3 top-3'>
                         <span className='bg-red-400 dark:bg-red-600/80 w-5 h-5 rounded-full text-transparent'></span>
