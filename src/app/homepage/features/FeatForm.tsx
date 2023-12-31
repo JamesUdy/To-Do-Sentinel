@@ -58,15 +58,21 @@ const FeatForm = () => {
                     )}
                 </div>
             </div>
-            <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-8 sm:space-y-0 w-full font-medium'>
+            <div className='flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-8 sm:space-y-0 w-full font-medium'>
                 <div className='w-full sm:w-1/2 space-y-4 sm:pr-10 max-w-xl'>
                     
-                    <div className=' hidden sm:block'>
-                        <h3 className='text-md font-semibold mb-2'>Form Preview:</h3>
-                        <p className='text-sm'>
-                            <strong>Title:</strong> {taskTitle}
+                    <div className=' hidden sm:block bg-slate-950 dark:bg-slate-200/80 p-6 rounded-xl space-y-4'>
+                        <div className='text-md font-semibold mb-2 text-slate-50 bg-blue-500 dark:bg-blue-700 w-fit px-2 py-1 rounded-md flex items-center space-x-2'>
+                            <span>Form Preview</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5m0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3">
+                                </path>
+                            </svg>
+                        </div>
+                        <p className='text-sm text-slate-50 dark:text-slate-950'>
+                            <strong className='text-md'>Title:</strong> {taskTitle}
                             <br />
-                            <strong>Description:</strong> {taskDescription}.
+                            <strong className='text-md'>Description:</strong> {taskDescription}.
                         </p>
                     </div>
                 </div>
