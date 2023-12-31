@@ -8,7 +8,7 @@ const FeatForm = () => {
     const [taskTitle, SetTaskTitle] = useState('Test preparation');
     const [taskDescription, setTaskDescription] = useState('Complete the book and take notes');
 
-    const { user } = Constants();
+    const { handleAuth, isLoggedIn } = Constants();
 
     const taskTitleRef = useRef<HTMLInputElement>(null);
 
@@ -35,24 +35,28 @@ const FeatForm = () => {
                 </div>
                 <div className='flex flex-col space-y-2'>
                     <span className="text-md text-pink-600">Unlock possibilities</span>
-                    <span className="text-3xl font-bolder">Tailor your to-do list with precision and specific task details.</span>
+                    <span className="text-3xl font-black">Tailor your to-do list with precision and specific task details.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500 text-md'>
-                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form&apos;s functionality. {user ? "For a thorough task entry, click the button below to explore the complete submission process." : "Want to use or explore it? Sign in to get started."}
+                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form&apos;s functionality. {isLoggedIn ? "For a thorough task entry, click the button below to explore the complete submission process." : "Want to use or explore it? Sign in to get started."}
                 </p>
-                {user && (
-                    <div className='w-full flex justify-center sm:justify-end'>
+                <div className='w-full flex justify-center sm:justify-end'>
+                    {isLoggedIn ? (
                         <Link href='/todo-form'>
                             <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
                                 <span>Get Started</span>
                                 <NavigateArrow/>
                             </button>
                         </Link>
-                    </div>
-                    
-                )}
+                    ) : (
+                        <button onClick={() => handleAuth()} className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
+                            <span>Sign In Now</span>
+                            <NavigateArrow/>
+                        </button> 
+                    )}
+                </div>
                 <div className=' hidden sm:block'>
-                    <h3 className='text-md font-semibold mb-2'>Example Task:</h3>
+                    <h3 className='text-md font-semibold mb-2'>Form Preview:</h3>
                     <p className='text-sm'>
                         <strong>Title:</strong> {taskTitle}
                         <br />
