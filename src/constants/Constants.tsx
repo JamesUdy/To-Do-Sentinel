@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const Constants = () => {
   const { setTheme, theme } = useTheme();
-  const { isLoggedIn, loading, setIsLoggedIn, setUser, user } = useAuth();
+  const { handleAuth, isLoggedIn, loading, setIsLoggedIn, setUser, user } = useAuth();
   const scrollBar = theme === 'dark' ? 'to-do-list-dark' : 'to-do-list-light';
   const spinnerColor = theme === 'dark' ? 'dark-submission-button-loader' : 'light-submission-button-loader';
 
@@ -16,6 +16,7 @@ const Constants = () => {
   };
 
   return {
+    handleAuth,
     handleDarkThemeChange,
     isLoggedIn,
     loading,

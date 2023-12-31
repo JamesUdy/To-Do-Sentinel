@@ -1,6 +1,7 @@
+
 import { auth } from "@/firebaseAuth/FirebaseAuth";
 import { useEffect, useState } from "react";
-import { User } from "firebase/auth";
+import { GoogleAuthProvider, User, signInWithPopup } from "firebase/auth";
 
 const useAuth = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -18,7 +19,29 @@ const useAuth = () => {
         return () => toggleAuthStatus();
     }, []);
 
-    return { user, setUser, isLoggedIn, setIsLoggedIn, loading };
+    const handleAuth = async () => {
+        const googleSignIn = new GoogleAuthProvider();
+        googleSignIn.setCustomParameters({
+          prompt: 'select_account',
+        })
+        signInWithPopup(auth, googleSignIn)
+        .then((result) => {
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential?.accessToken;
+          const user = result.user;
+  
+          setIsLoggedIn(true);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          const errorEmail = error.customData.email;
+  
+          const credential = GoogleAuthProvider.credentialFromError(error);
+        });
+      };
+
+    return { user, setUser, isLoggedIn, setIsLoggedIn, loading, handleAuth };
 };
 
 export default useAuth;

@@ -1,6 +1,4 @@
 
-import { auth } from "@/firebaseAuth/FirebaseAuth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { DarkCurvedArrow, LightCurvedArrow } from "@/assets";
 import Image from "next/image";
 import "./SignIn.css";
@@ -9,29 +7,7 @@ import Constants from "@/constants/Constants";
 import { darkThemeLogo, lightThemeLogo } from "@/assets";
 
 const SignIn = () => {
-    const { isLoggedIn, loading, setIsLoggedIn, user } = Constants();
-    
-    const handleAuth = async () => {
-      const googleSignIn = new GoogleAuthProvider();
-      googleSignIn.setCustomParameters({
-        prompt: 'select_account',
-      })
-      signInWithPopup(auth, googleSignIn)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        const user = result.user;
-
-        setIsLoggedIn(true);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const errorEmail = error.customData.email;
-
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
-    };
+    const { handleAuth, isLoggedIn, loading } = Constants();
 
   return (
     <section className="flex flex-col items-center my-auto w-full space-y-4 font-mono">
