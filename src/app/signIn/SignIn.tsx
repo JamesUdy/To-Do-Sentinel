@@ -21,7 +21,7 @@ const SignIn = () => {
             <button className="px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200" onClick={() => handleAuth()}>Sign In</button>
           ) : (
             <>
-              <Link href='/todo-form' className="text-2xs w414:text-xs sm:text-md lg:text-lg px-3 sm:px-4 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 hover:bg-slate-950 dark:bg-slate-100 hover:dark:bg-slate-200 hover:scale-110">Go To Form</Link>
+              <Link href='/todo-form' className="text-2xs w414:text-xs sm:text-md lg:text-lg px-3 sm:px-3.5 py-1 rounded-md font-bold ease-in duration-200 text-slate-200 dark:text-slate-950 bg-slate-950 dark:bg-slate-200 hover:dark:bg-slate-50">Get started</Link>
             </>
           )
         ) : (
@@ -30,7 +30,7 @@ const SignIn = () => {
           </div>
         )
       }
-        <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-16 lg:left-24 xl:left-36 w1440:left-1/4 bottom-1/3 flex justify-start">
+        <section className="absolute -left-14 w360:-left-12 w425:-left-8 sm:left-12 w800:left-10 lg:left-16 xl:left-32 w1440:left-1/4 bottom-1/3 flex justify-start">
           <Image loading="lazy" src={DarkCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 inline-block dark:hidden" />
           <Image loading="lazy" src={LightCurvedArrow} alt="Sign In Button Indicating Arrow" className="w-16 lg:w-20 xl:w-24 mx-4 hidden dark:inline-block" />
         </section>
