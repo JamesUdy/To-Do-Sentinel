@@ -38,6 +38,7 @@ import Search from './svg/Search';
 // Svg used in Homepage
 import NavigateArrow from './svg/NavigateArrow';
 import TaskForm from './svg/TaskForm';
+import TaskRepo from './svg/TaskRepo';
 
 export {
     dark404,
@@ -72,4 +73,5 @@ export {
 
     NavigateArrow,
     TaskForm,
+    TaskRepo,
 };
