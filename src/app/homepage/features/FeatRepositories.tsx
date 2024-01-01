@@ -2,10 +2,50 @@ import React from 'react';
 import { NavigateArrow, TaskRepo } from '@/assets';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
+import { categories } from '@/app/todo-form/toDoForm/Categories';
+import { progressStatus } from '@/app/todo-form/toDoForm/ProgressStatus';
+import FeatRepoCard from './FeatRepoCard';
+import { ToDoValueProps } from '@/toDoValueProps/ToDoValueProps';
+
+export interface FeatRepoTaskProps extends ToDoValueProps {
+    id: number;
+    createdAt: string,
+}
+
+const DemoTasks: FeatRepoTaskProps[] = [
+    {
+      id: 0,
+      taskTitle: 'Plan Weekend Getaway',
+      taskDescription: 'Organize and plan a weekend trip with family or friends.',
+      taskPriority: categories[1].label,
+      taskProgress: progressStatus[1].status,
+      taskFileDetails: [],
+      taskFileUpload: {
+          length: 0,
+          item: (index: number) => null,
+      } as FileList,
+      taskDueDate: '02.01.2024',
+      createdAt: '03.10.2023',
+    },
+    {
+      id: 1,
+      taskTitle: 'Launch Marketing Campaign',
+      taskDescription: 'Execute a marketing campaign for the upcoming product launch.',
+      taskPriority: categories[3].label,
+      taskProgress: progressStatus[2].status,
+      taskFileDetails: [],
+      taskFileUpload: {
+          length: 0,
+          item: (index: number) => null,
+      } as FileList,
+      taskDueDate: '03.01.2024',
+      createdAt: '12.12.2023',
+    },
+];
 
 const FeatRepositories = () => {
-
     const { handleAuth, isLoggedIn } = Constants();
+
   
     return (
         <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
@@ -35,6 +75,13 @@ const FeatRepositories = () => {
                         </button> 
                     )}
                 </div>
+            </div>
+            <div className='flex flex-col justify-center w-full mx-auto'>
+                {DemoTasks.map((task, index) => (
+                    <div key={index} className='flex w-full justify-center'>
+                        <FeatRepoCard task={task} />
+                    </div>
+                ))}
             </div>
         </section>
     );
