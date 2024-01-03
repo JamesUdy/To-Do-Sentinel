@@ -36,6 +36,7 @@ import LeftArrow from './svg/LeftArrow';
 import Search from './svg/Search';
 
 // Svg used in Homepage
+import DoubleLeftQuote from './svg/DoubleLeftQuote';
 import NavigateArrow from './svg/NavigateArrow';
 import TaskForm from './svg/TaskForm';
 import TaskRepo from './svg/TaskRepo';
@@ -71,6 +72,7 @@ export {
     DownArrow,
     Search,
 
+    DoubleLeftQuote,
     NavigateArrow,
     TaskForm,
     TaskRepo,
