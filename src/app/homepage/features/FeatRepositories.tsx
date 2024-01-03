@@ -41,6 +41,20 @@ const DemoTasks: FeatRepoTaskProps[] = [
       taskDueDate: '03.01.2024',
       createdAt: '12.12.2023',
     },
+    {
+        id: 2,
+        taskTitle: 'Launch Marketing Campaign',
+        taskDescription: 'Execute a marketing campaign for the upcoming product launch.',
+        taskPriority: categories[3].label,
+        taskProgress: progressStatus[2].status,
+        taskFileDetails: [],
+        taskFileUpload: {
+            length: 0,
+            item: (index: number) => null,
+        } as FileList,
+        taskDueDate: '03.01.2024',
+        createdAt: '12.12.2023',
+      },
 ];
 
 const FeatRepositories = () => {
@@ -76,12 +90,17 @@ const FeatRepositories = () => {
                     )}
                 </div>
             </div>
-            <div className='flex flex-col justify-center w-full mx-auto'>
-                {DemoTasks.map((task, index) => (
-                    <div key={index} className='flex w-full justify-center'>
-                        <FeatRepoCard task={task} />
-                    </div>
-                ))}
+            <div className='flex justify-center items-center'>
+                <div className='flex flex-col items-center justify-center w-1/2 mx-auto relative'>
+                    {DemoTasks.map((task, index) => (
+                        <div key={index} className={`flex w-full justify-center absolute ${task.id === 0 ? 'top-16 left-24' : task.id === 1 ? 'top-16' : 'top-16 -left-24'}`}>
+                            <FeatRepoCard task={task} />
+                        </div>
+                    ))}
+                </div>
+                <div className='flex flex-col items-center justify-center w-1/2'>
+                    <span>Repo</span>
+                </div>
             </div>
         </section>
     );
