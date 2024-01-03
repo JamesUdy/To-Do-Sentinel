@@ -31,7 +31,7 @@ const HomePage = () => {
       <div className={`flex flex-col space-y-10 sm:px-10 lg:px-16 xl:px-0 items-center overflow-y-scroll ${scrollBar}`}>
         <Hero/>
         <SignIn/>
-        <div className=' py-8 border-b-2 border-dotted w-full max-w-7xl border-slate-600 dark:border-slate-300'></div>
+        <div></div>
         <Features/>
       </div>
       {user && (
