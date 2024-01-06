@@ -31,7 +31,7 @@ const FeatCustom = () => {
                     <span className="text-2xl sm:text-3xl font-black">Craft unique tasks with precision and tailor them to your needs.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500 text-sm sm:text-md xl:text-lg'>
-                    Ready to revolutionize your tasks? Seamlessly customize each task's title, description, due date, category, progress, and more! Embark on a journey to heightened productivity - conquer with confidence! This sneak peek highlights the form's powerful task customization features. {isLoggedIn ? "For a deep dive into personalized task setup, click the button below to explore the complete customization process." : "Eager to give it a try? Log in and start shaping your tasks."}
+                    Ready to revolutionize your tasks? Seamlessly customize each task&apos;s title, description, due date, category, progress, and more! Embark on a journey to heightened productivity - conquer with confidence! This sneak peek highlights the form&apos;s powerful task customization features. {isLoggedIn ? "For a deep dive into personalized task setup, click the button below to explore the complete customization process." : "Eager to give it a try? Log in and start shaping your tasks."}
                 </p>
                 <div className='w-full flex justify-start'>
                     {isLoggedIn ? (
