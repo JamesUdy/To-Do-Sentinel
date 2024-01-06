@@ -8,7 +8,7 @@ import UpdateDoc from './UpdateDoc';
 import DueDate from './DueDate';
 import Constants from '@/constants/Constants';
 
-const formatDate = (dateString: string): string => {
+export const FormatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -18,7 +18,7 @@ const formatDate = (dateString: string): string => {
 };
 
 const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
-  const formattedDate = formatDate(task.createdAt);
+  const formattedDate = FormatDate(task.createdAt);
   const { theme } = Constants();
   const [isOpen, setIsOpen] = useState(false);
 
