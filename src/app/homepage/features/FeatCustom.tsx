@@ -1,11 +1,14 @@
-import { Delete, Edit, NavigateArrow, TaskForm } from '@/assets';
+import { Delete, Edit, NavigateArrow, TaskCustom } from '@/assets';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
 import React from 'react';
 
 const FeatCustom = () => {
-    const taskTitle = 'Test preparation';
-    const taskDescription = 'Complete the book and take notes';
+    const taskTitle = 'Plan healthy meals for the week';
+    const taskDescription = 'Create a meal plan focusing on nutritious options.';
+
+    const category = 'Fitness';
+    const progress = 'In Progress 🚧';
 
     const currentDate = new Date();
 
@@ -20,29 +23,29 @@ const FeatCustom = () => {
   return (
     <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
             <div className='flex flex-col w-full lg:w-4/5 space-y-4'>
-                <div className='bg-pink-300 dark:bg-pink-600 border-3 dark:border-2 border-pink-400 w-fit p-2 rounded-full'>
-                    <TaskForm/>
+                <div className='bg-indigo-400/60 dark:bg-indigo-600 border-3 dark:border-2 border-indigo-400 w-fit p-2 rounded-full'>
+                    <TaskCustom/>
                 </div>
                 <div className='flex flex-col space-y-2'>
-                    <span className="text-sm sm:text-md xl:text-lg text-pink-600">Unlock possibilities</span>
-                    <span className="text-2xl sm:text-3xl font-black">Tailor your to-do list with precision and specific task details.</span>
+                    <span className="text-sm sm:text-md xl:text-lg text-indigo-600">Unleash Task Personalization</span>
+                    <span className="text-2xl sm:text-3xl font-black">Craft unique tasks with precision and tailor them to your needs.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500 text-sm sm:text-md xl:text-lg'>
-                    Ready to enhance task efficiency? Begin adding and organizing tasks effortlessly! Your productivity journey commences now - conquer with confidence! This serves as a preview of the form&apos;s functionality. {isLoggedIn ? "For a thorough task entry, click the button below to explore the complete submission process." : "Want to use or explore it? Sign in to get started."}
+                    Ready to revolutionize your tasks? Seamlessly customize each task's title, description, due date, category, progress, and more! Embark on a journey to heightened productivity - conquer with confidence! This sneak peek highlights the form's powerful task customization features. {isLoggedIn ? "For a deep dive into personalized task setup, click the button below to explore the complete customization process." : "Eager to give it a try? Log in and start shaping your tasks."}
                 </p>
                 <div className='w-full flex justify-start'>
                     {isLoggedIn ? (
-                        <Link href='/todo-form'>
+                        <Link href='/task-repo'>
                             <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
-                                <span>Get Started</span>
-                                <NavigateArrow/>
+                                <span>Customize Tasks</span>
+                                <NavigateArrow />
                             </button>
                         </Link>
                     ) : (
                         <button onClick={() => handleAuth()} className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
                             <span>Sign In Now</span>
                             <NavigateArrow/>
-                        </button> 
+                        </button>
                     )}
                 </div>
             </div>
@@ -72,7 +75,7 @@ const FeatCustom = () => {
                             <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>
                         </div>
                     </div>        
-                <div className='w-full sm:w-1/2 bg-slate-950 dark:bg-slate-50 rounded-lg shadow-xl block relative pt-3 pb-4'>
+                <div className='w-full sm:w-1/2 bg-slate-950/80 dark:bg-slate-300 rounded-lg shadow-xl block relative pt-3 pb-4'>
                     <div className='w-full'>
                         <section className='flex space-x-1.5 absolute left-3 top-3 text-xs sm:text-sm xl:text-md'>
                             <span className='bg-red-400 dark:bg-red-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
@@ -87,8 +90,8 @@ const FeatCustom = () => {
                                     </path>
                                 </svg>
                             </div>
-                            <div className='text-xmd text-slate-50 dark:text-slate-950 flex flex-col space-y-4'>
-                                <span className='border-b-2 border-slate-800 dark:border-slate-400 w-full py-2 px-6 flex'>
+                            <div className='text-xmd text-slate-300 dark:text-slate-950 flex flex-col space-y-4'>
+                                <span className='border-b-2 border-slate-800/80 dark:border-slate-400 w-full py-2 px-6 flex'>
                                     <strong className='w-28'>Title</strong>
                                     <span className='pl-10'>{taskTitle}</span>
                                 </span>
@@ -98,15 +101,15 @@ const FeatCustom = () => {
                                 </span>
                                 <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Category</strong>
-                                    <span className='pl-10'>{taskDescription}</span>
+                                    <span className='pl-10'>{category}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
-                                    <strong className='w-28'>Progress</strong>
-                                    <span className='pl-10'>{taskDescription}</span>
+                                    <strong className='w-28'>Status</strong>
+                                    <span className='pl-10'>{progress}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Created At</strong>
-                                    <span className='pl-10'>{taskDescription}</span>
+                                    <span className='pl-10 text-sm'>{formattedDate}</span>
                                 </span>
                             </div>
                         </div>    
