@@ -75,14 +75,14 @@ const FeatCustom = () => {
                             <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>
                         </div>
                     </div>        
-                <div className='w-full sm:w-1/2 bg-slate-950/80 dark:bg-slate-300 rounded-lg shadow-xl block relative pt-3 pb-4'>
+                <div className='w-full sm:w-1/2 bg-slate-950/80 dark:bg-slate-300 rounded-lg shadow-xl block relative pb-4'>
                     <div className='w-full'>
                         <section className='flex space-x-1.5 absolute left-3 top-3 text-xs sm:text-sm xl:text-md'>
                             <span className='bg-red-400 dark:bg-red-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
                             <span className='bg-orange-400 dark:bg-orange-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
                             <span className='bg-green-400 dark:bg-green-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
                         </section> 
-                        <div className='block py-4 sm:py-6 sm:mt-4 rounded-xl space-y-4 w-full'>
+                        <div className='block py-2 sm:pb-4 sm:pb sm:mt-2 rounded-xl space-y-4 w-full'>
                             <div className='hidden text-md font-semibold mb-2 text-slate-50 bg-blue-500 dark:bg-blue-700 w-fit px-2 py-1 rounded-md items-center space-x-2'>
                                 <span>Form Preview</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -90,24 +90,26 @@ const FeatCustom = () => {
                                     </path>
                                 </svg>
                             </div>
+                            <span className='border-b-2 border-slate-600/50 dark:border-slate-400 w-full pt-2 px-6 flex'></span>
+                            <br/>
                             <div className='text-xmd text-slate-300 dark:text-slate-950 flex flex-col space-y-4'>
-                                <span className='border-b-2 border-slate-800/80 dark:border-slate-400 w-full py-2 px-6 flex'>
+                                <span className='border-b-2 border-slate-600/50 dark:border-slate-400 w-full py-2 px-6 flex'>
                                     <strong className='w-28'>Title</strong>
                                     <span className='pl-10'>{taskTitle}</span>
                                 </span>
-                                <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
+                                <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Description</strong>
                                     <span className='pl-10'>{taskDescription}</span>
                                 </span>
-                                <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
+                                <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Category</strong>
                                     <span className='pl-10'>{category}</span>
                                 </span>
-                                <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
+                                <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Status</strong>
                                     <span className='pl-10'>{progress}</span>
                                 </span>
-                                <span className='border-b-2 border-slate-800 dark:border-slate-400 py-2 px-6 w-full flex'>
+                                <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Created At</strong>
                                     <span className='pl-10 text-sm'>{formattedDate}</span>
                                 </span>
