@@ -78,9 +78,9 @@ const FeatForm = () => {
                 <div className='w-full sm:w-1/2 bg-slate-50 dark:bg-slate-800/40 border-2 border-slate-400/40 dark:border-slate-700/40 px-6 rounded-lg shadow-xl block relative pt-3 pb-4'>
                     <div>
                         <section className='flex space-x-1.5 absolute left-3 top-3 text-xs sm:text-sm xl:text-md'>
-                            <span className='bg-red-400 dark:bg-red-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full text-transparent'></span>
-                            <span className='bg-orange-400 dark:bg-orange-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full text-transparent'></span>
-                            <span className='bg-green-400 dark:bg-green-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full text-transparent'></span>
+                            <span className='bg-red-400 dark:bg-red-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
+                            <span className='bg-orange-400 dark:bg-orange-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
+                            <span className='bg-green-400 dark:bg-green-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
                         </section> 
                         <span className='flex items-center justify-center'>Demo Form</span>
                         <section className='w-full flex flex-col items-start space-y-1 py-6'>

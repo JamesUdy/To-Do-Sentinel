@@ -53,6 +53,7 @@ const config: Config = {
       fontSize: {
         '2xs': '0.6rem',   // Example: Extra Extra Small
         '3xs': '0.5rem',   // Example: Extra Extra Extra Small
+        'xmd': '1rem', // Example: Extra medium
       },
     },
   },
