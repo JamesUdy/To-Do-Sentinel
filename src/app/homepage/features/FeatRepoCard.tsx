@@ -8,11 +8,11 @@ const FeatRepoCard: React.FC<{task: FeatRepoTaskProps}> = ({ task }) => {
         <div className='animate-pulse'>
             <div className='flex flex-col space-y-2'>
                 <div className='flex justify-between items-center py-2'>
-                    <span className='ml-1 px-2 rounded-md bg-slate-200 dark:bg-slate-800/70 h-3 w-16 shadow-md shadow-slate-700 dark:shadow-slate-950'></span>
+                    <span className={`ml-1 px-2 rounded-md ${task.id === 0 ? 'bg-[#2ecc71] dark:bg-[#006400]' : task.id === 1 ? 'bg-[#e74c3c] dark:bg-[#d90429]' : 'bg-[#f48c06] dark:bg-[#dc2f02]'} h-3 w-16 shadow-md shadow-slate-700 dark:shadow-slate-950`}></span>
                     <div className='flex space-x-2'>
-                        <span className='cursor-pointer bg-blue-700 w-4 rounded-sm h-3'>
+                        <span className='cursor-pointer bg-blue-400 dark:bg-blue-700 w-4 rounded-sm h-3'>
                         </span>
-                        <span className='cursor-pointer bg-red-700 w-4 rounded-sm h-3'>
+                        <span className='cursor-pointer bg-red-400 dark:bg-red-700 w-4 rounded-sm h-3'>
                         </span>
                     </div>
                 </div>
