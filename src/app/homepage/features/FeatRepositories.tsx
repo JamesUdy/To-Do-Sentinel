@@ -90,20 +90,20 @@ const FeatRepositories = () => {
                     )}
                 </div>
             </div>
-            <div className='flex justify-center items-center'>
-                <div className='flex flex-col items-center justify-center w-1/2 mx-auto relative'>
+            <div className='flex flex-col-reverse pb-56 sm:pb-0 sm:flex-row justify-center items-center'>
+                <div className='flex flex-col items-center justify-center w-full sm:w-1/2 mx-auto relative'>
                     {DemoTasks.map((task, index) => (
-                        <div key={index} className={`flex w-full justify-center absolute ${task.id === 0 ? 'top-4 left-24' : task.id === 1 ? 'top-4' : 'top-4 -left-24'}`}>
+                        <div key={index} className={`flex w-full justify-center absolute ${task.id === 0 ? 'top-12 sm:top-4 sm:left-24' : task.id === 1 ? 'top-24 sm:top-4' : 'top-36 sm:top-4 sm:-left-24'}`}>
                             <FeatRepoCard task={task} />
                         </div>
                     ))}
                 </div>
                 <div className='flex flex-col items-center justify-center w-1/2'>
-                    <div className='flex items-center justify-center relative bg-orange-500 dark:bg-orange-800 h-64 w-64 rounded-full'>
+                    <div className='flex items-center justify-center relative bg-orange-500 dark:bg-orange-800 h-56 w-56 sm:h-64 sm:w-64 rounded-full'>
                         <div className='absolute -top-6 -left-6'>
                         <DoubleLeftQuote/>
                         </div>
-                        <span className='w-full text-center p-4 quote'>Where tasks find their home, efficiency dances in the artful embrace of control.</span>
+                        <span className='w-full text-center p-4 text-sm sm:text-md quote'>Where tasks find their home, efficiency dances in the artful embrace of control.</span>
                         <div className='absolute -bottom-6 -right-6'>
                             <DoubleRightQuote/>
                         </div>

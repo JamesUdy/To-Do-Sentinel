@@ -4,7 +4,7 @@ import { FeatRepoTaskProps } from './FeatRepositories';
 const FeatRepoCard: React.FC<{task: FeatRepoTaskProps}> = ({ task }) => {
 
   return (
-    <section className={`${task.id === 0 ? 'scale-90' : task.id === 1 ? 'scale-110' : 'scale-125'} w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between space-y-2 -skew-x-2 -skew-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black border-1.5 dark:border-slate-950`}>
+    <section className={`${task.id === 0 ? 'scale-90' : task.id === 1 ? 'scale-110' : 'scale-125'} w-2/3 sm:w-1/2 lg:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between space-y-2 sm:-skew-x-2 sm:-skew-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black border-1.5 dark:border-slate-950`}>
         <div className='animate-pulse'>
             <div className='flex flex-col space-y-2'>
                 <div className='flex justify-between items-center py-2'>
