@@ -39,6 +39,7 @@ import Search from './svg/Search';
 import DoubleLeftQuote from './svg/DoubleLeftQuote';
 import DoubleRightQuote from './svg/DoubleRightQuote';
 import NavigateArrow from './svg/NavigateArrow';
+import TaskCustom from './svg/TaskCustom';
 import TaskForm from './svg/TaskForm';
 import TaskRepo from './svg/TaskRepo';
 
@@ -76,6 +77,7 @@ export {
     DoubleLeftQuote,
     DoubleRightQuote,
     NavigateArrow,
+    TaskCustom,
     TaskForm,
     TaskRepo,
 };
