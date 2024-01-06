@@ -1,7 +1,4 @@
 import React from 'react';
-import { Delete, Edit } from '@/assets';
-import { categories } from '@/app/todo-form/toDoForm/Categories';
-import Constants from '@/constants/Constants';
 import { FeatRepoTaskProps } from './FeatRepositories';
 
 const FeatRepoCard: React.FC<{task: FeatRepoTaskProps}> = ({ task }) => {
@@ -13,11 +10,9 @@ const FeatRepoCard: React.FC<{task: FeatRepoTaskProps}> = ({ task }) => {
                 <div className='flex justify-between items-center py-2'>
                     <span className='ml-1 px-2 rounded-md bg-slate-200 dark:bg-slate-800/70 h-3 w-16 shadow-md shadow-slate-700 dark:shadow-slate-950'></span>
                     <div className='flex space-x-2'>
-                        <span className='cursor-pointer'>
-                            <Edit/>
+                        <span className='cursor-pointer bg-blue-700 w-4 rounded-sm h-3'>
                         </span>
-                        <span className='cursor-pointer'>
-                            <Delete/>
+                        <span className='cursor-pointer bg-red-700 w-4 rounded-sm h-3'>
                         </span>
                     </div>
                 </div>
