@@ -43,6 +43,14 @@ import TaskCustom from './svg/TaskCustom';
 import TaskForm from './svg/TaskForm';
 import TaskRepo from './svg/TaskRepo';
 
+// Svg used in features
+import CatBooks from './svg/CatBooks';
+import CatBusiness from './svg/CatBusiness';
+import CatFitness from './svg/CatFitness';
+import CatHome from './svg/CatHome';
+import CatOther from './svg/CatOther';
+import CatPersonal from './svg/CatPersonal';
+
 export {
     dark404,
     darkThemeLogo,
@@ -80,4 +88,11 @@ export {
     TaskCustom,
     TaskForm,
     TaskRepo,
+
+    CatBooks,
+    CatBusiness,
+    CatFitness,
+    CatHome,
+    CatOther,
+    CatPersonal,
 };
