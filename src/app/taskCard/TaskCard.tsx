@@ -85,7 +85,7 @@ const TaskCard: React.FC<{task: ListProps}> = ({task}) => {
                         {
                             Array.from(task.taskFileDetails).map((taskFile) => (
                                 <li key={taskFile.id} className='hover:underline hover:underline-offset-2 hover:text-blue-700 dark:hover:text-blue-500 font-semibold'>
-                                    <a href={taskFile.fileUrl} target='_blank'>{taskFile.fileName}</a>
+                                    <a href={taskFile.fileUrl} target='_blank' rel='noopener noreferrer'>{taskFile.fileName}</a>
                                 </li>
                             ))
                         }
