@@ -70,9 +70,9 @@ const FeatCustom = () => {
                 <section className='flex flex-col items-start pt-6 pb-16 px-6 space-y-4 w-1/2'>
                     <div className='flex gap-10 text-sm'>
                         {categoryData.map((item) => (
-                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-800 hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
+                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
                                 <item.icon/>
-                                <span>{item.label}</span>
+                                <span className='font-bold'>{item.label}</span>
                             </div>
                         ))}
                     </div>
