@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ClearKeywordTask, Search } from '@/assets';
+import { CommandKey, ClearKeywordTask, Search } from '@/assets';
 
 interface SearchTaskProps {
   keyword: string;
@@ -49,7 +49,10 @@ const SearchTask: React.FC<SearchTaskProps> = ({keyword, handleKeywordChanges, c
           {keyword.length > 0 ? (
             <ClearKeywordTask/>
           ) : (
-            <span className='text-xs pt-1 pr-2 text-slate-600'>CTRL + F</span>
+            <div className='text-xs pt-1 pr-2 text-slate-600 flex space-x-1'>
+              <CommandKey/>
+              <span>+ F</span>
+            </div>
           )}
         </div>
       </div>
