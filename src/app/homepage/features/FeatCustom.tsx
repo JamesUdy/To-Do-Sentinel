@@ -67,14 +67,17 @@ const FeatCustom = () => {
                         </button>
                     )}
                 </div>
-                <div className='flex gap-10 pt-6 pb-16 px-6 text-sm'>
-                    {categoryData.map((item) => (
-                        <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-800 hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
-                            <item.icon/>
-                            <span>{item.label}</span>
-                        </div>
-                    ))}
-                </div>
+                <section className='flex flex-col items-start pt-6 pb-16 px-6 space-y-4 w-1/2'>
+                    <div className='flex gap-10 text-sm'>
+                        {categoryData.map((item) => (
+                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-800 hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
+                                <item.icon/>
+                                <span>{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <span className='w-full text-center'>Categories</span>
+                </section>
             </div>
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-8 sm:space-y-0 space-x-10 w-full font-medium text-xs sm:text-sm xl:text-md'>
                 <div className='w-full sm:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
