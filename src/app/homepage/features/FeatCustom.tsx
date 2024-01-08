@@ -2,6 +2,7 @@ import { Delete, Edit, NavigateArrow, TaskCustom } from '@/assets';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
 import React from 'react';
+import { categoryData } from './CustomizeData/CategoryData';
 
 const FeatCustom = () => {
     const taskTitle = 'Plan healthy meals for the week';
@@ -37,7 +38,7 @@ const FeatCustom = () => {
                     {isLoggedIn ? (
                         <Link href='/task-repo'>
                             <button className='w-fit py-1 px-2 sm:py-2 sm:px-3 my-4 text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-slate-200 hover:bg-slate-950 dark:hover:bg-white text-slate-100 dark:text-slate-950 rounded-md shadow-lg shadow-black ease-in duration-200 flex space-x-2 items-center'>
-                                <span>Customize Tasks</span>
+                                <span>Customize Task</span>
                                 <NavigateArrow />
                             </button>
                         </Link>
@@ -48,6 +49,7 @@ const FeatCustom = () => {
                         </button>
                     )}
                 </div>
+
             </div>
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-8 sm:space-y-0 space-x-10 w-full font-medium text-xs sm:text-sm xl:text-md'>
                 <div className='w-full sm:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
