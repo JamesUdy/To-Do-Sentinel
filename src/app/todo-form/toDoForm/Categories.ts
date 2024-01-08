@@ -1,4 +1,4 @@
-interface ColorProps {
+export interface ColorProps {
     light: string;
     dark: string;
 };
