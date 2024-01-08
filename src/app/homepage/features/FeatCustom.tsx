@@ -1,14 +1,23 @@
 import { Delete, Edit, NavigateArrow, TaskCustom } from '@/assets';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { categoryData } from './CustomizeData/CategoryData';
+
+interface Item {
+    id: number;
+    icon: () => void;
+    label: string;
+};
 
 const FeatCustom = () => {
     const taskTitle = 'Plan healthy meals for the week';
     const taskDescription = 'Create a meal plan focusing on nutritious options.';
 
-    const category = 'Fitness';
+    const [isActive, SetIsActive] = useState(categoryData[0].id);
+    const [activeCategory, SetActiveCategory] = useState(categoryData[0].label);
+
+    // const category = 'Fitness';
     const progress = 'In Progress 🚧';
 
     const currentDate = new Date();
@@ -20,6 +29,11 @@ const FeatCustom = () => {
     const formattedDate = `${day}.${month}.${year}`;
 
     const { handleAuth, isLoggedIn } = Constants();
+
+    const handleActiveCategory = (item: Item) => {
+        SetIsActive(item.id);
+        SetActiveCategory(item.label);
+    };
 
   return (
     <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
@@ -51,7 +65,7 @@ const FeatCustom = () => {
                 </div>
                 <div className='flex gap-10 pt-6 pb-16 px-6 text-sm'>
                     {categoryData.map((item) => (
-                        <div key={item.id} className='flex flex-col items-center space-y-2 text-slate-800'>
+                        <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-800 hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
                             <item.icon/>
                             <span>{item.label}</span>
                         </div>
@@ -62,7 +76,7 @@ const FeatCustom = () => {
                 <div className='w-full sm:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
                     <div className='flex flex-col space-y-2'>
                         <div className='flex justify-between items-center py-2'>
-                            <span className={`bg-green-400 ml-1 px-2 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>Home</span>
+                            <span className={`bg-green-400 ml-1 px-2 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{activeCategory}</span>
                                 <div className='flex space-x-2'>
                                     <span className='cursor-pointer'>
                                         <Edit/>
@@ -112,7 +126,7 @@ const FeatCustom = () => {
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Category</strong>
-                                    <span className='pl-10'>{category}</span>
+                                    <span className='pl-10'>{activeCategory}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Status</strong>
