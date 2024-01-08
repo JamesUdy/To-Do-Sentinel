@@ -1,4 +1,4 @@
-import { CatBooks, CatBusiness, CatFitness, CatHome, CatOther, CatPersonal } from "@/assets";
+import { CatBooks, CatBusiness, CatFitness, CatHome, CatOther, CatPersonal, StatCompleted, StatProgress, StatStart } from "@/assets";
 
 export const categoryData = [
     {
@@ -54,5 +54,23 @@ export const categoryData = [
             light: "bg-[#212529]",  
             dark: "bg-[#495057]"   
         }
+    },
+];
+
+export const statusData = [
+    {
+        id: 0,
+        icon: StatStart,
+        label: 'Yet to Start',
+    },
+    {
+        id: 1,
+        icon: StatProgress,
+        label: 'In Progress',
+    },
+    {
+        id: 2,
+        icon: StatCompleted,
+        label: 'Completed',
     },
 ];
