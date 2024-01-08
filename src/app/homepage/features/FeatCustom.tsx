@@ -23,11 +23,11 @@ const FeatCustom = () => {
   return (
     <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
             <div className='flex flex-col w-full lg:w-4/5 space-y-4'>
-                <div className='bg-indigo-400/60 dark:bg-indigo-600 border-3 dark:border-2 border-indigo-400 w-fit p-2 rounded-full'>
+                <div className='bg-pink-400/80 dark:bg-pink-600 border-3 dark:border-2 border-pink-500 w-fit p-2 rounded-full'>
                     <TaskCustom/>
                 </div>
                 <div className='flex flex-col space-y-2'>
-                    <span className="text-sm sm:text-md xl:text-lg text-indigo-600">Unleash Task Personalization</span>
+                    <span className="text-sm sm:text-md xl:text-lg text-pink-600">Unleash Task Personalization</span>
                     <span className="text-2xl sm:text-3xl font-black">Craft unique tasks with precision and tailor them to your needs.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500 text-sm sm:text-md xl:text-lg'>

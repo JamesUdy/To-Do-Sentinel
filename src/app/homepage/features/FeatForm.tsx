@@ -32,11 +32,11 @@ const FeatForm = () => {
                 }
             }} position="bottom-right" />
             <div className='flex flex-col w-full lg:w-4/5 space-y-4'>
-                <div className='bg-pink-300 dark:bg-pink-600 border-3 dark:border-2 border-pink-400 w-fit p-2 rounded-full'>
+                <div className='bg-indigo-400/80 dark:bg-indigo-600 border-3 dark:border-2 border-indigo-400 w-fit p-2 rounded-full'>
                     <TaskForm/>
                 </div>
                 <div className='flex flex-col space-y-2'>
-                    <span className="text-sm sm:text-md xl:text-lg text-pink-600">Unlock possibilities</span>
+                    <span className="text-sm sm:text-md xl:text-lg text-indigo-600">Unlock possibilities</span>
                     <span className="text-2xl sm:text-3xl font-black">Tailor your to-do list with precision and specific task details.</span>
                 </div>
                 <p className='text-slate-600 dark:text-slate-500 text-sm sm:text-md xl:text-lg'>
