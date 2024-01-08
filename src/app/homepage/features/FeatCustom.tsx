@@ -2,25 +2,30 @@ import { Delete, Edit, NavigateArrow, TaskCustom } from '@/assets';
 import Constants from '@/constants/Constants';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { categoryData } from './CustomizeData/CustomizationDataset';
+import { categoryData, statusData } from './CustomizeData/CustomizationDataset';
 import { ColorProps } from '@/app/todo-form/toDoForm/Categories';
 
-interface Item {
+interface CategoryItem {
     id: number;
     icon: () => void;
     label: string;
     colors: ColorProps;
 };
 
+interface StatusItem {
+    id: number;
+    icon: () => void;
+    label: string;
+};
+
 const FeatCustom = () => {
     const taskTitle = 'Plan healthy meals for the week';
     const taskDescription = 'Create a meal plan focusing on nutritious options.';
 
-    const [isActive, SetIsActive] = useState(categoryData[0].id);
+    const [isActiveCategory, SetIsActiveCategory] = useState(categoryData[0].id);
     const [activeCategory, SetActiveCategory] = useState(categoryData[0].label);
-
-
-    const progress = 'In Progress 🚧';
+    const [isActiveStatus, SetIsActiveStatus] = useState(categoryData[0].id);
+    const [activeStatus, SetActiveStatus] = useState(statusData[0].label);
 
     const currentDate = new Date();
 
@@ -32,12 +37,17 @@ const FeatCustom = () => {
 
     const { handleAuth, isLoggedIn, theme } = Constants();
 
-    const handleActiveCategory = (item: Item) => {
-        SetIsActive(item.id);
+    const handleActiveCategory = (item: CategoryItem) => {
+        SetIsActiveCategory(item.id);
         SetActiveCategory(item.label);
     };
 
-    const backgroundColor = theme === 'dark' ? categoryData[isActive].colors.dark : categoryData[isActive].colors.light;
+    const handleActiveStatus = (item: StatusItem) => {
+        SetIsActiveStatus(item.id);
+        SetActiveStatus(item.label);
+    };
+
+    const backgroundColor = theme === 'dark' ? categoryData[isActiveCategory].colors.dark : categoryData[isActiveCategory].colors.light;
 
   return (
     <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
@@ -67,17 +77,28 @@ const FeatCustom = () => {
                         </button>
                     )}
                 </div>
-                <section className='flex flex-col items-start pt-6 pb-16 px-6 space-y-4 w-1/2'>
+                <section className='flex items-center space-x-10 pt-6'>
+                    <span className='text-center text-slate-600'>Categories</span>
                     <div className='flex gap-10 text-sm'>
                         {categoryData.map((item) => (
-                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActive === item.id ? 'text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
+                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActiveCategory === item.id ? 'text-pink-500 dark:text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
                                 <item.icon/>
                                 <span className='font-bold'>{item.label}</span>
                             </div>
                         ))}
                     </div>
-                    <span className='w-full text-center'>Categories</span>
-                </section>
+                </section>  
+                <section className='flex items-center space-x-10 pt-6 pb-16'>
+                    <span className='text-center text-slate-600'>Task Status</span>
+                    <div className='flex gap-10 text-sm'>
+                        {statusData.map((item) => (
+                            <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActiveStatus === item.id ? 'text-pink-500 dark:text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveStatus(item)}>
+                                <item.icon/>
+                                <span className='font-bold'>{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>   
             </div>
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-8 sm:space-y-0 space-x-10 w-full font-medium text-xs sm:text-sm xl:text-md'>
                 <div className='w-full sm:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
@@ -95,8 +116,8 @@ const FeatCustom = () => {
                             </div>
                             <div className='px-2 flex flex-col space-y-1'>
                                 <div className='flex space-x-2 items-center'>
-                                    <span className={`text-md sm:text-lg font-semibold line-through`}>{taskTitle}</span>
-                                    <span className={`'bg-orange-600 animate-pulse w-4 h-4 px-2 rounded-full`}></span>
+                                    <span className={`text-md sm:text-lg font-semibold ${activeStatus === 'Completed' ? 'line-through' : ''}`}>{taskTitle}</span>
+                                    <span className={`${activeStatus === 'In Progress' ? 'bg-orange-600 animate-pulse' : activeStatus === 'Completed' ? 'bg-green-600 animate-pulse' : 'bg-gray-600 dark:bg-gray-300 animate-bounce'} w-4 h-4 px-2 rounded-full`}></span>
                                 </div>
                                 <span className='text-xs sm:text-sm text-start font-normal'>{taskDescription}</span>
                             </div>
@@ -139,7 +160,7 @@ const FeatCustom = () => {
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Status</strong>
-                                    <span className='pl-10'>{progress}</span>
+                                    <span className={`pl-10 ${activeStatus === 'Completed' ? 'text-green-500 dark:text-green-700' : activeStatus === 'In Progress' ? 'text-orange-500' : ''}`}>{activeStatus}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
                                     <strong className='w-28'>Created At</strong>
