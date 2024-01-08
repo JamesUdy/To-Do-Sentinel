@@ -50,6 +50,9 @@ import CatFitness from './svg/CatFitness';
 import CatHome from './svg/CatHome';
 import CatOther from './svg/CatOther';
 import CatPersonal from './svg/CatPersonal';
+import StatCompleted from './svg/StatCompleted';
+import StatProgress from './svg/StatProgress';
+import StatStart from './svg/StatStart';
 
 export {
     dark404,
@@ -95,4 +98,7 @@ export {
     CatHome,
     CatOther,
     CatPersonal,
+    StatCompleted,
+    StatProgress,
+    StatStart,
 };
