@@ -30,6 +30,7 @@ import Delete from './svg/Delete';
 import Edit from './svg/Edit';
 
 // Svg used in Task Repo component
+import CommandKey from './svg/CommandKey';
 import ClearKeywordTask from './svg/ClearKeywordTask';
 import DownArrow from './svg/DownArrow';
 import LeftArrow from './svg/LeftArrow';
@@ -80,6 +81,7 @@ export {
     Delete,
     Edit,
 
+    CommandKey,
     ClearKeywordTask,
     LeftArrow,
     DownArrow,
