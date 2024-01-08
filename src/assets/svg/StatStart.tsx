@@ -2,7 +2,7 @@ import React from 'react';
 
 const StatStart = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" className='h-12 w-12'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" className='h-8 w-8'>
         <defs>
             <mask id="ipTStopwatchStart0">
                 <g fill="none" stroke="#fff" strokeLinejoin="round" strokeWidth="4">

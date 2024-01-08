@@ -2,7 +2,7 @@ import React from 'react';
 
 const StatCompleted = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" className='h-12 w-12'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" className='h-8 w-8'>
         <path d="M11 24h10v2H11z" fill="currentColor">
         </path>
         <path d="M13 28h6v2h-6z" fill="currentColor">
