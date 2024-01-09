@@ -77,9 +77,9 @@ const FeatCustom = () => {
                         </button>
                     )}
                 </div>
-                <section className='flex items-center space-x-10 pt-6'>
-                    <span className='text-center text-slate-600'>Categories</span>
-                    <div className='flex gap-10 text-sm'>
+                <section className='flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-10 pt-6'>
+                    <span className='text-center text-slate-600 text-sm sm:text-md'>Categories</span>
+                    <div className='flex justify-center flex-wrap gap-10 text-xs sm:text-sm'>
                         {categoryData.map((item) => (
                             <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActiveCategory === item.id ? 'text-pink-500 dark:text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveCategory(item)}>
                                 <item.icon/>
@@ -88,9 +88,9 @@ const FeatCustom = () => {
                         ))}
                     </div>
                 </section>  
-                <section className='flex items-center space-x-10 pt-6 pb-16'>
-                    <span className='text-center text-slate-600'>Task Status</span>
-                    <div className='flex gap-10 text-sm'>
+                <section className='flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-10 pt-6 pb-8 sm:pb-16'>
+                    <span className='text-center text-slate-600 text-sm sm:text-md'>Task Status</span>
+                    <div className='flex justify-center flex-wrap gap-10 text-xs sm:text-sm'>
                         {statusData.map((item) => (
                             <div key={item.id} className={`flex flex-col items-center space-y-2 ${isActiveStatus === item.id ? 'text-pink-500 dark:text-pink-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-800 dark:hover:text-slate-500'}`} onClick={() => handleActiveStatus(item)}>
                                 <item.icon/>
@@ -100,8 +100,8 @@ const FeatCustom = () => {
                     </div>
                 </section>   
             </div>
-            <div className='flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-8 sm:space-y-0 space-x-10 w-full font-medium text-xs sm:text-sm xl:text-md'>
-                <div className='w-full sm:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
+            <div className='flex flex-col lg:flex-row sm:items-center sm:justify-center space-y-8 lg:space-y-0 lg:space-x-10 w-full font-medium text-xs sm:text-sm xl:text-md'>
+                <div className='w-full sm:w-2/3 lg:w-1/3 break-inside-avoid-column bg-white dark:bg-slate-900 p-2 flex flex-col justify-between h-fit space-y-2 rounded-lg shadow-lg shadow-slate-600 dark:shadow-black'>
                     <div className='flex flex-col space-y-2'>
                         <div className='flex justify-between items-center py-2'>
                             <span className={`${backgroundColor} ml-1 px-2 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{activeCategory}</span>
@@ -126,7 +126,7 @@ const FeatCustom = () => {
                             <span className='text-end w-full text-2xs font-medium text-slate-500'>{formattedDate}</span>
                         </div>
                     </div>        
-                <div className='w-full sm:w-1/2 bg-slate-950/80 dark:bg-slate-300 rounded-lg shadow-xl block relative pb-4'>
+                <div className='w-full lg:w-1/2 bg-slate-950/80 dark:bg-slate-300 rounded-lg shadow-xl block relative pb-4'>
                     <div className='w-full'>
                         <section className='flex space-x-1.5 absolute left-3 top-3 text-xs sm:text-sm xl:text-md'>
                             <span className='bg-red-400 dark:bg-red-600/80 w-3 h-3 sm:w-5 sm:h-5 rounded-full'></span>
@@ -143,28 +143,28 @@ const FeatCustom = () => {
                             </div>
                             <span className='border-b-2 border-slate-600/50 dark:border-slate-400 w-full pt-2 px-6 flex'></span>
                             <br/>
-                            <div className='text-xmd text-slate-300 dark:text-slate-950 flex flex-col space-y-4'>
+                            <div className='sm:text-xmd text-slate-300 dark:text-slate-950 flex flex-col space-y-4'>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 w-full py-2 px-6 flex'>
-                                    <strong className='w-28'>Title</strong>
-                                    <span className='pl-10'>{taskTitle}</span>
+                                    <strong className='w-24 sm:w-28'>Title</strong>
+                                    <span className='pl-6 sm:pl-10'>{taskTitle}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
-                                    <strong className='w-28'>Description</strong>
-                                    <span className='pl-10'>{taskDescription}</span>
+                                    <strong className='w-24 sm:w-28'>Description</strong>
+                                    <span className='pl-12 sm:pl-10'>{taskDescription}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
-                                    <strong className='w-28'>Category</strong>
-                                    <span className='pl-10'>
-                                        <span className={`${backgroundColor} px-4 py-1 rounded-md text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{activeCategory}</span>
+                                    <strong className='w-24 sm:w-28'>Category</strong>
+                                    <span className='pl-6 sm:pl-10'>
+                                        <span className={`${backgroundColor} px-4 py-1 rounded-md sm:text-sm text-white shadow-md shadow-slate-700 dark:shadow-slate-950`}>{activeCategory}</span>
                                     </span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
-                                    <strong className='w-28'>Status</strong>
-                                    <span className={`pl-10 ${activeStatus === 'Completed' ? 'text-green-500 dark:text-green-700' : activeStatus === 'In Progress' ? 'text-orange-500' : ''}`}>{activeStatus}</span>
+                                    <strong className='w-24 sm:w-28'>Status</strong>
+                                    <span className={`pl-6 sm:pl-10 ${activeStatus === 'Completed' ? 'text-green-500 dark:text-green-700' : activeStatus === 'In Progress' ? 'text-orange-500' : ''}`}>{activeStatus}</span>
                                 </span>
                                 <span className='border-b-2 border-slate-600/50 dark:border-slate-400 py-2 px-6 w-full flex'>
-                                    <strong className='w-28'>Created At</strong>
-                                    <span className='pl-10 text-sm'>{formattedDate}</span>
+                                    <strong className='w-24 sm:w-28'>Created At</strong>
+                                    <span className='pl-6 sm:pl-10 sm:text-sm'>{formattedDate}</span>
                                 </span>
                             </div>
                         </div>    

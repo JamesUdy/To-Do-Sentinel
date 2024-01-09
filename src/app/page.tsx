@@ -25,7 +25,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 const Home = () => {
   
   return (
-    <HomePage />
+    <section className='flex flex-col place-content-start w-full max-h-screen'>
+      <HomePage/>
+    </section>
   );
 };
 
