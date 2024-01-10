@@ -1,5 +1,5 @@
 import React from 'react';
-import { otherData } from '@/app/homepage/features/otherFeaturesData';
+import { otherData } from './features/OtherFeaturesData';
 
 const OtherFeatures = () => {
   return (
