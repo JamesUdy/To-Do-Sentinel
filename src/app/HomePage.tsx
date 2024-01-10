@@ -9,6 +9,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '@/firebaseAuth/FirebaseAuth';
 import Constants from '@/constants/Constants';
 import Features from './homepage/Features';
+import OtherFeatures from './homepage/OtherFeatures';
 import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
@@ -33,6 +34,8 @@ const HomePage = () => {
         <SignIn/>
         <div></div>
         <Features/>
+        <div></div>
+        <OtherFeatures/>
       </div>
       {user && (
           <Profile
