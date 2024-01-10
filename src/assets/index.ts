@@ -55,6 +55,12 @@ import StatCompleted from './svg/StatCompleted';
 import StatProgress from './svg/StatProgress';
 import StatStart from './svg/StatStart';
 
+// Svg used in other features
+import FeatAuthentication from './svg/FeatAuthentication';
+import FeatFiles from './svg/FeatFiles';
+import FeatNotification from './svg/FeatNotification';
+import FeatTheme from './svg/FeatTheme';
+
 export {
     dark404,
     darkThemeLogo,
@@ -103,4 +109,9 @@ export {
     StatCompleted,
     StatProgress,
     StatStart,
+
+    FeatAuthentication,
+    FeatFiles,
+    FeatNotification,
+    FeatTheme,
 };
