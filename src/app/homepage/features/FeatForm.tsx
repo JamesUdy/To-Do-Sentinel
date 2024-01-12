@@ -32,7 +32,7 @@ const FeatForm = () => {
                 }
             }} position="bottom-right" />
             <div className='flex flex-col w-full lg:w-4/5 space-y-4'>
-                <div className='bg-indigo-400/80 dark:bg-indigo-600 border-3 dark:border-2 border-indigo-400 w-fit p-2 rounded-full'>
+                <div className='bg-indigo-300 dark:bg-indigo-600 border-3 dark:border-2 border-indigo-400 text-indigo-950 dark:text-slate-100 w-fit p-2 rounded-full'>
                     <TaskForm/>
                 </div>
                 <div className='flex flex-col space-y-2'>
