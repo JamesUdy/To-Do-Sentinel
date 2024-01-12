@@ -23,8 +23,8 @@ const OtherFeatures = () => {
                             <data.icon />
                         </div>
                         <div className='flex flex-col font-semibold items-center space-y-1'>
-                            <span className='text-sm text-slate-800'>{data.title}</span>
-                            <p className='text-center text-slate-600 text-xs'>{data.description}</p>
+                            <span className='text-sm text-slate-700 dark:text-slate-600'>{data.title}</span>
+                            <p className='text-center text-slate-500 text-xs'>{data.description}</p>
                         </div>
                         <span className='absolute tracking-normal -top-[26px] -left-[1.5px] py-1 px-4 rounded-tl-lg border-r-8  border-b-8 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-950 font-medium text-slate-600 dark:text-slate-800 group-hover:text-slate-800 dark:group-hover:text-slate-600 ease-in duration-200'>0{data.id + 1}</span>
                     </div>                    
