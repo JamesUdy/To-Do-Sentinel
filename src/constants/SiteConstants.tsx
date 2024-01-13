@@ -17,6 +17,9 @@ const SiteConstants = () => {
   const siteUserDetailsPageTitle = "User Details";
   const siteUserDetailsPageDescription = "Your ToDo Sentinel User Details page - your command center for a personalized experience. Track your journey with joined date and last login details, while ensuring security with verified email status. Easily manage your profile information, including your name, email, and profile image. Stay connected, stay informed - it's all about you at ToDo Sentinel.";
 
+  const siteCreditsPageTitle = "Credits";
+  const siteCreditsPageDescription = "The Credits page acknowledges and appreciates the various resources utilized in the creation of this website. We believe in giving credit where it's due and expressing gratitude to the creators and contributors whose work has enriched our web presence. Below, you'll find a comprehensive list of images, icons, links, and other resources used, along with the respective attributions.";
+
   return {
     devBaseURL,
     prodBaseURL,
@@ -37,6 +40,10 @@ const SiteConstants = () => {
     // Metadata for user details page 
     siteUserDetailsPageTitle,
     siteUserDetailsPageDescription,
+
+    // Metadata for credits page 
+    siteCreditsPageTitle,
+    siteCreditsPageDescription,
   };
 };
 
