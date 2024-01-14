@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import SiteConstants from '@/constants/SiteConstants';
+import Credits from './Credits';
 
 export const generateMetadata = async (): Promise<Metadata> => {
     const { devBaseURL, prodBaseURL, siteName, siteCreditsPageTitle, siteCreditsPageDescription } = SiteConstants();
@@ -22,7 +23,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 const CreditsPage = () => {
   return (
-    <div>CreditsPage</div>
+    <div  className='flex justify-center items-center w-full min-h-screen'>
+      <Credits/>
+    </div>
   );
 };
 
