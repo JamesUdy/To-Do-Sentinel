@@ -50,7 +50,7 @@ const FeatCustom = () => {
     const backgroundColor = theme === 'dark' ? categoryData[isActiveCategory].colors.dark : categoryData[isActiveCategory].colors.light;
 
   return (
-    <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
+    <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium' id='customContent'>
             <div className='flex flex-col w-full lg:w-4/5 space-y-4'>
                 <div className='bg-pink-300 dark:bg-pink-600 border-3 dark:border-2 border-pink-400 text-pink-600 dark:text-slate-100 w-fit p-2 rounded-full'>
                     <TaskCustom/>
