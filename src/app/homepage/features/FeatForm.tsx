@@ -25,7 +25,7 @@ const FeatForm = () => {
 
   
     return (
-        <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium'>
+        <section className='flex flex-col space-y-8 sm:space-y-0 w-full font-medium' id='formContent'>
             <Toaster toastOptions={{
                 style: {
                     marginTop: '32px',
