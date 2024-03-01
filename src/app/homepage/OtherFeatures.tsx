@@ -3,7 +3,7 @@ import { otherData } from './features/OtherFeaturesData';
 
 const OtherFeatures = () => {
   return (
-    <div className='w-full p-10 space-y-16'>
+    <div className='w-full p-10 space-y-16' id='extraFeaturesContent'>
         <div className='flex justify-center mx-auto text-3xl quote w-1/2 relative'>
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" className='absolute -top-4 -left-4'>
                 <path fill="currentColor" d="M11 18v-8H9.12l2-4H5.38L3 10.76V18m6-2H5v-4.76L6.62 8h1.26l-2 4H9m12 6v-8h-1.88l2-4h-5.74L13 10.76V18m6-2h-4v-4.76L16.62 8h1.26l-2 4H19Z">
