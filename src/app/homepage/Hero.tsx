@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center mx-auto my-auto w-full xl:max-w-7xl space-y-4 hero-section-font">
+    <div className="flex flex-col items-center mx-auto my-auto w-full xl:max-w-7xl space-y-4 hero-section-font" id='heroContent'>
       <div className='mx-auto w-full pt-10 text-center lg:pt-24'>
         <h1 className='mx-auto max-w-5xl text-5xl sm:text-7xl font-medium tracking-tight leading-10'>
           <span>Seamlessly Organize, Prioritize and </span> 
