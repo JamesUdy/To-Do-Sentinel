@@ -10,6 +10,7 @@ import { auth } from '@/firebaseAuth/FirebaseAuth';
 import Constants from '@/constants/Constants';
 import Features from './homepage/Features';
 import OtherFeatures from './homepage/OtherFeatures';
+import Summary from './homepage/Summary';
 import { ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
@@ -36,6 +37,8 @@ const HomePage = () => {
         <Features/>
         <div></div>
         <OtherFeatures/>
+        <div></div>
+        <Summary/>
       </div>
       {user && (
           <Profile
