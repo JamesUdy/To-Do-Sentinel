@@ -9,9 +9,9 @@ interface SummaryContainerProps {
 
 const SummaryContainer: React.FC<SummaryContainerProps> = ({title, listData}) => {
   return (
-    <div>
-        <span className='font-bold text-md'>{title}</span>
-        <ul className='space-y-2 pt-4 pl-2 font-medium'>
+    <div className='flex flex-col items-center sm:items-start'>
+        <span className='font-bold text-sm sm:text-md'>{title}</span>
+        <ul className='space-y-2 pt-4 sm:pl-2 font-medium text-sm sm:text-md flex flex-col items-center sm:items-start'>
         {listData.map((item) => (
             <li key={item.id} className='text-slate-600 hover:text-slate-950 dark:text-slate-500 dark:hover:text-slate-200'>
                 {title === "Contact Us" ? (
