@@ -5,7 +5,7 @@ import { auth } from '@/firebaseAuth/FirebaseAuth';
 import { signOut } from 'firebase/auth';
 import FetchToDoData, { ListProps } from '@/app/fetchToDoData/FetchToDoData';
 import TaskCard from '@/app/taskCard/TaskCard';
-import { Loader, Navbar, Profile } from '@/assets/todoAssets';
+import { Footer, Loader, Navbar, Profile } from '@/assets/todoAssets';
 import SearchTask from './SearchTask';
 import { useTheme } from 'next-themes';
 import { categories } from '@/app/todo-form/toDoForm/Categories';
@@ -108,6 +108,7 @@ const TaskRepositories = () => {
                 <p>No tasks found</p>
               )}
             </div>
+            <Footer/>
           </section>
           <Profile handleShowProfile={handleShowProfile} showProfile={showProfile} userEmail={user.email} userEmailVerified={user.emailVerified} userName={user.displayName} userDp={user.photoURL} handleLogout={handleLogout}/>
         </>

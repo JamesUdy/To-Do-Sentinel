@@ -11,7 +11,7 @@ import Constants from '@/constants/Constants';
 import Features from './homepage/Features';
 import OtherFeatures from './homepage/OtherFeatures';
 import Summary from './homepage/Summary';
-import { ThemeToggleButton } from '@/assets/todoAssets';
+import { Footer, ThemeToggleButton } from '@/assets/todoAssets';
 
 const HomePage = () => {
   const [showProfile, setShowProfile] = useState(false);
@@ -39,6 +39,7 @@ const HomePage = () => {
         <OtherFeatures/>
         <div></div>
         <Summary/>
+        <Footer/>
       </div>
       {user && (
           <Profile
