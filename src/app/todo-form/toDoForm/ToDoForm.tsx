@@ -125,8 +125,8 @@ const ToDoForm = () => {
         </section>
         <ToDoCategory formikForm={formikForm} />
         <ToDoStatus formikForm={formikForm} showComplete={false} />
-        <section className='w-full flex flex-col items-start space-y-1 pb-4'>
-          <label className='text-md' htmlFor="taskFileUpload">Upload Task Files<span className="text-red-500">*</span></label>
+        <section className='w-full flex flex-col items-start space-y-1 pt-2 pb-4'>
+          <label className='text-md' htmlFor="taskFileUpload">Upload Task Files</label>
           <div className='relative w-full'>
             <input 
               id='taskFileUpload'
@@ -137,11 +137,6 @@ const ToDoForm = () => {
               multiple
               type='file' 
             />
-            {formikForm.touched.taskFileUpload && formikForm.errors.taskFileUpload && typeof formikForm.errors.taskFileUpload === 'string' && (
-              <p className='w-full absolute pt-2 tracking-tighter text-red-500 font-semibold text-xs ml-1'>
-                {formikForm.errors.taskFileUpload}
-              </p>
-            )}
           </div>
           {formikForm.values.taskFileUpload && formikForm.values.taskFileUpload.length > 0 && (
             <div className='mt-2'>
